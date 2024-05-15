@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "testmod:block/ardenim_block" }
+  }
+}
