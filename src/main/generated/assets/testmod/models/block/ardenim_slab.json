@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "testmod:block/ardenim_block",
+    "side": "testmod:block/ardenim_block",
+    "top": "testmod:block/ardenim_block"
+  }
+}

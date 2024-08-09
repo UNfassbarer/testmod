@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "testmod:ardenim"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "ARA",
+    "A A"
+  ],
+  "result": {
+    "item": "testmod:ardenim_boots"
+  }
+}

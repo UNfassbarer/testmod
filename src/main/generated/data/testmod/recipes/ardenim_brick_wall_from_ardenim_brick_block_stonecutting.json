@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "testmod:ardenim_brick_block"
+  },
+  "result": "testmod:ardenim_brick_wall"
+}

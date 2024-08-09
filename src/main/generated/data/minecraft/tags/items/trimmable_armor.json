@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "testmod:ardenim_helmet",
+    "testmod:ardenim_chestplate",
+    "testmod:ardenim_leggings",
+    "testmod:ardenim_boots",
+    "testmod:ardenimium_helmet",
+    "testmod:ardenimium_chestplate",
+    "testmod:ardenimium_leggings",
+    "testmod:ardenimium_boots"
+  ]
+}

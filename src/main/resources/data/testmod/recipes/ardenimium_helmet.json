@@ -1,0 +1,14 @@
+{
+  "type": "testmod:ardenimium_crafting",
+  "ingredients": [
+    { "item": "testmod:helmet_pattern", "_comment": "Mitte" },
+    { "item": "testmod:ardenimium", "_comment": "Links" },
+    { "item": "testmod:ardenimium", "_comment": "Rechts" },
+    { "item": "testmod:nether_star_core", "_comment": "Links Oben" }
+  ],
+  "output": {
+    "item": "testmod:ardenimium_helmet",
+    "count": 1,
+    "_comment": "Output"
+  }
+}

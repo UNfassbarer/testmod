@@ -1,0 +1,20 @@
+{
+  "gun_shoot": {
+    "subtitle": "sounds.testmod.gun_shoot",
+    "sounds": [
+      "testmod:gun_shoot"
+    ]
+  },
+  "nether_star_core_1": {
+    "subtitle": "sounds.testmod.nether_star_core_1",
+    "sounds": [
+      "testmod:nether_star_core_1"
+    ]
+  },
+  "nether_star_core_2": {
+    "subtitle": "sounds.testmod.nether_star_core_2",
+    "sounds": [
+      "testmod:nether_star_core_2"
+    ]
+  }
+}

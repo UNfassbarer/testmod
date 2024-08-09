@@ -1,0 +1,6 @@
+// 1.20.4	2024-08-03T17:47:46.6846414	testmod/Tags for minecraft:block
+87127df3162b402b7cc1c81d55c928dfad29923c data\minecraft\tags\blocks\walls.json
+305069d5888682de8b1c1f602fb8b157c14f9fc2 data\minecraft\tags\blocks\fence_gates.json
+9cc1fd04349b52950959fe17dc5d509eb0d73733 data\fabric\tags\blocks\needs_tool_level_4.json
+7093a030ae61b36e69f1d6d640f8e47d62ec71ac data\minecraft\tags\blocks\mineable\pickaxe.json
+cb97ce1d76615253f04e1b52f1f261ea57329990 data\minecraft\tags\blocks\fences.json

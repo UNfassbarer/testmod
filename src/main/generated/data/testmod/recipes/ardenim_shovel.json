@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "testmod:ardenim"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " A ",
+    "ASA",
+    " S "
+  ],
+  "result": {
+    "item": "testmod:ardenim_shovel"
+  }
+}

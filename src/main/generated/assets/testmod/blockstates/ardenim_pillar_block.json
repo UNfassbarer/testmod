@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "testmod:block/ardenim_pillar_block_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "testmod:block/ardenim_pillar_block"
+    },
+    "axis=z": {
+      "model": "testmod:block/ardenim_pillar_block_horizontal",
+      "x": 90
+    }
+  }
+}

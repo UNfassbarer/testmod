@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 350,
+  "experience": 0.1,
+  "group": "ardenim",
+  "ingredient": {
+    "item": "testmod:ardenim_shovel"
+  },
+  "result": "testmod:ardenim_nugget"
+}

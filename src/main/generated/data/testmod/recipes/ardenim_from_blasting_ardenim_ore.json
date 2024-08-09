@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 175,
+  "experience": 0.7,
+  "group": "ardenim",
+  "ingredient": {
+    "item": "testmod:ardenim_ore"
+  },
+  "result": "testmod:ardenim"
+}

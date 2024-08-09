@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 350,
+  "experience": 0.1,
+  "group": "ardenim",
+  "ingredient": {
+    "item": "testmod:ardenim_block"
+  },
+  "result": "testmod:ardenim_pillar_block"
+}

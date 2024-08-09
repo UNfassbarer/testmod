@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "testmod:ardenim_block"
+  },
+  "result": "testmod:ardenim_stairs"
+}

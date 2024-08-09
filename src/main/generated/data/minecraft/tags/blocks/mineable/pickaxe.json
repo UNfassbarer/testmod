@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "testmod:ardenim_block",
+    "testmod:smooth_ardenim_block",
+    "testmod:ardenim_pillar_block",
+    "testmod:ardenim_brick_block",
+    "testmod:raw_ardenim_block",
+    "testmod:ardenim_ore",
+    "testmod:ardenim_egg_ore",
+    "testmod:nether_star_core",
+    "testmod:solar_stabilizer",
+    "testmod:ardenim_slab",
+    "testmod:ardenim_stairs",
+    "testmod:ardenim_brick_slab",
+    "testmod:ardenim_brick_stairs",
+    "testmod:ardenim_button",
+    "testmod:ardenim_pressure_plate",
+    "testmod:ardenim_fence",
+    "testmod:ardenim_fence_gate",
+    "testmod:ardenim_wall",
+    "testmod:ardenim_brick_wall",
+    "testmod:ardenim_door",
+    "testmod:ardenim_trapdoor",
+    "testmod:ardenim_glass",
+    "testmod:ardenim_glass_pane",
+    "testmod:ardenimium_crafter",
+    "testmod:pattern_provider",
+    "testmod:ardenimium_egg"
+  ]
+}

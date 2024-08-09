@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "testmod:ardenim"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "ARA",
+    "AAA",
+    "AAA"
+  ],
+  "result": {
+    "item": "testmod:ardenim_chestplate"
+  }
+}

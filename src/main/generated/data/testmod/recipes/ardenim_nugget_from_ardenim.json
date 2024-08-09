@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "testmod:ardenim"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "testmod:ardenim_nugget"
+  }
+}

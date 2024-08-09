@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "testmod:ardenim_block"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "ASA",
+    "ASA"
+  ],
+  "result": {
+    "count": 3,
+    "item": "testmod:ardenim_fence"
+  }
+}

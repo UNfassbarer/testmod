@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "testmod:ardenim_nugget"
+    },
+    {
+      "item": "testmod:ardenim_nugget"
+    },
+    {
+      "item": "testmod:ardenim_nugget"
+    },
+    {
+      "item": "testmod:ardenim_nugget"
+    },
+    {
+      "item": "testmod:ardenim_nugget"
+    },
+    {
+      "item": "testmod:ardenim_nugget"
+    },
+    {
+      "item": "testmod:ardenim_nugget"
+    },
+    {
+      "item": "testmod:ardenim_nugget"
+    },
+    {
+      "item": "testmod:ardenim_nugget"
+    }
+  ],
+  "result": {
+    "item": "testmod:ardenim"
+  }
+}

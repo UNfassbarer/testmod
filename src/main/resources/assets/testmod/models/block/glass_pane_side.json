@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side",
+  "textures": {
+    "edge": "testmod:block/glass_pane_top",
+    "pane": "testmod:block/ardenim_glass"
+  }
+}

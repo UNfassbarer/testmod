@@ -18,11 +18,16 @@
 		"main": [
 			"unfassbarer.testmod.Testmod"
 		],
-		"Client": [
+		"client": [
 			"unfassbarer.testmod.testModClient"
 		],
 		"fabric-datagen": [
 			"unfassbarer.testmod.TestmodDataGenerator"
+		],
+		"rei_client": [
+			{
+				"value": "unfassbarer.testmod.compat.rei.TestmodREIClientPlugin"
+			}
 		]
 	},
 	"mixins": [

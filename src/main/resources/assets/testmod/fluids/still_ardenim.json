@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "still": "block/ardenim_fluid_still",
+    "flowing": "block/ardenim_fluid_flow"
+  }
+}

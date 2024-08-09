@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "testmod:ardenimium_casing"
+    },
+    "B": {
+      "item": "testmod:ardenimium"
+    },
+    "P": {
+      "item": "testmod:blank_pattern"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BPB",
+    "ABA"
+  ],
+  "result": {
+    "item": "testmod:pattern_provider"
+  }
+}

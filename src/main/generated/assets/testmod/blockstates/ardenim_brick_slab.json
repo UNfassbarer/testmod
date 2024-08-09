@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "testmod:block/ardenim_brick_slab"
+    },
+    "type=double": {
+      "model": "testmod:block/ardenim_brick_block"
+    },
+    "type=top": {
+      "model": "testmod:block/ardenim_brick_slab_top"
+    }
+  }
+}

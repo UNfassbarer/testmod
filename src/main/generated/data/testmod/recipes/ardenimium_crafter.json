@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "testmod:ardenimium_casing"
+    },
+    "B": {
+      "item": "testmod:ardenimium"
+    },
+    "N": {
+      "item": "testmod:nether_star_core"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BNB",
+    "ABA"
+  ],
+  "result": {
+    "item": "testmod:ardenimium_crafter"
+  }
+}
