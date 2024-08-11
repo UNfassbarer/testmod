@@ -1,4 +1,4 @@
-// 1.20.4	2024-08-03T17:47:46.682644	testmod/Block Loot Tables
+// 1.20.4	2024-08-11T14:36:35.1551847	testmod/Block Loot Tables
 efe4518023ae2eb3a2a1574aeaacbe1ddc96dfc7 data\testmod\loot_tables\blocks\ardenim_fence.json
 d2e2dbaedd73f1a78cf8d8ffb4c5cd07e9ccca01 data\testmod\loot_tables\blocks\ardenimium_crafter.json
 6753f3d57d1b95f6e7d1de968c17f07710cbd825 data\testmod\loot_tables\blocks\ardenim_door.json
@@ -8,7 +8,7 @@ dba3432b1a9e45722b6cb163366ea4c49bd84b31 data\testmod\loot_tables\blocks\ardenim
 dfe79b03d0e0ee633783ce7d81f909435dd9f083 data\testmod\loot_tables\blocks\ardenim_trapdoor.json
 123de5650dc53bd05962a0e5de96b152e43c1ad2 data\testmod\loot_tables\blocks\ardenimium_egg.json
 77e6ef6df5b78941bc8a3c51831b599e532d465c data\testmod\loot_tables\blocks\ardenim_pressure_plate.json
-7fe9d8b891342d66812d2e140794bdeca5cf59a9 data\testmod\loot_tables\blocks\ardenim_egg_ore.json
+69aac07a2e39a284dceadfc63c2a5582de072b4e data\testmod\loot_tables\blocks\ardenim_egg_ore.json
 63a6af82bd391d1f592c0ebc604ef15ba924033e data\testmod\loot_tables\blocks\ardenim_stairs.json
 e34dc7d055c6fa1acf68bbcefcb6667d172ac013 data\testmod\loot_tables\blocks\nether_star_core.json
 529702a3c061a3d6f315e4f2add4041fed89f799 data\testmod\loot_tables\blocks\solar_stabilizer.json

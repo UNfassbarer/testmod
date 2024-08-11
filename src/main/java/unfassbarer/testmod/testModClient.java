@@ -16,10 +16,12 @@ import unfassbarer.testmod.item.guns.entity.ModEntities;
 import unfassbarer.testmod.screen.ArdenimiumCrafterScreen;
 import unfassbarer.testmod.screen.PatternProviderScreen;
 import unfassbarer.testmod.screen.ModScreenHandlers;
+import unfassbarer.testmod.tooltip.ModTooltipManager;
 
 public class testModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        ModTooltipManager.registerTooltips();
         EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY_TYPE, ArdenimBulletEntityRenderer::new);
         // Setze den RenderLayer für die Ardenim-Door auf Cutout (für transparente Texturen)
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Door, RenderLayer.getCutout());

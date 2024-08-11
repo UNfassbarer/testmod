@@ -25,7 +25,6 @@ import unfassbarer.testmod.item.guns.entity.ModEntities;
 import unfassbarer.testmod.recipe.ModRecipes;
 import unfassbarer.testmod.screen.ModScreenHandlers;
 import unfassbarer.testmod.sounds.Sounds;
-import unfassbarer.testmod.tooltip.ModTooltipManager;
 import unfassbarer.testmod.util.ModLootTableModifiers;
 import unfassbarer.testmod.world.gen.ModWorldGeneration;
 
@@ -48,7 +47,6 @@ public class Testmod implements ModInitializer {
 		ModEntities.registerEntities();
 		Sounds.registerSounds();
 		ModWorldGeneration.generateModWorldGen();
-		ModTooltipManager.registerTooltips();
 		Still_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "still_ardenim"), new ArdenimFluid.Still());
 		Flowing_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_ardenim"), new ArdenimFluid.Flowing());
 		Ardenim_Bucket = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "ardenim_bucket"), new BucketItem(Still_Ardenim, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
