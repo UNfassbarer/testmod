@@ -4,6 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -15,6 +16,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.joml.Vector3f;
+import unfassbarer.testmod.entity.ModEntities;
+import unfassbarer.testmod.entity.custom.ArdenimiumDragonEntity;
 
 import java.util.Random;
 
@@ -54,6 +57,7 @@ public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
             if (entity.countdownTimer > 0) {
                 entity.countdownTimer--;
             } else if (entity.countdownTimer == 0) {
+                spawnDragon(world, pos);
                 removeEgg(world, pos);
                 entity.countdownTimer = -1;  // Reset timer
             }
@@ -120,6 +124,13 @@ public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
 
     private static void removeEgg(World world, BlockPos pos) {
         world.removeBlock(pos, false);
+
+    }
+
+    private static void spawnDragon(World world, BlockPos pos) {
+        ArdenimiumDragonEntity ardenimium_dragon = new ArdenimiumDragonEntity(ModEntities.ARDENIMIUM_DRAGON, world);
+        ardenimium_dragon.refreshPositionAndAngles(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, world.random.nextFloat() * 360F, 0);
+        world.spawnEntity(ardenimium_dragon);
     }
 
     @Override
