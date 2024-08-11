@@ -129,9 +129,11 @@ public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
 
     private static void spawnDragon(World world, BlockPos pos) {
         ArdenimiumDragonEntity ardenimium_dragon = new ArdenimiumDragonEntity(ModEntities.ARDENIMIUM_DRAGON, world);
+        ardenimium_dragon.setBaby(true);
         ardenimium_dragon.refreshPositionAndAngles(pos.getX() + 1, pos.getY(), pos.getZ() + 0.5, world.random.nextFloat() * 360F, 0);
         world.spawnEntity(ardenimium_dragon);
     }
+
 
     @Override
     public int size() {
