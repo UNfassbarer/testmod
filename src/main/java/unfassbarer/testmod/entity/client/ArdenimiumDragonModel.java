@@ -19,7 +19,7 @@ public class ArdenimiumDragonModel<T extends ArdenimiumDragonEntity> extends Sin
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData ArdenimiumDragon = modelPartData.addChild("ArdenimiumDragon", ModelPartBuilder.create(), ModelTransform.pivot(7.0F, 44.0F, 21.0F));
+		ModelPartData ArdenimiumDragon = modelPartData.addChild("ArdenimiumDragon", ModelPartBuilder.create(), ModelTransform.pivot(7.0F, 41.0F, 21.0F));
 
 		ModelPartData tail = ArdenimiumDragon.addChild("tail", ModelPartBuilder.create().uv(144, 119).cuboid(-7.0F, -13.6819F, -43.2023F, 2.0F, 5.0F, 6.0F, new Dilation(0.0F)), ModelTransform.of(-2.0F, -21.0F, 40.0F, -0.2618F, 0.0F, 0.0F));
 
