@@ -1,7 +1,6 @@
 package unfassbarer.testmod.entity.custom;
 
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
+import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -24,72 +23,36 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.ai.entity.ArdenimiumDragonAttackGoal;
-import unfassbarer.testmod.entity.ai.entity.ai.PorcupineAttackGoal;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 
 public class ArdenimiumDragonEntity extends AnimalEntity {
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(ArdenimiumDragonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
-
-    public final AnimationState attackAnimationState = new AnimationState();
-    public int attackAnimationTimeout = 0;
-
     public ArdenimiumDragonEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
-    }
-
-    private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationTimeout;
-        }
-
-        if(this.isAttacking() && attackAnimationTimeout <= 0) {
-            attackAnimationTimeout = 40;
-            attackAnimationState.start(this.age);
-        } else {
-            --this.attackAnimationTimeout;
-        }
-
-        if(!this.isAttacking()) {
-            attackAnimationState.stop();
-        }
-    }
-
-    @Override
-    protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.2f);
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        if(this.getWorld().isClient()) {
-            setupAnimationStates();
+        if (!world.isClient) {
+            this.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false, false));
         }
     }
 
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-
         this.goalSelector.add(1, new ArdenimiumDragonAttackGoal(this, 1D, true));
-
         this.goalSelector.add(1, new AnimalMateGoal(this, 1.15D));
         this.goalSelector.add(2, new TemptGoal(this, 1.25D, Ingredient.ofItems(Items.BEETROOT), false));
-
         this.goalSelector.add(3, new FollowParentGoal(this, 1.15D));
-
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 1D));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4f));
         this.goalSelector.add(6, new LookAroundGoal(this));
-
         this.targetSelector.add(1, new RevengeGoal(this));
+    }
+
+    @Override
+    public boolean hurtByWater() {
+        return false;
     }
 
     public static DefaultAttributeContainer.Builder createArdenimiumDragonAttributes() {
@@ -100,6 +63,12 @@ public class ArdenimiumDragonEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
     }
 
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(ATTACKING, false);
+    }
+
     public void setAttacking(boolean attacking) {
         this.dataTracker.set(ATTACKING, attacking);
     }
@@ -107,12 +76,6 @@ public class ArdenimiumDragonEntity extends AnimalEntity {
     @Override
     public boolean isAttacking() {
         return this.dataTracker.get(ATTACKING);
-    }
-
-    @Override
-    protected void initDataTracker() {
-        super.initDataTracker();
-        this.dataTracker.startTracking(ATTACKING, false);
     }
 
     @Override
