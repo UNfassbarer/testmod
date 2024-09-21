@@ -82,6 +82,7 @@ public static final net.minecraft.item.ItemGroup ARDENIM_GROUP = Registry.regist
                     entries.add(TestModBlocks.Ardenimium_Egg);
                     entries.add(Testmod.Ardenim_Bucket);
                     entries.add(TestModBlocks.PatternProvider);
+                    entries.add(TestModBlocks.Ardenimium_Lamp);
 
                 }).build());
 public static void registerItemGroups() {

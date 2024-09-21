@@ -66,6 +66,8 @@ public class TestModBlocks {
     new SolarStrabilizer(FabricBlockSettings.copy(Blocks.IRON_BLOCK).luminance(state -> 15));
     public static final Block Ardenimium_Egg =
             new ArdenimiumEgg(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
+    public static final Block Ardenimium_Lamp =
+            new ArdenimiumLamp(FabricBlockSettings.copy(Blocks.GLASS));
 
     private static void registerBlock(String name, Block block) {
         registerBlockItem(name, block);
@@ -102,6 +104,7 @@ public class TestModBlocks {
         registerBlock("nether_star_core",Nether_Star_Core);
         registerBlock("solar_stabilizer",Solar_Strabilizer);
         registerBlock("ardenimium_egg",Ardenimium_Egg);
+        registerBlock("ardenimium_lamp", Ardenimium_Lamp);
         Testmod.LOGGER.info("Registering Mod Blocks for " + Testmod.MOD_ID);
     }
 }

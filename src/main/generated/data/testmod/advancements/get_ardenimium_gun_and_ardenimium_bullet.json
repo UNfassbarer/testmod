@@ -1,0 +1,54 @@
+{
+  "parent": "testmod:get_ardenimium_crafter",
+  "criteria": {
+    "get_ardenimium_bullet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenimium_bullet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_ardenimium_gun": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenimium_gun"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:ardenimium_gun",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_ardenimium_gun"
+    ],
+    [
+      "get_ardenimium_bullet"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

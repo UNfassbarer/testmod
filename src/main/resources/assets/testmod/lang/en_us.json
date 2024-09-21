@@ -75,6 +75,7 @@
   "item.testmod.chestplate_pattern": "Chestplate Pattern",
   "item.testmod.leggings_pattern": "Leggings Pattern",
   "item.testmod.boots_pattern": "Boots Pattern",
-  "block.testmod.ardenimium_egg": "Ardenimium Egg"
+  "block.testmod.ardenimium_egg": "Ardenimium Egg",
+  "block.testmod.ardenimium_lamp": "Ardenimium Lamp"
 
 }

@@ -25,6 +25,10 @@ public class ModBlockEntities {
     public static final BlockEntityType<ArdenimiumEggEntity> ARDENIMIUM_EGG_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Testmod.MOD_ID, "ardenimium_egg_entity"),
                     FabricBlockEntityTypeBuilder.create(ArdenimiumEggEntity::new, TestModBlocks.Ardenimium_Egg).build());
+
+    public static final BlockEntityType<ArdenimiumLampEntity> ARDENIMIUM_LAMP_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Testmod.MOD_ID, "ardenimium_lamp_entity"),
+                    FabricBlockEntityTypeBuilder.create(ArdenimiumLampEntity::new, TestModBlocks.Ardenimium_Lamp).build());
     public static void registerBlockEntities() {
         Testmod.LOGGER.info("Registering Block Entities for " + Testmod.MOD_ID);
     }

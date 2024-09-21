@@ -32,6 +32,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Nether_Star_Core);
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Solar_Strabilizer);
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Ardenimium_Egg);
+        blockStateModelGenerator.registerSimpleState(TestModBlocks.Ardenimium_Lamp);
 
         Ardenim.stairs(TestModBlocks.Ardenim_Stairs);
         Ardenim.slab(TestModBlocks.Ardenim_Slab);
@@ -62,12 +63,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(TestModItems.Ardenim_Pickaxe, Models.HANDHELD);
         itemModelGenerator.register(TestModItems.Ardenim_Sword, Models.HANDHELD);
 
-        itemModelGenerator.register(TestModItems.Ardenimium_Axe, Models.HANDHELD);
         itemModelGenerator.register(TestModItems.Ardenimium_Hoe, Models.HANDHELD);
-
-        itemModelGenerator.register(TestModItems.Ardenimium_Pickaxe, Models.HANDHELD);
-        itemModelGenerator.register(TestModItems.Ardenimium_Sword, Models.HANDHELD);
-        itemModelGenerator.register(TestModItems.Ardenimium_Shovel, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) TestModItems.Ardenim_Helmet));
         itemModelGenerator.registerArmor(((ArmorItem) TestModItems.Ardenim_Chestplate));
@@ -94,6 +90,5 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(TestModItems.Boots_Pattern, Models.GENERATED);
 
         itemModelGenerator.register(Testmod.Ardenim_Bucket, Models.GENERATED);
-
     }
 }

@@ -1,4 +1,5 @@
 package unfassbarer.testmod.block.entity;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -27,6 +28,11 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
 
     public NetherStarCoreEntity(BlockPos pos, BlockState state) {
         super(TYPE, pos, state);
+    }
+
+    // Getter for the ItemStack to be rendered
+    public ItemStack getRenderStack() {
+        return items.get(0); // Assume the first slot contains the item to render
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, NetherStarCoreEntity entity) {
@@ -71,8 +77,6 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
             }
         }
     }
-
-
     private static void applyEffects(World world, BlockPos pos) {
         if (!(world instanceof ServerWorld serverWorld)) return;
         long timeOfDay = serverWorld.getTimeOfDay();
@@ -86,10 +90,12 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
             }
         }
     }
+
     @Override
     public int size() {
         return items.size();
     }
+
     @Override
     public boolean isEmpty() {
         for (ItemStack itemStack : items) {
@@ -99,30 +105,37 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
         }
         return true;
     }
+
     @Override
     public ItemStack getStack(int slot) {
         return items.get(slot);
     }
+
     @Override
     public ItemStack removeStack(int slot, int count) {
         return ItemStack.EMPTY;
     }
+
     @Override
     public ItemStack removeStack(int slot) {
         return ItemStack.EMPTY;
     }
+
     @Override
     public void setStack(int slot, ItemStack stack) {
         items.set(slot, stack);
     }
+
     @Override
     public void markDirty() {
         // Optional: custom logic for when the inventory is marked dirty
     }
+
     @Override
     public boolean canPlayerUse(PlayerEntity player) {
         return true;
     }
+
     @Override
     public void clear() {
         items.clear();

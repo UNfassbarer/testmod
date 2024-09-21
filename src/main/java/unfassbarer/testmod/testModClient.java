@@ -9,10 +9,12 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
 import unfassbarer.testmod.block.entity.renderer.ArdenimiumCrafterEntityRenderer;
+import unfassbarer.testmod.block.entity.renderer.ArdenimiumLampEntityRenderer;
+import unfassbarer.testmod.block.entity.renderer.NetherStarCoreEntityRenderer;
 import unfassbarer.testmod.block.entity.renderer.PatternProviderEntityRenderer;
+import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.client.*;
-import unfassbarer.testmod.item.guns.entity.ArdenimBulletEntityRenderer;
-import unfassbarer.testmod.item.guns.entity.ModEntities;
+import unfassbarer.testmod.entity.client.ArdenimBulletRenderer;
 import unfassbarer.testmod.screen.ArdenimiumCrafterScreen;
 import unfassbarer.testmod.screen.PatternProviderScreen;
 import unfassbarer.testmod.screen.ModScreenHandlers;
@@ -22,7 +24,7 @@ public class testModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ModTooltipManager.registerTooltips();
-        EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY_TYPE, ArdenimBulletEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY_TYPE, ArdenimBulletRenderer::new);
         // Setze den RenderLayer für die Ardenim-Door auf Cutout (für transparente Texturen)
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Door, RenderLayer.getCutout());
         // Setze den RenderLayer für die Ardenim-Trapdoor auf Cutout (für transparente Texturen)
@@ -37,10 +39,14 @@ public class testModClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.PATTERN_PROVIDER_SCREEN_HANDLER, PatternProviderScreen::new);
         BlockEntityRendererFactories.register(ModBlockEntities.PATTERN_PROVIDER_ENTITY, PatternProviderEntityRenderer::new);
 
-        EntityRendererRegistry.register(unfassbarer.testmod.entity.ModEntities.PORCUPINE, PorcupineRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.NETHER_STAR_CORE_ENTITY, NetherStarCoreEntityRenderer::new);
+
+        BlockEntityRendererFactories.register(ModBlockEntities.ARDENIMIUM_LAMP_ENTITY, ArdenimiumLampEntityRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
 
-        EntityRendererRegistry.register(unfassbarer.testmod.entity.ModEntities.ARDENIMIUM_DRAGON, ArdenimiumDragonRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ARDENIMIUM_DRAGON, ArdenimiumDragonRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ARDENIMIUM_DRAGON, ArdenimiumDragonModel::getTexturedModelData);
     }
 }

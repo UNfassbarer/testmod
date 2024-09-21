@@ -8,7 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
-import unfassbarer.testmod.item.guns.item.GunItem;
+import unfassbarer.testmod.item.custom.GunItem;
 import unfassbarer.testmod.item.custom.ModArmorItem;
 
 public class TestModItems {

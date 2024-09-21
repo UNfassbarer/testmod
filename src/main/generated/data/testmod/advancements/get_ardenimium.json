@@ -1,0 +1,38 @@
+{
+  "parent": "testmod:ardenim",
+  "criteria": {
+    "get_ardenimium": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenimium"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:ardenimium"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_ardenimium"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

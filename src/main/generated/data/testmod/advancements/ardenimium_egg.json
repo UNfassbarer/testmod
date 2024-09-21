@@ -1,0 +1,38 @@
+{
+  "parent": "testmod:ardenim",
+  "criteria": {
+    "get_ardenimium_egg": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenimium_egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:ardenimium_egg"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_ardenimium_egg"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

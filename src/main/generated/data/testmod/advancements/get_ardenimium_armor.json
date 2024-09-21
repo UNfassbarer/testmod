@@ -1,0 +1,84 @@
+{
+  "parent": "testmod:get_ardenimium_crafter",
+  "criteria": {
+    "craft_ardenimium_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenimium_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_ardenimium_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenimium_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_ardenimium_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenimium_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_ardenimium_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenimium_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:ardenimium_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_ardenimium_helmet"
+    ],
+    [
+      "craft_ardenimium_chestplate"
+    ],
+    [
+      "craft_ardenimium_leggings"
+    ],
+    [
+      "craft_ardenimium_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

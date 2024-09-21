@@ -1,0 +1,38 @@
+{
+  "parent": "testmod:get_ardenimium",
+  "criteria": {
+    "get_pattern_provider": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:pattern_provider"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:pattern_provider"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_pattern_provider"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

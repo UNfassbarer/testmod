@@ -45,7 +45,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(TestModBlocks.Ardenim_Glass_Pane)
                 .add(TestModBlocks.ArdenimiumCrafter)
                 .add(TestModBlocks.PatternProvider)
-                .add(TestModBlocks.Ardenimium_Egg);
+                .add(TestModBlocks.Ardenimium_Egg)
+                .add(TestModBlocks.Ardenimium_Lamp);
 
 
 
@@ -76,7 +77,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(TestModBlocks.Ardenim_Glass_Pane)
                 .add(TestModBlocks.ArdenimiumCrafter)
                 .add(TestModBlocks.Ardenimium_Egg)
-                .add(TestModBlocks.PatternProvider);
+                .add(TestModBlocks.PatternProvider)
+                .add(TestModBlocks.Ardenimium_Lamp);
 
         getOrCreateTagBuilder(BlockTags.FENCES)
                 .add(TestModBlocks.Ardenim_Fence);

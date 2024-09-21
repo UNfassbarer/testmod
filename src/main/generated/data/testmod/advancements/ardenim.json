@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "get_ardenim": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenim"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "testmod:textures/block/smooth_ardenim_block.png",
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:ardenim"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_ardenim"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

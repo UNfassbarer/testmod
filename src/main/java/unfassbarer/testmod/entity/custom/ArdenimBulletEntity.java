@@ -1,4 +1,4 @@
-package unfassbarer.testmod.item.guns.entity;
+package unfassbarer.testmod.entity.custom;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

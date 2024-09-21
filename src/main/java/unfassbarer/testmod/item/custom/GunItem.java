@@ -1,7 +1,5 @@
-package unfassbarer.testmod.item.guns.item;
+package unfassbarer.testmod.item.custom;
 
-import net.fabricmc.fabric.api.item.v1.FabricItem;
-import net.minecraft.client.texture.Animator;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,8 +9,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import unfassbarer.testmod.item.guns.entity.ArdenimBulletEntity;
-import unfassbarer.testmod.item.guns.entity.ModEntities;
+import unfassbarer.testmod.entity.ModEntities;
+import unfassbarer.testmod.entity.custom.ArdenimBulletEntity;
 import unfassbarer.testmod.item.TestModItems;
 import unfassbarer.testmod.sounds.Sounds;
 

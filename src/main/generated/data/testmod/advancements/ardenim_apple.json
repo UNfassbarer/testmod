@@ -1,0 +1,38 @@
+{
+  "parent": "testmod:ardenim",
+  "criteria": {
+    "get_ardenim_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenim_apple"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:ardenim_apple"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_ardenim_apple"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

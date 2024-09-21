@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.entity.custom.ArdenimiumDragonEntity;
 import unfassbarer.testmod.entity.custom.PorcupineEntity;
+import unfassbarer.testmod.entity.custom.ArdenimBulletEntity;
 
 public class ModEntities {
     public static final EntityType<PorcupineEntity> PORCUPINE = Registry.register(Registries.ENTITY_TYPE,
@@ -22,6 +23,15 @@ public class ModEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ArdenimiumDragonEntity::new)
                     .dimensions(EntityDimensions.fixed(3.5f, 3.25f)).build());
 
+    public static final EntityType<ArdenimBulletEntity> ARDENIM_BULLET_ENTITY_TYPE = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(Testmod.MOD_ID, "ardenim_bullet"),
+            FabricEntityTypeBuilder.<ArdenimBulletEntity>create()
+                    .entityFactory(ArdenimBulletEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+                    .trackRangeBlocks(80).trackedUpdateRate(3) // Tracking-Parameter
+                    .build()
+    );
     public static void registerModEntities() {
         Testmod.LOGGER.info("Registering Entities for " + Testmod.MOD_ID);
     }

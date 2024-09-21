@@ -1,0 +1,53 @@
+{
+  "parent": "testmod:get_ardenimium",
+  "criteria": {
+    "get_nether_star_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:nether_star_core"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_solar_stabilizer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:solar_stabilizer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:solar_stabilizer"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_nether_star_core"
+    ],
+    [
+      "get_solar_stabilizer"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

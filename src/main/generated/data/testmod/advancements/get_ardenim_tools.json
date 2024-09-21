@@ -1,0 +1,99 @@
+{
+  "parent": "testmod:ardenim",
+  "criteria": {
+    "craft_ardenim_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenim_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_ardenim_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenim_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_ardenim_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenim_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_ardenim_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenim_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "craft_ardenim_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:ardenim_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.testmod.next.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "testmod:ardenim_sword",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancement.testmod.next.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_ardenim_shovel"
+    ],
+    [
+      "craft_ardenim_sword"
+    ],
+    [
+      "craft_ardenim_hoe"
+    ],
+    [
+      "craft_ardenim_axe"
+    ],
+    [
+      "craft_ardenim_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}
