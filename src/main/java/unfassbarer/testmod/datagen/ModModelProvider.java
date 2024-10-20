@@ -21,8 +21,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(TestModBlocks.Raw_Ardenim_Block);
         blockStateModelGenerator.registerSimpleCubeAll(TestModBlocks.Ardenim_Ore);
         blockStateModelGenerator.registerSimpleCubeAll(TestModBlocks.Ardenim_Egg_Ore);
-        blockStateModelGenerator.registerLog(TestModBlocks.Ardenim_Pillar_Block)
-                .log(TestModBlocks.Ardenim_Pillar_Block);
+        blockStateModelGenerator.registerLog(TestModBlocks.Ardenim_Pillar_Block).log(TestModBlocks.Ardenim_Pillar_Block);
         blockStateModelGenerator.registerSimpleCubeAll(TestModBlocks.Smooth_Ardenim_Block);
         blockStateModelGenerator.registerDoor(TestModBlocks.Ardenim_Door);
         blockStateModelGenerator.registerTrapdoor(TestModBlocks.Ardenim_Trapdoor);
@@ -33,7 +32,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Solar_Strabilizer);
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Ardenimium_Egg);
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Ardenimium_Lamp);
-
+        blockStateModelGenerator.registerSimpleCubeAll(TestModBlocks.Ardenim_Neon_Block);
         Ardenim.stairs(TestModBlocks.Ardenim_Stairs);
         Ardenim.slab(TestModBlocks.Ardenim_Slab);
         Ardenim.button(TestModBlocks.Ardenim_Button);
@@ -41,7 +40,6 @@ public class ModModelProvider extends FabricModelProvider {
         Ardenim.fence(TestModBlocks.Ardenim_Fence);
         Ardenim.fenceGate(TestModBlocks.Ardenim_Fence_Gate);
         Ardenim.wall(TestModBlocks.Ardenim_Wall);
-
         Brick.stairs(TestModBlocks.Ardenim_Brick_Stairs);
         Brick.slab(TestModBlocks.Ardenim_Brick_Slab);
         Brick.wall(TestModBlocks.Ardenim_Brick_Wall);
@@ -62,8 +60,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(TestModItems.Ardenim_Shovel, Models.HANDHELD);
         itemModelGenerator.register(TestModItems.Ardenim_Pickaxe, Models.HANDHELD);
         itemModelGenerator.register(TestModItems.Ardenim_Sword, Models.HANDHELD);
-
-        itemModelGenerator.register(TestModItems.Ardenimium_Hoe, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) TestModItems.Ardenim_Helmet));
         itemModelGenerator.registerArmor(((ArmorItem) TestModItems.Ardenim_Chestplate));

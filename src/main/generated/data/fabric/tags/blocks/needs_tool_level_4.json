@@ -27,6 +27,7 @@
     "testmod:ardenimium_crafter",
     "testmod:ardenimium_egg",
     "testmod:pattern_provider",
-    "testmod:ardenimium_lamp"
+    "testmod:ardenimium_lamp",
+    "testmod:ardenim_neon_block"
   ]
 }

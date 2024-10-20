@@ -21,7 +21,7 @@ public class ModEntities {
     public static final EntityType<ArdenimiumDragonEntity> ARDENIMIUM_DRAGON = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Testmod.MOD_ID, "ardenimium_dragon"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ArdenimiumDragonEntity::new)
-                    .dimensions(EntityDimensions.fixed(3.5f, 3.25f)).build());
+                    .dimensions(EntityDimensions.fixed(2.75f, 2.75f)).build());
 
     public static final EntityType<ArdenimBulletEntity> ARDENIM_BULLET_ENTITY_TYPE = Registry.register(
             Registries.ENTITY_TYPE,

@@ -1,4 +1,4 @@
-// 1.20.4	2024-09-14T13:02:57.2500371	testmod/Block Loot Tables
+// 1.20.4	2024-10-07T13:45:49.0393492	testmod/Block Loot Tables
 efe4518023ae2eb3a2a1574aeaacbe1ddc96dfc7 data\testmod\loot_tables\blocks\ardenim_fence.json
 d2e2dbaedd73f1a78cf8d8ffb4c5cd07e9ccca01 data\testmod\loot_tables\blocks\ardenimium_crafter.json
 6753f3d57d1b95f6e7d1de968c17f07710cbd825 data\testmod\loot_tables\blocks\ardenim_door.json
@@ -16,6 +16,7 @@ e34dc7d055c6fa1acf68bbcefcb6667d172ac013 data\testmod\loot_tables\blocks\nether_
 cd2a4e5c778e8f0a700fbcd49314075dde0bad8d data\testmod\loot_tables\blocks\ardenim_brick_wall.json
 903351378e451f36a5529952d7a48d577e3dccf1 data\testmod\loot_tables\blocks\ardenimium_lamp.json
 371470de954fad008d5acf01a0dbdb0ae11e9798 data\testmod\loot_tables\blocks\smooth_ardenim_block.json
+2fbc35e95c88f3b89d3f0f00eb0e5d12502ba424 data\testmod\loot_tables\blocks\ardenim_neon_block.json
 ead15f9aedaf7f8d8c38a91b94ab8577382df04d data\testmod\loot_tables\blocks\ardenim_glass.json
 133ae80e913ea54c83f78ef0975f600aa705cf21 data\testmod\loot_tables\blocks\ardenim_pillar_block.json
 b75c1d67b9cd23af77c3b81dfdd04064b8d844ae data\testmod\loot_tables\blocks\ardenim_brick_slab.json

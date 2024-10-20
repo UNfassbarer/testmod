@@ -1,4 +1,4 @@
-// 1.20.4	2024-09-14T13:02:57.2540409	testmod/Model Definitions
+// 1.20.4	2024-10-07T13:45:49.0434561	testmod/Model Definitions
 b92640c4c12dfe23e0df4139c6a5aa7685cd7287 assets\testmod\models\item\ardenim_boots_quartz_trim.json
 66d958fa3eabe2762224e8c124d98826ac462f6d assets\testmod\blockstates\ardenim_pillar_block.json
 5f42d096980cc2e99f73fea79e681af9f5212708 assets\testmod\models\block\ardenim_brick_wall_post.json
@@ -53,6 +53,7 @@ b5287b9a1b21c82fc97a71feb105e817be709a0a assets\testmod\models\block\ardenim_doo
 914d10f32150b08c4052345d1d8a788d82121d7d assets\testmod\models\item\ardenim_brick_stairs.json
 d65acd0c3cd950c754c16d16c5fa8dc00cb7fb41 assets\testmod\models\item\ardenim_block.json
 26dd37e523228acb0ee700c2d6b701171cdea84c assets\testmod\models\item\ardenim_trapdoor.json
+8d49d93c375f2ed81cec9ce942ba980969a5226a assets\testmod\models\block\ardenim_neon_block.json
 85db6482fdbd33e8ddffad7bcd1c93f51048fc0a assets\testmod\models\item\ardenimium_helmet_quartz_trim.json
 b1f4edf1161bd40e7c25b740dbf3fdf3772e1001 assets\testmod\models\item\raw_ardenim_block.json
 143ab6a7d7a5d1cf128e61bc6be463fd42120cc1 assets\testmod\models\block\ardenim_trapdoor_open.json
@@ -121,6 +122,7 @@ f469b2a68a246bceec50604d0e6dc3c88580b98f assets\testmod\models\item\ardenimium_l
 53b2c52d02845e8cb19336ac766741ff3e3ea4e9 assets\testmod\models\item\ardenim_ore.json
 d7b4c552d870eb1f3555d6167d2463b5f162d48a assets\testmod\models\item\ardenim_door.json
 b6c03c6cc4038eee8e84f3946ad1529c82481568 assets\testmod\models\item\ardenimium_egg.json
+c63cff58ada53576c8e5e35d62eb0da4e94085c1 assets\testmod\models\item\ardenim_neon_block.json
 6d11ccf6513782559af876a1405a4d4b098098cb assets\testmod\blockstates\ardenimium_crafter.json
 a50f48a85e625e89d9630f59910fc552fd661f7b assets\testmod\models\item\ardenimium_chestplate.json
 4e9d9d333f08773e7471ec47313adfcca7651b6b assets\testmod\models\item\ardenimium_chestplate_gold_trim.json
@@ -132,7 +134,6 @@ a50f48a85e625e89d9630f59910fc552fd661f7b assets\testmod\models\item\ardenimium_c
 3b66473bf023f79c6a417090b0670b020dc6d475 assets\testmod\models\item\helmet_pattern.json
 1296e37b88d0ec75fbad433a4dce5ef28adb0053 assets\testmod\models\block\ardenim_stairs.json
 4353644c8a015b5277e3dad1212fc835a00ccc39 assets\testmod\models\item\ardenim_helmet_netherite_trim.json
-54b471e638479b964bb98ca36ef8ea01d96140e4 assets\testmod\models\item\ardenimium_hoe.json
 5b898dab3878aa1541cdc7b7e2caa089506c3052 assets\testmod\models\item\ardenim_egg_ore.json
 75baa7e97bcc7a07ca374f759d914d7e377acaad assets\testmod\models\item\ardenim_chestplate_amethyst_trim.json
 2209a1bad1f3dafb8ccbd7dcd641832b6dca89cb assets\testmod\blockstates\ardenim_brick_wall.json
@@ -142,8 +143,8 @@ a50f48a85e625e89d9630f59910fc552fd661f7b assets\testmod\models\item\ardenimium_c
 bf50a114af8e544b2212d9d8b6f6b7e5a4e21971 assets\testmod\models\item\ardenim_chestplate_lapis_trim.json
 a73dc046a25ac5be427109817100f8fc557290a4 assets\testmod\models\item\ardenim_leggings_iron_trim.json
 b395d3db0d49da13faf8b2c5e8a95d86e25282e5 assets\testmod\models\item\ardenimium_boots_netherite_trim.json
-8698acb0b6d7372cfc9d1d352c7ee830f1f4a899 assets\testmod\models\item\ardenim_chestplate.json
 cdb5b7642e8b7c017162e61bdf1f36c9ef0a578c assets\testmod\models\item\ardenim_pressure_plate.json
+8698acb0b6d7372cfc9d1d352c7ee830f1f4a899 assets\testmod\models\item\ardenim_chestplate.json
 932544345ca0e95502e87d0bb889fa0cb2544758 assets\testmod\models\item\nether_star_core.json
 c17926b5fc768a8c25b7977bd579cd68bbd8ebe8 assets\testmod\models\item\ardenim_apple.json
 2b2eeb864b3e846770e9876fee9163f9b6d9c7d9 assets\testmod\models\item\ardenim_helmet.json
@@ -165,6 +166,7 @@ ede5b721bc612f71914a1e33c18a23adf426754e assets\testmod\blockstates\ardenim_fenc
 6306a11c6702c19ee4ac7c9151b3d8f095d9c1d5 assets\testmod\models\item\ardenim_boots_emerald_trim.json
 55057e6e0e98d69b1f7c9cc0826db1dc3e7a45b7 assets\testmod\models\item\chestplate_pattern.json
 a6e438022df6ec18780825e541da45412fe54e4a assets\testmod\models\item\ardenimium_leggings_emerald_trim.json
+113840f234d6efb3d1fe2aabd047d8236f7e7f8b assets\testmod\blockstates\ardenim_neon_block.json
 de2bd930825570924c97b683dc257108559d177c assets\testmod\models\item\ardenim_nugget.json
 a991b52b827fbb68ff2cd9743ec0c3c41e334e8c assets\testmod\models\item\ardenim_helmet_emerald_trim.json
 8b2fe8174f35cd67c47883df4f50d675ae6c1a7a assets\testmod\models\item\ardenim_chestplate_iron_trim.json

@@ -48,5 +48,6 @@ public class testModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.ARDENIMIUM_DRAGON, ArdenimiumDragonRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ARDENIMIUM_DRAGON, ArdenimiumDragonModel::getTexturedModelData);
+        BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Neon_Block, RenderLayer.getCutout());
     }
 }
