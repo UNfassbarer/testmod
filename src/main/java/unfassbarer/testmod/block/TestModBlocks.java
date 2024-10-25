@@ -9,11 +9,15 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.custom.*;
+
+import static net.minecraft.sound.SoundEvents.ENTITY_TURTLE_EGG_CRACK;
 
 public class TestModBlocks {
     // Definition von Blöcken
@@ -68,7 +72,7 @@ public class TestModBlocks {
     public static final Block Solar_Strabilizer =
             new SolarStrabilizer(FabricBlockSettings.copy(Blocks.IRON_BLOCK).luminance(state -> 15));
     public static final Block Ardenimium_Egg =
-            new ArdenimiumEgg(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
+            new ArdenimiumEgg(FabricBlockSettings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.BONE));
     public static final Block Ardenimium_Lamp =
             new ArdenimiumLamp(FabricBlockSettings.copy(Blocks.GLASS));
 
