@@ -1,4 +1,4 @@
-// 1.20.4	2024-10-07T13:45:49.0434561	testmod/Model Definitions
+// 1.20.4	2024-10-23T22:58:19.6751164	testmod/Model Definitions
 b92640c4c12dfe23e0df4139c6a5aa7685cd7287 assets\testmod\models\item\ardenim_boots_quartz_trim.json
 66d958fa3eabe2762224e8c124d98826ac462f6d assets\testmod\blockstates\ardenim_pillar_block.json
 5f42d096980cc2e99f73fea79e681af9f5212708 assets\testmod\models\block\ardenim_brick_wall_post.json
@@ -143,8 +143,8 @@ a50f48a85e625e89d9630f59910fc552fd661f7b assets\testmod\models\item\ardenimium_c
 bf50a114af8e544b2212d9d8b6f6b7e5a4e21971 assets\testmod\models\item\ardenim_chestplate_lapis_trim.json
 a73dc046a25ac5be427109817100f8fc557290a4 assets\testmod\models\item\ardenim_leggings_iron_trim.json
 b395d3db0d49da13faf8b2c5e8a95d86e25282e5 assets\testmod\models\item\ardenimium_boots_netherite_trim.json
-cdb5b7642e8b7c017162e61bdf1f36c9ef0a578c assets\testmod\models\item\ardenim_pressure_plate.json
 8698acb0b6d7372cfc9d1d352c7ee830f1f4a899 assets\testmod\models\item\ardenim_chestplate.json
+cdb5b7642e8b7c017162e61bdf1f36c9ef0a578c assets\testmod\models\item\ardenim_pressure_plate.json
 932544345ca0e95502e87d0bb889fa0cb2544758 assets\testmod\models\item\nether_star_core.json
 c17926b5fc768a8c25b7977bd579cd68bbd8ebe8 assets\testmod\models\item\ardenim_apple.json
 2b2eeb864b3e846770e9876fee9163f9b6d9c7d9 assets\testmod\models\item\ardenim_helmet.json

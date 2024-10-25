@@ -87,12 +87,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         //Blank Pattern
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,TestModItems.Blank_Pattern,1)
                 .pattern("RGR")
-                .pattern(" A ")
+                .pattern("SAS")
                 .pattern("RGR")
                 .input('R',Items.REDSTONE)
+                .input('S',Blocks.STONE)
                 .input('G',Items.GLOWSTONE_DUST)
                 .input('A',TestModItems.Ardenimium_Casing)
                 .criterion(hasItem(TestModItems.Ardenimium_Casing), conditionsFromItem(TestModItems.Ardenimium_Casing))
+                .criterion(hasItem(Blocks.STONE), conditionsFromItem(Blocks.STONE))
                 .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
                 .criterion(hasItem(Items.GLOWSTONE_DUST), conditionsFromItem(Items.GLOWSTONE_DUST))
                 .offerTo(exporter, new Identifier(getRecipeName(TestModItems.Blank_Pattern)));

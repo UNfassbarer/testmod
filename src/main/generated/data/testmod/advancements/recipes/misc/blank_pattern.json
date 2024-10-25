@@ -37,6 +37,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "minecraft:blank_pattern"
@@ -48,6 +60,7 @@
     [
       "has_the_recipe",
       "has_ardenimium_casing",
+      "has_stone",
       "has_redstone",
       "has_glowstone_dust"
     ]

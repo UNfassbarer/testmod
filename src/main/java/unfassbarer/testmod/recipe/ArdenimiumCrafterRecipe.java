@@ -24,7 +24,7 @@ public class ArdenimiumCrafterRecipe implements Recipe<SimpleInventory> {
         if (world.isClient()) {
             return false;
         }
-        return recipeItems.get(0).test(inventory.getStack(0)) &&
+        return  recipeItems.get(0).test(inventory.getStack(0)) &&
                 recipeItems.get(1).test(inventory.getStack(1)) &&
                 recipeItems.get(2).test(inventory.getStack(2)) &&
                 recipeItems.get(3).test(inventory.getStack(3));

@@ -38,17 +38,17 @@ public class ArdenimiumCrafterCategory implements DisplayCategory<BasicDisplay> 
         List<Widget> widgets = new LinkedList<>();
         widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x, startPoint.y, 175, 82)));
         // Setting up the input slots
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 8, startPoint.y + 8))
-                .entries(display.getInputEntries().get(0)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 44, startPoint.y + 29))
-                .entries(display.getInputEntries().get(1)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 116, startPoint.y + 29))
-                .entries(display.getInputEntries().get(2)));
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 80, startPoint.y + 8))
-                .entries(display.getInputEntries().get(3)));
+                .entries(display.getInputEntries().get(0))); // Mitte Oben
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 44, startPoint.y + 29))
+                .entries(display.getInputEntries().get(1))); // Links
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 116, startPoint.y + 29))
+                .entries(display.getInputEntries().get(2))); // Rechts
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 8, startPoint.y + 8))
+                .entries(display.getInputEntries().get(3))); // Oben Links
         // Setting up the output slot
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 80, startPoint.y + 59))
-                .markOutput().entries(display.getOutputEntries().get(0)));
+                .markOutput().entries(display.getOutputEntries().get(0))); // Mitte Unten
         return widgets;
     }
     @Override

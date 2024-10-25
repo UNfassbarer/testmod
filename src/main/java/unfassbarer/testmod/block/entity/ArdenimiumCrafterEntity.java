@@ -28,11 +28,11 @@ import java.util.Optional;
 
 public class ArdenimiumCrafterEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
-    private static final int INPUT_SLOT_0 = 0;
-    private static final int INPUT_SLOT_1 = 1;
-    private static final int INPUT_SLOT_2 = 2;
-    private static final int STAR_INPUT = 3;
-    private static final int OUTPUT_SLOT = 4;
+    private static final int INPUT_SLOT_0 = 0; // Mitte Oben
+    private static final int INPUT_SLOT_1 = 1; // Links
+    private static final int INPUT_SLOT_2 = 2; // Rechts
+    private static final int STAR_INPUT = 3; //Oben Links
+    private static final int OUTPUT_SLOT = 4; // Mitte Unten
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
@@ -125,11 +125,11 @@ public class ArdenimiumCrafterEntity extends BlockEntity implements ExtendedScre
     private void craftItem() {
         Optional<RecipeEntry<ArdenimiumCrafterRecipe>> recipe = getCurrentRecipe();
         if (recipe.isPresent()) {
-            this.removeStack(INPUT_SLOT_0, 1);
-            this.removeStack(INPUT_SLOT_1, 1);
-            this.removeStack(INPUT_SLOT_2, 1);
-            this.removeStack(STAR_INPUT, 1);
-            this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().getResult(null).getItem(),
+            this.removeStack(INPUT_SLOT_0, 1); // Mitte Oben
+            this.removeStack(INPUT_SLOT_1, 1); // Links
+            this.removeStack(INPUT_SLOT_2, 1); // Rechts
+            this.removeStack(STAR_INPUT, 1); // Links Oben
+            this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().getResult(null).getItem(), // Mitte Unten
                     getStack(OUTPUT_SLOT).getCount() + recipe.get().value().getResult(null).getCount()));
         }
     }

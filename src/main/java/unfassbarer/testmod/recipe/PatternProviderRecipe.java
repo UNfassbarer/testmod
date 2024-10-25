@@ -32,7 +32,6 @@ public class PatternProviderRecipe implements Recipe<SimpleInventory> {
                 recipeItems.get(0).test(inventory.getStack(0)) &&
                 recipeItems.get(1).test(inventory.getStack(2));  // Changed index from 2 to 1
     }
-
     @Override
     public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
         return output;

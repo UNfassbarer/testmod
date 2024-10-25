@@ -1,13 +1,13 @@
 {
   "type": "testmod:ardenimium_crafting",
   "ingredients": [
-    { "item": "testmod:chestplate_pattern", "_comment": "Mitte Oben" },
+    { "item": "testmod:sword_pattern", "_comment": "Mitte Oben" },
     { "item": "testmod:ardenimium", "_comment": "Links" },
     { "item": "testmod:ardenimium", "_comment": "Rechts" },
     { "item": "testmod:nether_star_core", "_comment": "Links Oben" }
   ],
   "output": {
-    "item": "testmod:ardenimium_chestplate",
+    "item": "testmod:ardenimium_sword",
     "count": 1,
     "_comment": "Output"
   }

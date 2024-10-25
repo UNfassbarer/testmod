@@ -15,7 +15,6 @@ import static net.minecraft.item.Item.fromBlock;
 
 public class ModTooltipManager implements ClientModInitializer {
     private static final Map<Item, String> ITEM_TOOLTIP = new HashMap<>();
-
     static {
         ITEM_TOOLTIP.put(TestModItems.Ardenimium_Gun, "seems that here is some ammo required ... ");
         ITEM_TOOLTIP.put(TestModItems.Ardenim_apple, "Another apple ?");
@@ -28,18 +27,15 @@ public class ModTooltipManager implements ClientModInitializer {
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.ArdenimiumCrafter), "Better crafting to create powerful Items");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.PatternProvider), "Craft patterns for your tools");
     }
-
     @Override
     public void onInitializeClient() {
         registerTooltips();
     }
-
     public static void registerTooltips() {
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             addCustomTooltip(stack.getItem(), lines);
         });
     }
-
     private static void addCustomTooltip(Item item, List<Text> tooltip) {
         if (ITEM_TOOLTIP.containsKey(item)) {
             String tooltipText = ITEM_TOOLTIP.get(item);

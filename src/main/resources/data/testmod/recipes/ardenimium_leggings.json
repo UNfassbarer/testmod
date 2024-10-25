@@ -1,7 +1,7 @@
 {
   "type": "testmod:ardenimium_crafting",
   "ingredients": [
-    { "item": "testmod:leggings_pattern", "_comment": "Mitte" },
+    { "item": "testmod:leggings_pattern", "_comment": "Mitte Oben" },
     { "item": "testmod:ardenimium", "_comment": "Links" },
     { "item": "testmod:ardenimium", "_comment": "Rechts" },
     { "item": "testmod:nether_star_core", "_comment": "Links Oben" }

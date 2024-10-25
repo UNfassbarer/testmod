@@ -26,11 +26,11 @@ public class ArdenimiumCrafterScreenHandler extends ScreenHandler {
         this.propertyDelegate = arrayPropertyDelegate;
         this.blockEntity = (ArdenimiumCrafterEntity) blockEntity;
         inventory.onOpen(playerInventory.player);
-        this.addSlot(new Slot(inventory, 0, 80, 8));
-        this.addSlot(new Slot(inventory, 1, 44, 29));
-        this.addSlot(new Slot(inventory, 2, 116, 29));
-        this.addSlot(new Slot(inventory, 3, 8, 8));
-        this.addSlot(new Slot(inventory, 4, 80, 59));
+        this.addSlot(new Slot(inventory, 0, 80, 8)); // Mitte Oben
+        this.addSlot(new Slot(inventory, 1, 44, 29)); //Links
+        this.addSlot(new Slot(inventory, 2, 116, 29)); //Rechts
+        this.addSlot(new Slot(inventory, 3, 8, 8)); // Oben Links
+        this.addSlot(new Slot(inventory, 4, 80, 59)); //Mitte Unten
         this.addPlayerInventory(playerInventory);
         this.addPlayerHotbar(playerInventory);
         this.addProperties(arrayPropertyDelegate);
