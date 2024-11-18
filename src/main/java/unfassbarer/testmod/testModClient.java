@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import unfassbarer.testmod.block.TestModBlocks;
+import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
 import unfassbarer.testmod.block.entity.renderer.ArdenimiumCrafterEntityRenderer;
 import unfassbarer.testmod.block.entity.renderer.ArdenimiumLampEntityRenderer;
@@ -48,6 +49,6 @@ public class testModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.ARDENIMIUM_DRAGON, ArdenimiumDragonRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ARDENIMIUM_DRAGON, ArdenimiumDragonModel::getTexturedModelData);
-        BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Neon_Block, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ArdenimNeonBlock.Ardenim_Neon_Block, RenderLayer.getCutout());
     }
 }

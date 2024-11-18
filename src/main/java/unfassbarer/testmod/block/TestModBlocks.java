@@ -75,19 +75,7 @@ public class TestModBlocks {
             new ArdenimiumEgg(FabricBlockSettings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.BONE));
     public static final Block Ardenimium_Lamp =
             new ArdenimiumLamp(FabricBlockSettings.copy(Blocks.GLASS));
-
-    public static final Block Ardenim_Neon_Block = createNeonBlock(DyeColor.WHITE);
-    public static Block createNeonBlock(DyeColor color) {
-        return new Block(AbstractBlock.Settings.create()
-                .mapColor(color)
-                .luminance((state) -> 55)  // Setze die Leuchtkraft auf 5 oder einen niedrigeren Wert
-                .sounds(BlockSoundGroup.GLASS)
-                .strength(0.5f, 0.5f)
-                .emissiveLighting((state, world, pos) -> true)
-                .allowsSpawning(TestModBlocks::never)
-                .nonOpaque());
-    }
-    private static boolean never(BlockState blockState, net.minecraft.world.BlockView blockView, BlockPos blockPos, EntityType<?> entityType) {
+    public static boolean never(BlockState blockState, net.minecraft.world.BlockView blockView, BlockPos blockPos, EntityType<?> entityType) {
         return false;
     }
     private static void registerBlock(String name, Block block) {
@@ -126,7 +114,7 @@ public class TestModBlocks {
         registerBlock("solar_stabilizer", Solar_Strabilizer);
         registerBlock("ardenimium_egg", Ardenimium_Egg);
         registerBlock("ardenimium_lamp", Ardenimium_Lamp);
-        registerBlock("ardenim_neon_block", Ardenim_Neon_Block);
+        registerBlock("ardenim_neon_block", ArdenimNeonBlock.Ardenim_Neon_Block);
         Testmod.LOGGER.info("Registering Mod Blocks for " + Testmod.MOD_ID);
     }
 }

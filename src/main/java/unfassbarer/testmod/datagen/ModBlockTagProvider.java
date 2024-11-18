@@ -8,6 +8,7 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import unfassbarer.testmod.block.TestModBlocks;
+import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -47,7 +48,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(TestModBlocks.PatternProvider)
                 .add(TestModBlocks.Ardenimium_Egg)
                 .add(TestModBlocks.Ardenimium_Lamp)
-                .add(TestModBlocks.Ardenim_Neon_Block);
+                .add(ArdenimNeonBlock.Ardenim_Neon_Block);
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric","needs_tool_level_4")))
                 .add(TestModBlocks.Ardenim_Block)
@@ -78,7 +79,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(TestModBlocks.Ardenimium_Egg)
                 .add(TestModBlocks.PatternProvider)
                 .add(TestModBlocks.Ardenimium_Lamp)
-                .add(TestModBlocks.Ardenim_Neon_Block);
+                .add(ArdenimNeonBlock.Ardenim_Neon_Block);
 
         getOrCreateTagBuilder(BlockTags.FENCES)
                 .add(TestModBlocks.Ardenim_Fence);

@@ -8,6 +8,7 @@ import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
 import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.TestModBlocks;
+import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 import unfassbarer.testmod.item.TestModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -32,7 +33,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Solar_Strabilizer);
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Ardenimium_Egg);
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Ardenimium_Lamp);
-        blockStateModelGenerator.registerSimpleCubeAll(TestModBlocks.Ardenim_Neon_Block);
+        blockStateModelGenerator.registerSimpleCubeAll(ArdenimNeonBlock.Ardenim_Neon_Block);
         Ardenim.stairs(TestModBlocks.Ardenim_Stairs);
         Ardenim.slab(TestModBlocks.Ardenim_Slab);
         Ardenim.button(TestModBlocks.Ardenim_Button);

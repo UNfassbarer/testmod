@@ -11,6 +11,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 import unfassbarer.testmod.block.TestModBlocks;
+import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 import unfassbarer.testmod.item.TestModItems;
 
 import java.util.List;
@@ -308,7 +309,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(TestModItems.Ardenim), conditionsFromItem(TestModItems.Ardenim))
                 .offerTo(exporter, new Identifier(getRecipeName(TestModItems.Ardenim_Pickaxe)));
         //ardenim Neon Block
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,TestModBlocks.Ardenim_Neon_Block,1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ArdenimNeonBlock.Ardenim_Neon_Block,1)
                 .pattern(" A ")
                 .pattern("AGA")
                 .pattern(" A ")
@@ -316,7 +317,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('A',TestModBlocks.Ardenim_Glass)
                 .criterion(hasItem(Blocks.GLOWSTONE), conditionsFromItem(Blocks.GLOWSTONE))
                 .criterion(hasItem(TestModBlocks.Ardenim_Glass), conditionsFromItem(TestModBlocks.Ardenim_Glass))
-                .offerTo(exporter, new Identifier(getRecipeName(TestModBlocks.Ardenim_Neon_Block)));
+                .offerTo(exporter, new Identifier(getRecipeName(ArdenimNeonBlock.Ardenim_Neon_Block)));
         //ardenim Slab
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModBlocks.Ardenim_Slab,6)
                 .pattern("AAA")

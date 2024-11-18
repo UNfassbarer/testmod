@@ -14,6 +14,7 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
 import unfassbarer.testmod.block.TestModBlocks;
+import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 import unfassbarer.testmod.item.TestModItems;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
@@ -54,7 +55,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(TestModBlocks.ArdenimiumCrafter);
         addDrop(TestModBlocks.PatternProvider);
         addDrop(TestModBlocks.Ardenimium_Lamp);
-        addDrop(TestModBlocks.Ardenim_Neon_Block);
+        addDrop(ArdenimNeonBlock.Ardenim_Neon_Block);
     }
 
     public LootTable.Builder ArdenimOre(Block drop, Item item) {

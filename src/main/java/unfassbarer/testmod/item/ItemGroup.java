@@ -9,6 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.TestModBlocks;
+import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 
 public class ItemGroup  {
 public static final net.minecraft.item.ItemGroup ARDENIM_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -83,7 +84,7 @@ public static final net.minecraft.item.ItemGroup ARDENIM_GROUP = Registry.regist
                     entries.add(Testmod.Ardenim_Bucket);
                     entries.add(TestModBlocks.PatternProvider);
                     entries.add(TestModBlocks.Ardenimium_Lamp);
-                    entries.add(TestModBlocks.Ardenim_Neon_Block);
+                    entries.add(ArdenimNeonBlock.Ardenim_Neon_Block);
                 }).build());
 public static void registerItemGroups() {
     Testmod.LOGGER.info("Registering Item Group for " + Testmod.MOD_ID);
