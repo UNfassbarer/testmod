@@ -47,11 +47,11 @@ public class ModTooltipManager implements ClientModInitializer {
     }
     private static void addEffectTooltip(List<Text> tooltip) {
         // tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("effect.minecraft.regeneration")
+        tooltip.add(Text.translatable("effect.minecraft.speed")
                 .formatted(Formatting.BLUE).append(" IV - 00:05"));
-        tooltip.add(Text.translatable("effect.minecraft.absorption")
-                .formatted(Formatting.BLUE).append(" IV - 00:45"));
-        tooltip.add(Text.translatable("effect.minecraft.strength")
-                .formatted(Formatting.BLUE).append(" III - 00:04"));
+        // tooltip.add(Text.translatable("effect.minecraft.absorption")
+        //        .formatted(Formatting.BLUE).append(" IV - 00:45"));
+        // tooltip.add(Text.translatable("effect.minecraft.strength")
+        //       .formatted(Formatting.BLUE).append(" III - 00:04"));
     }
 }

@@ -13,7 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ArdenimNeonBlock extends Block {
-
     public ArdenimNeonBlock(Settings settings) {
         super(settings);
     }
