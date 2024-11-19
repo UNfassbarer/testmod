@@ -12,10 +12,8 @@ import java.util.function.Supplier;
 public enum ModArmorMaterials implements ArmorMaterial {
     ARDENIM("ardenim", 7, new int[] { 2, 5, 3, 1 }, 15,
     SoundEvents.ITEM_ARMOR_EQUIP_GOLD,0,0, () -> Ingredient.ofItems(TestModItems.Ardenim)),
-
     ARDENIMIUM("ardenimium", 45, new int[] { 5, 10, 8, 5 }, 30,
     SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,4,0.2f, () -> Ingredient.ofItems(TestModItems.Ardenimium));
-
     private final String name;
     private final int durabilityMultiplier;
     private final int[] protectionAmounts;
