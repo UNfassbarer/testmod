@@ -1,6 +1,10 @@
 package unfassbarer.testmod.block.custom;
+
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -13,8 +17,8 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import unfassbarer.testmod.block.entity.PatternProviderEntity;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
+import unfassbarer.testmod.block.entity.PatternProviderEntity;
 
 public class PatternProvider extends BlockWithEntity implements BlockEntityProvider {
 
@@ -46,8 +50,8 @@ public class PatternProvider extends BlockWithEntity implements BlockEntityProvi
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof PatternProviderEntity) {
-                ItemScatterer.spawn(world, pos, (PatternProviderEntity)blockEntity);
-                world.updateComparators(pos,this);
+                ItemScatterer.spawn(world, pos, (PatternProviderEntity) blockEntity);
+                world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }

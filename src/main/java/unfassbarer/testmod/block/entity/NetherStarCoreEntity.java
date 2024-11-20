@@ -3,6 +3,9 @@ package unfassbarer.testmod.block.entity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
@@ -12,9 +15,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.sounds.Sounds;
 
@@ -28,11 +28,6 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
 
     public NetherStarCoreEntity(BlockPos pos, BlockState state) {
         super(TYPE, pos, state);
-    }
-
-    // Getter for the ItemStack to be rendered
-    public ItemStack getRenderStack() {
-        return items.get(0); // Assume the first slot contains the item to render
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, NetherStarCoreEntity entity) {
@@ -77,6 +72,7 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
             }
         }
     }
+
     private static void applyEffects(World world, BlockPos pos) {
         if (!(world instanceof ServerWorld serverWorld)) return;
         long timeOfDay = serverWorld.getTimeOfDay();
@@ -89,6 +85,11 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 300, 0, true, true, true));
             }
         }
+    }
+
+    // Getter for the ItemStack to be rendered
+    public ItemStack getRenderStack() {
+        return items.get(0); // Assume the first slot contains the item to render
     }
 
     @Override

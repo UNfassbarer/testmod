@@ -22,18 +22,22 @@ public class PatternProviderCategory implements DisplayCategory<BasicDisplay> {
             new Identifier(Testmod.MOD_ID, "textures/gui/pattern_provider_gui.png");
     public static final CategoryIdentifier<PatternProviderDisplay> PATTERN_PROVIDING =
             CategoryIdentifier.of(Testmod.MOD_ID, "pattern_providing");
+
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {
         return PATTERN_PROVIDING;
     }
+
     @Override
     public Text getTitle() {
         return Text.literal("Pattern Provider");
     }
+
     @Override
     public Renderer getIcon() {
         return EntryStacks.of(TestModBlocks.PatternProvider.asItem().getDefaultStack());
     }
+
     @Override
     public List<Widget> setupDisplay(BasicDisplay display, Rectangle bounds) {
         final Point startPoint = new Point(bounds.getCenterX() - 87, bounds.getCenterY() - 35);
@@ -49,6 +53,7 @@ public class PatternProviderCategory implements DisplayCategory<BasicDisplay> {
                 .markOutput().entries(display.getOutputEntries().get(0)));
         return widgets;
     }
+
     @Override
     public int getDisplayHeight() {
         return 90;

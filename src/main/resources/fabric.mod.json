@@ -1,45 +1,45 @@
 {
-	"schemaVersion": 1,
-	"id": "testmod",
-	"version": "${version}",
-	"name": "testmod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Unfassbarer!"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "MIT",
-	"icon": "assets/testmod/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"unfassbarer.testmod.Testmod"
-		],
-		"client": [
-			"unfassbarer.testmod.testModClient"
-		],
-		"fabric-datagen": [
-			"unfassbarer.testmod.TestmodDataGenerator"
-		],
-		"rei_client": [
-			{
-				"value": "unfassbarer.testmod.compat.rei.TestmodREIClientPlugin"
-			}
-		]
-	},
-	"mixins": [
-		"testmod.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.15.7",
-		"minecraft": "~1.20.4",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "testmod",
+  "version": "${version}",
+  "name": "testmod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Unfassbarer!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "MIT",
+  "icon": "assets/testmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "unfassbarer.testmod.Testmod"
+    ],
+    "client": [
+      "unfassbarer.testmod.testModClient"
+    ],
+    "fabric-datagen": [
+      "unfassbarer.testmod.TestmodDataGenerator"
+    ],
+    "rei_client": [
+      {
+        "value": "unfassbarer.testmod.compat.rei.TestmodREIClientPlugin"
+      }
+    ]
+  },
+  "mixins": [
+    "testmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.7",
+    "minecraft": "~1.20.4",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
 }

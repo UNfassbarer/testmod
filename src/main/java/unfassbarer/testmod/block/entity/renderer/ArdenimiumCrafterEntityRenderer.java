@@ -20,19 +20,21 @@ import unfassbarer.testmod.block.entity.ArdenimiumCrafterEntity;
 public class ArdenimiumCrafterEntityRenderer implements BlockEntityRenderer<ArdenimiumCrafterEntity> {
     public ArdenimiumCrafterEntityRenderer(BlockEntityRendererFactory.Context context) {
     }
+
     @Override
     public void render(ArdenimiumCrafterEntity entity, float tickDelta, MatrixStack matrices,
                        VertexConsumerProvider vertexConsumers, int light, int overlay) {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         ItemStack stack = entity.getRenderStack();
         matrices.push();
-        matrices.translate(0.5f,0.9f,0.5f);
-        matrices.scale(0.35f,0.3f,0.3f);
+        matrices.translate(0.5f, 0.9f, 0.5f);
+        matrices.scale(0.35f, 0.3f, 0.3f);
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(270));
         itemRenderer.renderItem(stack, ModelTransformationMode.GUI, getLightLevel(entity.getWorld(),
                 entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
         matrices.pop();
     }
+
     private int getLightLevel(@NotNull World world, BlockPos pos) {
         int bLight = world.getLightLevel(LightType.BLOCK, pos);
         int sLight = world.getLightLevel(LightType.SKY, pos);

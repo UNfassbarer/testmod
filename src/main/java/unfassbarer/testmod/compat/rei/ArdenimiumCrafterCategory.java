@@ -1,4 +1,5 @@
 package unfassbarer.testmod.compat.rei;
+
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.gui.Renderer;
@@ -12,6 +13,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.TestModBlocks;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,18 +22,22 @@ public class ArdenimiumCrafterCategory implements DisplayCategory<BasicDisplay> 
             new Identifier(Testmod.MOD_ID, "textures/gui/ardenimium_crafter_gui.png");
     public static final CategoryIdentifier<ArdenimiumCrafterDisplay> ARDENIMIUM_CRAFTING =
             CategoryIdentifier.of(Testmod.MOD_ID, "ardenimium_crafting");
+
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {
         return ARDENIMIUM_CRAFTING;
     }
+
     @Override
     public Text getTitle() {
         return Text.literal("Ardenimium Crafter");
     }
+
     @Override
     public Renderer getIcon() {
         return EntryStacks.of(TestModBlocks.ArdenimiumCrafter.asItem().getDefaultStack());
     }
+
     @Override
     public List<Widget> setupDisplay(BasicDisplay display, Rectangle bounds) {
         final Point startPoint = new Point(bounds.getCenterX() - 87, bounds.getCenterY() - 35);
@@ -51,6 +57,7 @@ public class ArdenimiumCrafterCategory implements DisplayCategory<BasicDisplay> 
                 .markOutput().entries(display.getOutputEntries().get(0))); // Mitte Unten
         return widgets;
     }
+
     @Override
     public int getDisplayHeight() {
         return 90;

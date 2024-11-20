@@ -23,7 +23,7 @@ public class ArdenimiumDragonRenderer extends MobEntityRenderer<ArdenimiumDragon
     @Override
     public void render(ArdenimiumDragonEntity mobEntity, float f, float g, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
-        if(mobEntity.isBaby()) {
+        if (mobEntity.isBaby()) {
             matrixStack.scale(0.5f, 0.5f, 0.5f);
         } else {
             matrixStack.scale(1f, 1f, 1f);

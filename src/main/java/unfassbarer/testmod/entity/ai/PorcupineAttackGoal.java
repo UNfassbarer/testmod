@@ -29,11 +29,11 @@ public class PorcupineAttackGoal extends MeleeAttackGoal {
         if (isEnemyWithinAttackDistance(pEnemy)) {
             shouldCountTillNextAttack = true;
 
-            if(isTimeToStartAttackAnimation()) {
+            if (isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
             }
 
-            if(isTimeToAttack()) {
+            if (isTimeToAttack()) {
                 this.mob.getLookControl().lookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
                 performAttack(pEnemy);
             }
@@ -70,7 +70,7 @@ public class PorcupineAttackGoal extends MeleeAttackGoal {
     @Override
     public void tick() {
         super.tick();
-        if(shouldCountTillNextAttack) {
+        if (shouldCountTillNextAttack) {
             this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
         }
     }

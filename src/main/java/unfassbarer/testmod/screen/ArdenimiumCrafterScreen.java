@@ -11,15 +11,18 @@ import unfassbarer.testmod.Testmod;
 
 public class ArdenimiumCrafterScreen extends HandledScreen<ArdenimiumCrafterScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(Testmod.MOD_ID, "textures/gui/ardenimium_crafter_gui.png");
+
     public ArdenimiumCrafterScreen(ArdenimiumCrafterScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
+
     @Override
     protected void init() {
         super.init();
         titleY = 1000;
         playerInventoryTitleY = 1000;
     }
+
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
@@ -30,11 +33,13 @@ public class ArdenimiumCrafterScreen extends HandledScreen<ArdenimiumCrafterScre
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         renderProgressArrow(context, x, y);
     }
+
     private void renderProgressArrow(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
+        if (handler.isCrafting()) {
             context.drawTexture(TEXTURE, x + 85, y + 30, 176, 0, 8, handler.getScaledProgress());
         }
     }
+
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         renderBackground(context, mouseX, mouseY, delta);

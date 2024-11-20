@@ -12,8 +12,9 @@ public class InfinityEnchantmentMixin extends Enchantment {
     public InfinityEnchantmentMixin(Enchantment.Rarity weight, EquipmentSlot... slotTypes) {
         super(weight, EnchantmentTarget.BREAKABLE, slotTypes);
     }
+
     @Override
     public boolean canAccept(Enchantment other) {
-        return other instanceof MendingEnchantment ? true : super.canAccept(other);
+        return other instanceof MendingEnchantment || super.canAccept(other);
     }
 }

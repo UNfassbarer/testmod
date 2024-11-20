@@ -7,7 +7,10 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.TestModBlocks;
 
@@ -18,7 +21,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_EGG_ORE_KEY = registerKey("egg_ore");
 
     public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context) {
-        // Ardenim Ore
+
         RuleTest endReplacables = new BlockMatchRuleTest(Blocks.END_STONE);
         List<OreFeatureConfig.Target> endArdenimOres =
                 List.of(OreFeatureConfig.createTarget(endReplacables, TestModBlocks.Ardenim_Ore.getDefaultState()));

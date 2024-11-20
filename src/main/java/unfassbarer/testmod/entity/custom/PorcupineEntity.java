@@ -30,13 +30,20 @@ public class PorcupineEntity extends AnimalEntity {
             DataTracker.registerData(PorcupineEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
-
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
+    private int idleAnimationTimeout = 0;
 
     public PorcupineEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    public static DefaultAttributeContainer.Builder createPorcupineAttributes() {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
+                .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
     }
 
     private void setupAnimationStates() {
@@ -47,14 +54,14 @@ public class PorcupineEntity extends AnimalEntity {
             --this.idleAnimationTimeout;
         }
 
-        if(this.isAttacking() && attackAnimationTimeout <= 0) {
+        if (this.isAttacking() && attackAnimationTimeout <= 0) {
             attackAnimationTimeout = 40;
             attackAnimationState.start(this.age);
         } else {
             --this.attackAnimationTimeout;
         }
 
-        if(!this.isAttacking()) {
+        if (!this.isAttacking()) {
             attackAnimationState.stop();
         }
     }
@@ -68,7 +75,7 @@ public class PorcupineEntity extends AnimalEntity {
     @Override
     public void tick() {
         super.tick();
-        if(this.getWorld().isClient()) {
+        if (this.getWorld().isClient()) {
             setupAnimationStates();
         }
     }
@@ -91,21 +98,13 @@ public class PorcupineEntity extends AnimalEntity {
         this.targetSelector.add(1, new RevengeGoal(this));
     }
 
-    public static DefaultAttributeContainer.Builder createPorcupineAttributes() {
-        return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
-                .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
+    @Override
+    public boolean isAttacking() {
+        return this.dataTracker.get(ATTACKING);
     }
 
     public void setAttacking(boolean attacking) {
         this.dataTracker.set(ATTACKING, attacking);
-    }
-
-    @Override
-    public boolean isAttacking() {
-        return this.dataTracker.get(ATTACKING);
     }
 
     @Override

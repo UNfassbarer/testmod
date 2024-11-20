@@ -17,6 +17,7 @@ public class Sounds {
         Registry.register(Registries.SOUND_EVENT, id, sound);
         return sound;
     }
+
     public static void registerSounds() {
         Testmod.LOGGER.info("Registering Sounds for " + Testmod.MOD_ID);
     }

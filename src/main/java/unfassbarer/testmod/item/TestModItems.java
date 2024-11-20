@@ -120,6 +120,7 @@ public class TestModItems {
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Testmod.MOD_ID, name), item);
     }
+
     public static void registerModItems() {
         Testmod.LOGGER.info("Registering Mod Items for " + Testmod.MOD_ID);
     }

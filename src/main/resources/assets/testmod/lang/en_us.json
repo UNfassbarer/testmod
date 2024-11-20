@@ -11,15 +11,12 @@
   "block.testmod.ardenim_pillar_block": "Ardenim Pillar",
   "block.testmod.smooth_ardenim_block": "Smooth Ardenim Block",
   "block.testmod.ardenim_brick_block": "Ardenim Bricks",
-
   "item.testmod.ardenim_nugget": "Ardenim Nugget",
   "item.testmod.ardenimium_nugget": "Ardenimium Nugget",
-
   "block.testmod.ardenim_stairs": "Ardenim Stairs",
   "block.testmod.ardenim_slab": "Ardenim Slab",
   "block.testmod.ardenim_brick_stairs": "Ardenim Brick Stairs",
   "block.testmod.ardenim_brick_slab": "Ardenim Brick Slab",
-
   "block.testmod.ardenim_door": "Ardenim Door",
   "block.testmod.ardenim_trapdoor": "Ardenim Trapdoor",
   "block.testmod.ardenim_pressure_plate": "Ardenim Pressure Plate",
@@ -28,29 +25,23 @@
   "block.testmod.ardenim_fence_gate": "Ardenim Fence Gate",
   "block.testmod.ardenim_wall": "Ardenim Wall",
   "block.testmod.ardenim_brick_wall": "Ardenim Brick Wall",
-
   "block.testmod.ardenim_glass": "Ardenim Glas",
   "block.testmod.ardenim_glass_pane": "Ardenim Glas Pane",
-
   "block.testmod.ardenimium_crafter": "Ardenimium Crafter",
-
   "item.testmod.ardenim_sword": "Ardenim Sword",
   "item.testmod.ardenim_axe": "Ardenim Axe",
   "item.testmod.ardenim_pickaxe": "Ardenim Pickaxe",
   "item.testmod.ardenim_hoe": "Ardenim Hoe",
   "item.testmod.ardenim_shovel": "Ardenim Shovel",
-
   "item.testmod.ardenimium_sword": "Ardenimium Sword",
   "item.testmod.ardenimium_axe": "Ardenimium Axe",
   "item.testmod.ardenimium_pickaxe": "Ardenimium Pickaxe",
   "item.testmod.ardenimium_hoe": "Ardenimium Hoe",
   "item.testmod.ardenimium_shovel": "Ardenimium Shovel",
-
   "item.testmod.ardenim_helmet": "Ardenim Helmet",
   "item.testmod.ardenim_chestplate": "Ardenim Chestplate",
   "item.testmod.ardenim_leggings": "Ardenim Leggings",
   "item.testmod.ardenim_boots": "Ardenim Boots",
-
   "item.testmod.ardenimium_helmet": "Ardenimium Helmet",
   "item.testmod.ardenimium_chestplate": "Ardenimium Chestplate",
   "item.testmod.ardenimium_leggings": "Ardenimium Leggings",
@@ -59,12 +50,10 @@
   "item.testmod.ardenimium_bullet": "Ardenimium Bullet",
   "item.testmod.ardenimium_gun": "Ardenimium Gun",
   "block.testmod.nether_star_core": "Nether Star Core",
-
   "item.testmod.ardenim_bucket": "Ardenim Bucket",
   "item.testmod.ardenimium_casing": "Ardenimium Casing",
   "block.testmod.solar_stabilizer": "Solar Stabilizer",
   "block.testmod.pattern_provider": "Pattern Provider",
-
   "item.testmod.blank_pattern": "Blank Pattern",
   "item.testmod.axe_pattern": "Axe Pattern",
   "item.testmod.pickaxe_pattern": "pickaxe Pattern",

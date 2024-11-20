@@ -19,55 +19,68 @@ public class TestModFluid extends FlowableFluid {
     public boolean matchesType(Fluid fluid) {
         return fluid == getStill() || fluid == getFlowing();
     }
+
     @Override
     protected boolean isInfinite(World world) {
         return false;
     }
+
     @Override
     public Fluid getFlowing() {
         return null; // implement in subclass
     }
+
     @Override
     public Fluid getStill() {
         return null; // implement in subclass
     }
+
     @Override
     protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
         final BlockEntity blockEntity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
         Block.dropStacks(state, world, pos, blockEntity);
     }
+
     @Override
     public Item getBucketItem() {
         return null; // implement in subclass
     }
+
     @Override
     protected boolean canBeReplacedWith(FluidState fluidState, BlockView blockView, BlockPos blockPos, Fluid fluid, Direction direction) {
         return false;
     }
+
     @Override
     protected int getFlowSpeed(WorldView worldView) {
         return 4;
     }
+
     @Override
     protected int getLevelDecreasePerBlock(WorldView worldView) {
         return 1;
     }
+
     @Override
     public int getLevel(FluidState state) {
         return 0;
     }
+
     @Override
     public int getTickRate(WorldView worldView) {
         return 5;
     }
+
     @Override
     protected float getBlastResistance() {
         return 100.0F;
     }
+
     @Override
     protected BlockState toBlockState(FluidState state) {
         return null; // implement in subclass
     }
+
     @Override
     public boolean isStill(FluidState state) {
         return false;

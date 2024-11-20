@@ -1,4 +1,5 @@
 package unfassbarer.testmod.screen;
+
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -12,13 +13,15 @@ import net.minecraft.screen.slot.Slot;
 import unfassbarer.testmod.block.entity.PatternProviderEntity;
 
 public class PatternProviderScreenHandler extends ScreenHandler {
+    public final PatternProviderEntity blockEntity;
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public final PatternProviderEntity blockEntity;
+
     public PatternProviderScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
                 new ArrayPropertyDelegate(3));
     }
+
     public PatternProviderScreenHandler(int syncId, PlayerInventory playerInventory,
                                         BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
         super(ModScreenHandlers.PATTERN_PROVIDER_SCREEN_HANDLER, syncId);
@@ -27,22 +30,25 @@ public class PatternProviderScreenHandler extends ScreenHandler {
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = arrayPropertyDelegate;
         this.blockEntity = ((PatternProviderEntity) blockEntity);
-        this.addSlot(new Slot(inventory,2,8,8));
-        this.addSlot(new Slot(inventory,0, 80, 8));
-        this.addSlot(new Slot(inventory,1, 80, 59));
+        this.addSlot(new Slot(inventory, 2, 8, 8));
+        this.addSlot(new Slot(inventory, 0, 80, 8));
+        this.addSlot(new Slot(inventory, 1, 80, 59));
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
         addProperties(arrayPropertyDelegate);
     }
+
     public boolean isCrafting() {
         return propertyDelegate.get(0) > 0;
     }
+
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1);  // Max Progress
         int progressArrowSize = 26; // This is the width in pixels of your arrow
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
+
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
@@ -65,10 +71,12 @@ public class PatternProviderScreenHandler extends ScreenHandler {
         }
         return newStack;
     }
+
     @Override
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
     }
+
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
@@ -76,6 +84,7 @@ public class PatternProviderScreenHandler extends ScreenHandler {
             }
         }
     }
+
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));

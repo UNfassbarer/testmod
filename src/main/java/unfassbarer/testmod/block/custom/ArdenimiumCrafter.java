@@ -20,39 +20,46 @@ import unfassbarer.testmod.block.entity.ArdenimiumCrafterEntity;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
 
 public class ArdenimiumCrafter extends BlockWithEntity implements BlockEntityProvider {
-    private static final VoxelShape SHAPE = Block.createCuboidShape(1, 0, 1, 15, 12, 15);
     public static final MapCodec<ArdenimiumCrafter> CODEC = ArdenimiumCrafter.createCodec(ArdenimiumCrafter::new);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(1, 0, 1, 15, 12, 15);
+
     public ArdenimiumCrafter(Settings settings) {
         super(settings);
     }
+
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {
         return CODEC;
     }
+
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
+
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
+
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new ArdenimiumCrafterEntity(pos, state);
     }
+
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof ArdenimiumCrafterEntity) {
-                ItemScatterer.spawn(world, pos, (ArdenimiumCrafterEntity)blockEntity);
-                world.updateComparators(pos,this);
+                ItemScatterer.spawn(world, pos, (ArdenimiumCrafterEntity) blockEntity);
+                world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
@@ -63,6 +70,7 @@ public class ArdenimiumCrafter extends BlockWithEntity implements BlockEntityPro
         }
         return ActionResult.SUCCESS;
     }
+
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {

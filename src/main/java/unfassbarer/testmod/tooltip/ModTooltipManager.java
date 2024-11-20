@@ -1,4 +1,5 @@
 package unfassbarer.testmod.tooltip;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.item.Item;
@@ -7,9 +8,11 @@ import net.minecraft.util.Formatting;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 import unfassbarer.testmod.item.TestModItems;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import static net.minecraft.item.Item.fromBlock;
 
 public class ModTooltipManager implements ClientModInitializer {
@@ -27,10 +30,7 @@ public class ModTooltipManager implements ClientModInitializer {
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.ArdenimiumCrafter), "Better crafting to create powerful Items");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.PatternProvider), "Craft patterns for your tools");
     }
-    @Override
-    public void onInitializeClient() {
-        registerTooltips();
-    }
+
     public static void registerTooltips() {
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             addCustomTooltip(stack.getItem(), lines);
@@ -39,12 +39,14 @@ public class ModTooltipManager implements ClientModInitializer {
             }
         });
     }
+
     private static void addCustomTooltip(Item item, List<Text> tooltip) {
         if (ITEM_TOOLTIP.containsKey(item)) {
             String tooltipText = ITEM_TOOLTIP.get(item);
             tooltip.add(Text.literal(tooltipText).formatted(Formatting.BLUE));
         }
     }
+
     private static void addEffectTooltip(List<Text> tooltip) {
         // tooltip.add(Text.empty());
         tooltip.add(Text.translatable("effect.minecraft.speed")
@@ -53,5 +55,10 @@ public class ModTooltipManager implements ClientModInitializer {
         //        .formatted(Formatting.BLUE).append(" IV - 00:45"));
         // tooltip.add(Text.translatable("effect.minecraft.strength")
         //       .formatted(Formatting.BLUE).append(" III - 00:04"));
+    }
+
+    @Override
+    public void onInitializeClient() {
+        registerTooltips();
     }
 }

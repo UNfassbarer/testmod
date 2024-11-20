@@ -13,12 +13,14 @@ import net.minecraft.screen.slot.Slot;
 import unfassbarer.testmod.block.entity.ArdenimiumCrafterEntity;
 
 public class ArdenimiumCrafterScreenHandler extends ScreenHandler {
+    public final ArdenimiumCrafterEntity blockEntity;
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public final ArdenimiumCrafterEntity blockEntity;
+
     public ArdenimiumCrafterScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
-        this(syncId, inventory, (BlockEntity) inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(2));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(2));
     }
+
     public ArdenimiumCrafterScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
         super(ModScreenHandlers.ARDENIMIUM_CRAFTER_SCREEN_HANDLER, syncId);
         checkSize((Inventory) blockEntity, 4);
@@ -35,15 +37,18 @@ public class ArdenimiumCrafterScreenHandler extends ScreenHandler {
         this.addPlayerHotbar(playerInventory);
         this.addProperties(arrayPropertyDelegate);
     }
+
     public boolean isCrafting() {
         return propertyDelegate.get(0) > 0;
     }
+
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1); // Max Progress
         int progressArrowSize = 26; // This is the width in pixels of your arrow
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
+
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
@@ -66,10 +71,12 @@ public class ArdenimiumCrafterScreenHandler extends ScreenHandler {
         }
         return newStack;
     }
+
     @Override
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
     }
+
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
@@ -77,6 +84,7 @@ public class ArdenimiumCrafterScreenHandler extends ScreenHandler {
             }
         }
     }
+
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));

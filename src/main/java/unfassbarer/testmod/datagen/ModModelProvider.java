@@ -15,6 +15,7 @@ public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
     }
+
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         BlockStateModelGenerator.BlockTexturePool Ardenim = blockStateModelGenerator.registerCubeAllModelTexturePool(TestModBlocks.Ardenim_Block);
@@ -45,6 +46,7 @@ public class ModModelProvider extends FabricModelProvider {
         Brick.slab(TestModBlocks.Ardenim_Brick_Slab);
         Brick.wall(TestModBlocks.Ardenim_Brick_Wall);
     }
+
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(TestModItems.Ardenim, Models.GENERATED);
@@ -75,7 +77,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(TestModItems.Ardenimium_Gun, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Ardenimium_Bullet, Models.GENERATED);
 
-        itemModelGenerator.register(TestModItems.Blank_Pattern,Models.GENERATED);
+        itemModelGenerator.register(TestModItems.Blank_Pattern, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Shovel_Pattern, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Sword_Pattern, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Hoe_Pattern, Models.GENERATED);

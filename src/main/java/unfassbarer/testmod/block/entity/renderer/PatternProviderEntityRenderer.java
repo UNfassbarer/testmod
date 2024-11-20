@@ -1,4 +1,5 @@
 package unfassbarer.testmod.block.entity.renderer;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.OverlayTexture;
@@ -19,6 +20,7 @@ import unfassbarer.testmod.block.entity.PatternProviderEntity;
 public class PatternProviderEntityRenderer implements BlockEntityRenderer<PatternProviderEntity> {
     public PatternProviderEntityRenderer(BlockEntityRendererFactory.Context context) {
     }
+
     @Override
     public void render(PatternProviderEntity entity, float tickDelta, MatrixStack matrices,
                        VertexConsumerProvider vertexConsumers, int light, int overlay) {
@@ -34,6 +36,7 @@ public class PatternProviderEntityRenderer implements BlockEntityRenderer<Patter
             matrices.pop();
         }
     }
+
     private int getLightLevel(@NotNull World world, BlockPos pos) {
         int bLight = world.getLightLevel(LightType.BLOCK, pos);
         int sLight = world.getLightLevel(LightType.SKY, pos);

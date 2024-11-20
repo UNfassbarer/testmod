@@ -13,10 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ArdenimNeonBlock extends Block {
-    public ArdenimNeonBlock(Settings settings) {
-        super(settings);
-    }
-
     public static Block Ardenim_Neon_Block =
             new ArdenimNeonBlock(FabricBlockSettings
                     .copy(Blocks.GLASS)
@@ -26,6 +22,11 @@ public class ArdenimNeonBlock extends Block {
                     .emissiveLighting((state, world, pos) -> true)
                     .nonOpaque()
                     .slipperiness(0.9f));
+
+    public ArdenimNeonBlock(Settings settings) {
+        super(settings);
+    }
+
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         applyEffect(world, entity);

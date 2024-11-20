@@ -8,7 +8,9 @@ import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
 
 public class ModScreenHandlers {
-    public static final ScreenHandlerType<ArdenimiumCrafterScreenHandler> ARDENIMIUM_CRAFTER_SCREEN_HANDLER =
+    public static void registerScreenHandlers() {
+        Testmod.LOGGER.info("Registering Screen Handlers for {}", Testmod.MOD_ID);
+    }    public static final ScreenHandlerType<ArdenimiumCrafterScreenHandler> ARDENIMIUM_CRAFTER_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(Testmod.MOD_ID, "ardenimium_crafting"),
                     new ExtendedScreenHandlerType<>(ArdenimiumCrafterScreenHandler::new));
 
@@ -16,7 +18,5 @@ public class ModScreenHandlers {
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(Testmod.MOD_ID, "gem_polishing"),
                     new ExtendedScreenHandlerType<>(PatternProviderScreenHandler::new));
 
-    public static void registerScreenHandlers() {
-        Testmod.LOGGER.info("Registering Screen Handlers for {}", Testmod.MOD_ID);
-    }
+
 }

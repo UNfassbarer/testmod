@@ -1,4 +1,5 @@
 package unfassbarer.testmod.compat.rei;
+
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
@@ -20,11 +21,13 @@ public class TestmodREIClientPlugin implements REIClientPlugin {
         registry.add(new PatternProviderCategory());
         registry.addWorkstations(PatternProviderCategory.PATTERN_PROVIDING, EntryStacks.of(TestModBlocks.PatternProvider));
     }
+
     @Override
     public void registerDisplays(DisplayRegistry registry) {
         registry.registerRecipeFiller(ArdenimiumCrafterRecipe.class, ArdenimiumCrafterRecipe.Type.INSTANCE, ArdenimiumCrafterDisplay::new);
         registry.registerRecipeFiller(PatternProviderRecipe.class, PatternProviderRecipe.Type.INSTANCE, PatternProviderDisplay::new);
     }
+
     @Override
     public void registerScreens(ScreenRegistry registry) {
         registry.registerClickArea(screen -> new Rectangle(75, 30, 20, 30), ArdenimiumCrafterScreen.class, ArdenimiumCrafterCategory.ARDENIMIUM_CRAFTING);

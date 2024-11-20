@@ -13,14 +13,17 @@ import net.minecraft.world.World;
 public class ArdenimBulletEntity extends ThrownItemEntity {
     private static final float BULLET_DAMAGE = 15.0f;
     private static final double BULLET_SPEED = 4.0f;
+
     public ArdenimBulletEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
         this.setNoGravity(true);
     }
+
     public ArdenimBulletEntity(EntityType<? extends ThrownItemEntity> entityType, LivingEntity livingEntity, World world) {
         super(entityType, livingEntity, world);
         this.setNoGravity(true);
     }
+
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
@@ -28,11 +31,12 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
         float damageAmount = BULLET_DAMAGE;
         targetEntity.damage(this.getDamageSources().thrown(this, this.getOwner()), damageAmount);
     }
+
     @Override
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
         if (this.getWorld().isClient && this.age % 0.5 == 0) {
-            this.getWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY()+0.25, this.getZ(),
+            this.getWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.25, this.getZ(),
                     this.getVelocity().x * 0.1, this.getVelocity().y * 0.1, this.getVelocity().z * 0.1);
             // Send status update to clients
             this.getWorld().sendEntityStatus(this, (byte) 3);
@@ -40,10 +44,12 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
             this.discard();
         }
     }
+
     @Override
     protected Item getDefaultItem() {
         return null;
     }
+
     @Override
     public void tick() {
         super.tick();
@@ -52,6 +58,7 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
                     this.getVelocity().x * 0.1, this.getVelocity().y * 0.1, this.getVelocity().z * 0.1);
         }
     }
+
     public void setBulletVelocity(LivingEntity shooter, float pitch, float yaw) {
         double velocityX = -Math.sin(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch));
         double velocityY = -Math.sin(Math.toRadians(pitch));

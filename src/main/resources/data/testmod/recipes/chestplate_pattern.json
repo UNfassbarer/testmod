@@ -1,8 +1,14 @@
 {
   "type": "testmod:pattern_providing",
   "ingredients": [
-    { "item": "testmod:ardenim_chestplate", "_comment": "Mitte" },
-    { "item": "testmod:blank_pattern", "_comment": "Links Oben" }
+    {
+      "item": "testmod:ardenim_chestplate",
+      "_comment": "Mitte"
+    },
+    {
+      "item": "testmod:blank_pattern",
+      "_comment": "Links Oben"
+    }
   ],
   "output": {
     "item": "testmod:chestplate_pattern",

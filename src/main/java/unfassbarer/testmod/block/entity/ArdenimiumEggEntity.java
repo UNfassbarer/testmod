@@ -11,6 +11,8 @@ import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -23,10 +25,10 @@ import java.util.Random;
 public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
     public static final BlockEntityType<ArdenimiumEggEntity> TYPE = ModBlockEntities.ARDENIMIUM_EGG_ENTITY;
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(9, ItemStack.EMPTY);
-    private int tickCounter = 0;  // Tick counter for first sound
-    private int soundTickCounter = 0;  // Tick counter for second sound
-    private int countdownTimer = -1;  // Countdown timer for block removal
-    private final Random random = new Random();  // Random instance for random sound selection
+    private final Random random = new Random();
+    private int tickCounter = 0;
+    private int soundTickCounter = 0;
+    private int countdownTimer = -1;
 
     public ArdenimiumEggEntity(BlockPos pos, BlockState state) {
         super(TYPE, pos, state);
@@ -36,32 +38,30 @@ public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
         if (world.isClient) return;
         if (isMagmaBlockBelow(world, pos)) {
             if (entity.countdownTimer == -1) {
-                entity.countdownTimer = entity.random.nextInt(21) + 20 * 20;  // 20-40 seconds in ticks (20 ticks per second)
+                entity.countdownTimer = entity.random.nextInt(21) + 20 * 20;
             }
             spawnParticlesAroundBlock(world, pos);
             spawnCentralParticles(world, pos);
             entity.tickCounter++;
             entity.soundTickCounter++;
-
             if (entity.tickCounter >= 3) {
                 playFirstSound(world, pos);
                 entity.tickCounter = 0;
             }
-
             if (entity.soundTickCounter >= 30) {
                 playRandomTurtleSound(world, pos, entity.random);
                 entity.soundTickCounter = 0;
             }
-
             if (entity.countdownTimer > 0) {
                 entity.countdownTimer--;
             } else if (entity.countdownTimer == 0) {
-                spawnDragon(world, pos);
+                // spawnDragon(world, pos);
+                displayComingSoonMessage(world, pos);
                 removeEgg(world, pos);
-                entity.countdownTimer = -1;  // Reset timer
+                entity.countdownTimer = -1;
             }
         } else {
-            entity.countdownTimer = -1;  // Reset timer if no Magma block is below
+            entity.countdownTimer = -1;
         }
     }
 
@@ -133,6 +133,12 @@ public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
         world.spawnEntity(ardenimium_dragon);
     }
 
+    private static void displayComingSoonMessage(World world, BlockPos pos) {
+        if (!(world instanceof ServerWorld serverWorld)) return;
+
+        serverWorld.getPlayers(player -> player.squaredDistanceTo(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) < 164)
+                .forEach(player -> player.sendMessage(Text.keybind("Coming Soon...;)").formatted(Formatting.GOLD), true));
+    }
 
     @Override
     public int size() {

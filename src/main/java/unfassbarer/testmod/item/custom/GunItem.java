@@ -3,7 +3,8 @@ package unfassbarer.testmod.item.custom;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
@@ -14,11 +15,13 @@ import unfassbarer.testmod.entity.custom.ArdenimBulletEntity;
 import unfassbarer.testmod.item.TestModItems;
 import unfassbarer.testmod.sounds.Sounds;
 
-public class GunItem extends Item  {
+public class GunItem extends Item {
     private static final int MAX_DAMAGE = 250;
+
     public GunItem(Settings settings) {
         super(settings.maxDamage(MAX_DAMAGE));
     }
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
@@ -45,14 +48,17 @@ public class GunItem extends Item  {
         world.playSound(null, user.getX(), user.getY(), user.getZ(), Sounds.GUN_SHOOT, SoundCategory.PLAYERS, 0.25F, 1.0F);
         return TypedActionResult.success(itemStack);
     }
+
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return ingredient.getItem() == TestModItems.Ardenimium_Gun;
     }
+
     @Override
     public boolean isDamageable() {
         return true;
     }
+
     @Override
     public boolean isEnchantable(ItemStack stack) {
         return false;

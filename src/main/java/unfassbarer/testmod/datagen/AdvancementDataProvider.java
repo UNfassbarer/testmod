@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.item.TestModItems;
+
 import java.util.function.Consumer;
 
 public class AdvancementDataProvider extends FabricAdvancementProvider {
@@ -36,7 +37,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .criterion("get_ardenim", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim))
                 .rewards(AdvancementRewards.Builder.experience(500))
                 .build(consumer, new Identifier(Testmod.MOD_ID, "ardenim").toString());
-        
+
         AdvancementEntry ardenim_apple = Advancement.Builder.create()
                 .parent(ardenim)
                 .display(
@@ -82,7 +83,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                         false
                 )
                 .criterion("craft_ardenim_shovel", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Shovel))
-                .criterion("craft_ardenim_sword",InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Sword))
+                .criterion("craft_ardenim_sword", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Sword))
                 .criterion("craft_ardenim_hoe", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Hoe))
                 .criterion("craft_ardenim_axe", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Axe))
                 .criterion("craft_ardenim_pickaxe", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Pickaxe))

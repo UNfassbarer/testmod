@@ -61,6 +61,7 @@ public class ArdenimiumLampEntityRenderer implements BlockEntityRenderer<Ardenim
             renderSeaLanterns(entity, time, tickDelta, matrices, vertexConsumers, seaLanternStack, rotation);
         }
     }
+
     private void renderSeaLanterns(ArdenimiumLampEntity entity, long time, float tickDelta, MatrixStack matrices,
                                    VertexConsumerProvider vertexConsumers, ItemStack seaLanternStack,
                                    float rotation) {

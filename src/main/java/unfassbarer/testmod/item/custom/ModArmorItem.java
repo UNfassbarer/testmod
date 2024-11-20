@@ -24,9 +24,11 @@ public class ModArmorItem extends ArmorItem {
                             new StatusEffectInstance(StatusEffects.STRENGTH, 200, 2, false, false, true),
                             new StatusEffectInstance(StatusEffects.SPEED, 200, 2, false, false, true),
                             new StatusEffectInstance(StatusEffects.RESISTANCE, 200, 2, false, false, true)}).build();
+
     public ModArmorItem(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }
+
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (entity instanceof PlayerEntity player) {
@@ -39,6 +41,7 @@ public class ModArmorItem extends ArmorItem {
         }
         super.inventoryTick(stack, world, entity, slot, selected);
     }
+
     private void evaluateArmorEffects(PlayerEntity player) {
         for (Map.Entry<ArmorMaterial, StatusEffectInstance[]> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
             ArmorMaterial mapArmorMaterial = entry.getKey();
@@ -48,6 +51,7 @@ public class ModArmorItem extends ArmorItem {
             }
         }
     }
+
     private void addStatusEffectsForMaterial(PlayerEntity player, ArmorMaterial mapArmorMaterial, StatusEffectInstance[] mapStatusEffects) {
         for (StatusEffectInstance effect : mapStatusEffects) {
             boolean hasPlayerEffect = player.hasStatusEffect(effect.getEffectType());
@@ -56,6 +60,7 @@ public class ModArmorItem extends ArmorItem {
             }
         }
     }
+
     private boolean hasFullSuitOfArmorOn(PlayerEntity player) {
         ItemStack boots = player.getInventory().getArmorStack(0);
         ItemStack leggings = player.getInventory().getArmorStack(1);
@@ -64,6 +69,7 @@ public class ModArmorItem extends ArmorItem {
         return !helmet.isEmpty() && !breastplate.isEmpty()
                 && !leggings.isEmpty() && !boots.isEmpty();
     }
+
     private boolean hasCorrectArmorOn(ArmorMaterial material, PlayerEntity player) {
         ItemStack bootsStack = player.getInventory().getArmorStack(0);
         ItemStack leggingsStack = player.getInventory().getArmorStack(1);
@@ -74,6 +80,7 @@ public class ModArmorItem extends ArmorItem {
                 breastplateStack.getItem() instanceof ArmorItem breastplate && breastplate.getMaterial() == material &&
                 helmetStack.getItem() instanceof ArmorItem helmet && helmet.getMaterial() == material;
     }
+
     private void spawnArmorParticles(World world, PlayerEntity player) {
         if (!world.isClient) {
             return;
