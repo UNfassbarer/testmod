@@ -137,7 +137,7 @@ public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
         if (!(world instanceof ServerWorld serverWorld)) return;
 
         serverWorld.getPlayers(player -> player.squaredDistanceTo(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) < 164)
-                .forEach(player -> player.sendMessage(Text.keybind("Coming Soon...;)").formatted(Formatting.GOLD), true));
+                .forEach(player -> player.sendMessage(Text.keybind("Coming Soon...)").formatted(Formatting.GOLD), true));
     }
 
     @Override
