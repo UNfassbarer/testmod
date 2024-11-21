@@ -26,7 +26,7 @@ public class ModTooltipManager implements ClientModInitializer {
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.Nether_Star_Core), "Needs to be placed 2 blocks above the Solar Stabilizer");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.Ardenim_Ore), "Found only in the End!");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.Ardenim_Egg_Ore), "Maybe you will be able to free a secret?");
-        ITEM_TOOLTIP.put(fromBlock(TestModBlocks.Solar_Strabilizer), "Use in combination with a star to control the night");
+        ITEM_TOOLTIP.put(fromBlock(TestModBlocks.Solar_Strabilizer), "Use in combination with a star to control the essence of the night");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.ArdenimiumCrafter), "Better crafting to create powerful Items");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.PatternProvider), "Craft patterns for your tools");
     }
