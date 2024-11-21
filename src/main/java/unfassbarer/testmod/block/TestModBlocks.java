@@ -16,7 +16,7 @@ import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.custom.*;
 
 public class TestModBlocks {
-    // Definition von Blöcken
+
     public static final Block Ardenim_Block =
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).strength(4.0F, 1.0F).requiresTool());
     public static final Block Smooth_Ardenim_Block =
