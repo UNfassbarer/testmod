@@ -95,7 +95,7 @@ public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
         double centerX = pos.getX() + 0.5;
         double centerY = pos.getY() + 0.5;
         double centerZ = pos.getZ() + 0.5;
-        Vector3f yellow = new Vector3f(1.0F, 1.0F, 0.0F); // Yellow
+        Vector3f yellow = new Vector3f(1.0F, 1.0F, 0.0F);
         DustParticleEffect particle = new DustParticleEffect(yellow, 1.0F);
 
         serverWorld.spawnParticles(particle, centerX, centerY, centerZ, 5, 0.2, 0.2, 0.2, 0.0);
@@ -137,7 +137,7 @@ public class ArdenimiumEggEntity extends BlockEntity implements Inventory {
         if (!(world instanceof ServerWorld serverWorld)) return;
 
         serverWorld.getPlayers(player -> player.squaredDistanceTo(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) < 164)
-                .forEach(player -> player.sendMessage(Text.keybind("Coming Soon...)").formatted(Formatting.GOLD), true));
+                .forEach(player -> player.sendMessage(Text.keybind("Coming Soon...").formatted(Formatting.GOLD), true));
     }
 
     @Override
