@@ -88,6 +88,24 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.GLOWSTONE_DUST), conditionsFromItem(Items.GLOWSTONE_DUST))
                 .criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND))
                 .offerTo(exporter, new Identifier(getRecipeName(TestModBlocks.Nether_Star_Core)));
+        //Ardenimium Lamp
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModBlocks.Ardenimium_Lamp, 1)
+                .pattern("GNG")
+                .pattern("RHR")
+                .pattern("SAS")
+                .input('R', Items.REDSTONE)
+                .input('H', Items.HEART_OF_THE_SEA)
+                .input('N', Items.NETHER_STAR)
+                .input('S', TestModBlocks.Ardenim_Slab)
+                .input('G', TestModBlocks.Ardenim_Glass)
+                .input('A', TestModItems.Ardenimium)
+                .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
+                .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                .criterion(hasItem(Items.HEART_OF_THE_SEA), conditionsFromItem(Items.HEART_OF_THE_SEA))
+                .criterion(hasItem(TestModBlocks.Ardenim_Slab), conditionsFromItem(TestModBlocks.Ardenim_Slab))
+                .criterion(hasItem(TestModBlocks.Ardenim_Glass), conditionsFromItem(TestModBlocks.Ardenim_Glass))
+                .criterion(hasItem(TestModItems.Ardenimium), conditionsFromItem(TestModItems.Ardenimium))
+                .offerTo(exporter, new Identifier(getRecipeName(TestModBlocks.Ardenimium_Lamp)));
         //Blank Pattern
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModItems.Blank_Pattern, 1)
                 .pattern("RGR")
