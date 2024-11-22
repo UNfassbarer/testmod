@@ -3,14 +3,21 @@ package unfassbarer.testmod.block.entity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import unfassbarer.testmod.block.custom.ArdenimiumLamp;
+
+import java.util.List;
 
 public class ArdenimiumLampEntity extends BlockEntity {
     public static final BlockEntityType<ArdenimiumLampEntity> TYPE = ModBlockEntities.ARDENIMIUM_LAMP_ENTITY;
@@ -29,9 +36,9 @@ public class ArdenimiumLampEntity extends BlockEntity {
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, ArdenimiumLampEntity entity) {
-        // Überprüfen, ob die Lampe an ist (Redstone-Signal)
+
         if (state.get(ArdenimiumLamp.LIT)) {
-            // Füge Partikel hinzu
+
             for (double[] position : PARTICLE_POSITIONS) {
                 double offsetX = position[0];
                 double offsetY = position[1];
@@ -42,11 +49,29 @@ public class ArdenimiumLampEntity extends BlockEntity {
                 world.addParticle(ParticleTypes.GLOW, particleX, particleY, particleZ, 0.0, 0.01, 0.0);
             }
 
-            // Überprüfen, ob das Geräusch bereits gespielt wird
             if (!world.isClient) {
-                // Spiele ein kontinuierliches Zischen/Brennen-Geräusch ab
                 world.playSound(null, pos, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 0.05f, 0.05f);
+
+                applyEffects(world, pos);
             }
+        }
+    }
+
+    private static void applyEffects(World world, BlockPos pos) {
+        if (!(world instanceof ServerWorld serverWorld)) return;
+        double range = 80.0;
+        long timeOfDay = serverWorld.getTimeOfDay() % 24000;
+        boolean isNight = timeOfDay >= 13000 && timeOfDay <= 23000;
+
+        if (isNight) {
+            range *= 1.5;
+        }
+
+        Box box = new Box(pos).expand(range);
+        List<PlayerEntity> players = serverWorld.getNonSpectatingEntities(PlayerEntity.class, box);
+
+        for (PlayerEntity player : players) {
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 300, 0, true, true, true));
         }
     }
 

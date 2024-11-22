@@ -78,7 +78,7 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
         long timeOfDay = serverWorld.getTimeOfDay();
         boolean isNight = timeOfDay >= 13000 && timeOfDay <= 23000;
         if (isNight && world.getBlockState(pos.down(3)).isOf(TestModBlocks.Solar_Strabilizer)) {
-            double range = 32;
+            double range = 64.0;
             Box box = new Box(pos).expand(range).stretch(0.0, serverWorld.getHeight(), 0.0);
             List<PlayerEntity> players = serverWorld.getNonSpectatingEntities(PlayerEntity.class, box);
             for (PlayerEntity player : players) {

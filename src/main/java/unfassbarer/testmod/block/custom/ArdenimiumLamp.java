@@ -24,7 +24,7 @@ import unfassbarer.testmod.block.entity.ModBlockEntities;
 public class ArdenimiumLamp extends BlockWithEntity {
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
     public static final VoxelShape SHAPE = Block.createCuboidShape(5, 0, 5, 11, 14, 11);
-    public static final MapCodec<ArdenimiumLamp> CODEC = ArdenimiumLamp.createCodec(ArdenimiumLamp::new);
+    public static final MapCodec<ArdenimiumLamp> CODEC = createCodec(ArdenimiumLamp::new);
 
     public ArdenimiumLamp(AbstractBlock.Settings settings) {
         super(settings.luminance(state -> state.get(LIT) ? 15 : 0));
@@ -44,26 +44,14 @@ public class ArdenimiumLamp extends BlockWithEntity {
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(LIT, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
+        boolean isPowered = ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos());
+        return this.getDefaultState().with(LIT, isPowered);
     }
 
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         if (!world.isClient) {
-            boolean shouldBeLit = world.isReceivingRedstonePower(pos);
-            if (state.get(LIT) != shouldBeLit) {
-                world.setBlockState(pos, state.with(LIT, shouldBeLit), 3);
-                if (world instanceof ServerWorld) {
-                    world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    if (shouldBeLit) {
-                        double centerX = pos.getX() + 0.5;
-                        double centerY = pos.getY() + 0.5;
-                        double centerZ = pos.getZ() + 0.5;
-                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD, centerX, centerY, centerZ, 10, 0.2, 0.2, 0.2, 0.0);
-                    }
-                }
-                world.updateNeighbors(pos, this);
-            }
+            updateLitState(state, world, pos);
         }
     }
 
@@ -71,8 +59,26 @@ public class ArdenimiumLamp extends BlockWithEntity {
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (state.get(LIT) && !world.isReceivingRedstonePower(pos)) {
             world.setBlockState(pos, state.with(LIT, false), 3);
-            world.updateNeighbors(pos, this);
         }
+    }
+
+    private void updateLitState(BlockState state, World world, BlockPos pos) {
+        boolean isPowered = world.isReceivingRedstonePower(pos);
+        if (state.get(LIT) != isPowered) {
+            world.setBlockState(pos, state.with(LIT, isPowered), 3);
+            if (isPowered) {
+                playEffects((ServerWorld) world, pos);
+            }
+        }
+    }
+
+    private void playEffects(ServerWorld world, BlockPos pos) {
+        double centerX = pos.getX() + 0.5;
+        double centerY = pos.getY() + 0.5;
+        double centerZ = pos.getZ() + 0.5;
+
+        world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        world.spawnParticles(ParticleTypes.END_ROD, centerX, centerY, centerZ, 10, 0.2, 0.2, 0.2, 0.0);
     }
 
     @Override
@@ -85,8 +91,9 @@ public class ArdenimiumLamp extends BlockWithEntity {
         return BlockRenderType.MODEL;
     }
 
+    @Nullable
     @Override
-    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new ArdenimiumLampEntity(pos, state);
     }
 
