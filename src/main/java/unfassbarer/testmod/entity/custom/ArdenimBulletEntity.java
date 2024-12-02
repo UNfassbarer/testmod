@@ -38,9 +38,7 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
         if (this.getWorld().isClient && this.age % 0.5 == 0) {
             this.getWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.25, this.getZ(),
                     this.getVelocity().x * 0.1, this.getVelocity().y * 0.1, this.getVelocity().z * 0.1);
-            // Send status update to clients
             this.getWorld().sendEntityStatus(this, (byte) 3);
-            // Remove the entity
             this.discard();
         }
     }
@@ -53,16 +51,16 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.getWorld().isClient && this.age % 2 == 0) { // Partikel nur bei jedem 2. Tick erzeugen
+        if (this.getWorld().isClient && this.age % 2 == 0) {
             this.getWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(),
                     this.getVelocity().x * 0.1, this.getVelocity().y * 0.1, this.getVelocity().z * 0.1);
         }
     }
 
-    public void setBulletVelocity(LivingEntity shooter, float pitch, float yaw) {
+    public void setBulletVelocity(LivingEntity shooter, float pitch, float yaw, double bulletSpeed) {
         double velocityX = -Math.sin(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch));
         double velocityY = -Math.sin(Math.toRadians(pitch));
         double velocityZ = Math.cos(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch));
-        this.setVelocity(velocityX, velocityY, velocityZ, (float) BULLET_SPEED, 1.0F);
+        this.setVelocity(velocityX, velocityY, velocityZ, (float) bulletSpeed, 1.0F);
     }
 }

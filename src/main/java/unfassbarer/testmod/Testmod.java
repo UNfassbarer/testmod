@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
+import unfassbarer.testmod.enchants.ModEnchantments;
 import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.custom.ArdenimiumDragonEntity;
 import unfassbarer.testmod.entity.custom.PorcupineEntity;
@@ -52,6 +53,7 @@ public class Testmod implements ModInitializer {
         unfassbarer.testmod.entity.ModEntities.registerModEntities();
         Sounds.registerSounds();
         ModWorldGeneration.generateModWorldGen();
+        ModEnchantments.registerEnchantments();
         Still_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "still_ardenim"), new ArdenimFluid.Still());
         Flowing_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_ardenim"), new ArdenimFluid.Flowing());
         Ardenim_Bucket = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "ardenim_bucket"), new BucketItem(Still_Ardenim, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
