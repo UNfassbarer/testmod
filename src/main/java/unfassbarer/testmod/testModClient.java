@@ -25,10 +25,8 @@ public class testModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ModTooltipManager.registerTooltips();
-        EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY_TYPE, ArdenimBulletRenderer::new);
-        // Setze den RenderLayer für die Ardenim-Door auf Cutout (für transparente Texturen)
+        EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY, ArdenimBulletRenderer::new);
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Door, RenderLayer.getCutout());
-        // Setze den RenderLayer für die Ardenim-Trapdoor auf Cutout (für transparente Texturen)
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Trapdoor, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Glass, RenderLayer.getTranslucent());

@@ -12,16 +12,15 @@ import net.minecraft.world.World;
 
 public class ArdenimBulletEntity extends ThrownItemEntity {
     private static final float BULLET_DAMAGE = 15.0f;
-    private static final double BULLET_SPEED = 4.0f;
 
     public ArdenimBulletEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
-        this.setNoGravity(true);
+        this.setNoGravity(false);
     }
 
     public ArdenimBulletEntity(EntityType<? extends ThrownItemEntity> entityType, LivingEntity livingEntity, World world) {
         super(entityType, livingEntity, world);
-        this.setNoGravity(true);
+        this.setNoGravity(false);
     }
 
     @Override

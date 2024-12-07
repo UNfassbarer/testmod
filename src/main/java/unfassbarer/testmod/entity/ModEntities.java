@@ -23,7 +23,7 @@ public class ModEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ArdenimiumDragonEntity::new)
                     .dimensions(EntityDimensions.fixed(2.75f, 2.75f)).build());
 
-    public static final EntityType<ArdenimBulletEntity> ARDENIM_BULLET_ENTITY_TYPE = Registry.register(
+    public static final EntityType<ArdenimBulletEntity> ARDENIM_BULLET_ENTITY = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(Testmod.MOD_ID, "ardenim_bullet"),
             FabricEntityTypeBuilder.<ArdenimBulletEntity>create()

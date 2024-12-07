@@ -3,7 +3,7 @@ package unfassbarer.testmod.item.custom;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BowItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
@@ -16,7 +16,7 @@ import unfassbarer.testmod.entity.custom.ArdenimBulletEntity;
 import unfassbarer.testmod.item.TestModItems;
 import unfassbarer.testmod.sounds.Sounds;
 
-public class GunItem extends BowItem {
+public class GunItem extends Item {
     private static final int MAX_DAMAGE = 250;
 
     public GunItem(Settings settings) {
@@ -58,7 +58,7 @@ public class GunItem extends BowItem {
         double bulletSpeed = 4.0f * speedModifier;  // Basisgeschwindigkeit (4.0f) multipliziert mit dem Modifier
 
         // Erstelle die Bullet-Entity und setze die Geschwindigkeit
-        ArdenimBulletEntity bulletEntity = new ArdenimBulletEntity(ModEntities.ARDENIM_BULLET_ENTITY_TYPE, user, world);
+        ArdenimBulletEntity bulletEntity = new ArdenimBulletEntity(ModEntities.ARDENIM_BULLET_ENTITY, user, world);
         bulletEntity.setOwner(user);
         bulletEntity.refreshPositionAndAngles(user.getX(), user.getEyeY() - 0.1, user.getZ(), user.getYaw(), user.getPitch());
         bulletEntity.setBulletVelocity(user, user.getPitch(), user.getYaw(), bulletSpeed);  // Setze die Geschwindigkeit der Kugel
