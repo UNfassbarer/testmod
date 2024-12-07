@@ -9,7 +9,7 @@ import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.Testmod;
+import unfassbarer.testmod.TestmodInitializer;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.item.TestModItems;
 
@@ -28,7 +28,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                         TestModItems.Ardenim,
                         Text.translatable("advancement.testmod.next.title"),
                         Text.translatable("advancement.testmod.next.description"),
-                        new Identifier(Testmod.MOD_ID, "textures/block/smooth_ardenim_block.png"),
+                        new Identifier(TestmodInitializer.MOD_ID, "textures/block/smooth_ardenim_block.png"),
                         AdvancementFrame.GOAL,
                         true,
                         true,
@@ -36,7 +36,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 )
                 .criterion("get_ardenim", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "ardenim").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "ardenim").toString());
 
         AdvancementEntry ardenim_apple = Advancement.Builder.create()
                 .parent(ardenim)
@@ -52,7 +52,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 )
                 .criterion("get_ardenim_apple", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_apple))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "ardenim_apple").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "ardenim_apple").toString());
 
         AdvancementEntry ardenimium_egg = Advancement.Builder.create()
                 .parent(ardenim)
@@ -68,7 +68,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 )
                 .criterion("get_ardenimium_egg", InventoryChangedCriterion.Conditions.items(TestModBlocks.Ardenimium_Egg))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "ardenimium_egg").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "ardenimium_egg").toString());
 
         AdvancementEntry ardenim_tools = Advancement.Builder.create()
                 .parent(ardenim)
@@ -88,7 +88,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .criterion("craft_ardenim_axe", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Axe))
                 .criterion("craft_ardenim_pickaxe", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Pickaxe))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_ardenim_tools").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_ardenim_tools").toString());
 
         AdvancementEntry ardenim_armor = Advancement.Builder.create()
                 .parent(ardenim)
@@ -107,7 +107,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .criterion("craft_ardenim_leggings", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Leggings))
                 .criterion("craft_ardenim_boots", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenim_Boots))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_ardenim_armor").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_ardenim_armor").toString());
 
         AdvancementEntry ardenimium = Advancement.Builder.create()
                 .parent(ardenim)
@@ -123,7 +123,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 )
                 .criterion("get_ardenimium", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenimium))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_ardenimium").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_ardenimium").toString());
 
         AdvancementEntry ardenimium_apple = Advancement.Builder.create()
                 .parent(ardenim_apple)
@@ -139,7 +139,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 )
                 .criterion("get_ardenimium_apple", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenimium_apple))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "ardenimium_apple").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "ardenimium_apple").toString());
 
         AdvancementEntry pattern_provider = Advancement.Builder.create()
                 .parent(ardenimium)
@@ -155,7 +155,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 )
                 .criterion("get_pattern_provider", InventoryChangedCriterion.Conditions.items(TestModBlocks.PatternProvider))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_pattern_provider").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_pattern_provider").toString());
 
         AdvancementEntry ardenimium_crafter = Advancement.Builder.create()
                 .parent(pattern_provider)
@@ -171,7 +171,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 )
                 .criterion("get_ardenimium_crafter", InventoryChangedCriterion.Conditions.items(TestModBlocks.ArdenimiumCrafter))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_ardenimium_crafter").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_ardenimium_crafter").toString());
 
         AdvancementEntry solar_stabilizer_and_nether_star_core = Advancement.Builder.create()
                 .parent(ardenimium)
@@ -188,7 +188,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .criterion("get_nether_star_core", InventoryChangedCriterion.Conditions.items(TestModBlocks.Nether_Star_Core))
                 .criterion("get_solar_stabilizer", InventoryChangedCriterion.Conditions.items(TestModBlocks.Solar_Strabilizer))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_solar_stabilizer_and_nether_star_core").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_solar_stabilizer_and_nether_star_core").toString());
 
         AdvancementEntry ardenimium_armor = Advancement.Builder.create()
                 .parent(ardenimium_crafter)
@@ -207,7 +207,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .criterion("craft_ardenimium_leggings", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenimium_Leggings))
                 .criterion("craft_ardenimium_boots", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenimium_Boots))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_ardenimium_armor").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_ardenimium_armor").toString());
 
         AdvancementEntry get_ardenimium_gun_and_ardenimium_bullet = Advancement.Builder.create()
                 .parent(ardenimium_crafter)
@@ -224,7 +224,7 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .criterion("get_ardenimium_gun", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenimium_Gun))
                 .criterion("get_ardenimium_bullet", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenimium_Bullet))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_ardenimium_gun_and_ardenimium_bullet").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_ardenimium_gun_and_ardenimium_bullet").toString());
 
         AdvancementEntry ardenimium_tools = Advancement.Builder.create()
                 .parent(ardenimium_crafter)
@@ -244,6 +244,6 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .criterion("craft_ardenimium_pickaxe", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenimium_Pickaxe))
                 .criterion("craft_ardenimium_hoe", InventoryChangedCriterion.Conditions.items(TestModItems.Ardenimium_Hoe))
                 .rewards(AdvancementRewards.Builder.experience(500))
-                .build(consumer, new Identifier(Testmod.MOD_ID, "get_ardenimium_tools").toString());
+                .build(consumer, new Identifier(TestmodInitializer.MOD_ID, "get_ardenimium_tools").toString());
     }
 }

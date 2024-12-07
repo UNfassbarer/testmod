@@ -11,6 +11,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import unfassbarer.testmod.enchants.FasterReload;
 import unfassbarer.testmod.entity.ModEntities;
@@ -47,11 +48,9 @@ public class GunItem extends Item {
             }
         }).start();
     }
-
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-
         // Überprüfen, ob noch Munition (Ardenimium Bullet) vorhanden ist
         if (!user.getInventory().contains(new ItemStack(TestModItems.Ardenimium_Bullet))) {
             user.sendMessage(Text.literal("No Bullets left!"), true);
@@ -110,7 +109,8 @@ public class GunItem extends Item {
         // Spiele den Schuss-Sound ab
         world.playSound(null, user.getX(), user.getY(), user.getZ(), Sounds.GUN_SHOOT, SoundCategory.PLAYERS, 0.25F, 1.0F);
 
-        return TypedActionResult.success(itemStack);
+       // return TypedActionResult.success(itemStack);
+        return TypedActionResult.pass(itemStack);
     }
 
     @Override

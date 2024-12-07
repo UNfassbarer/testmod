@@ -1,19 +1,15 @@
 package unfassbarer.testmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.Testmod;
-import unfassbarer.testmod.enchants.FasterReload;
+import unfassbarer.testmod.TestmodInitializer;
 import unfassbarer.testmod.item.custom.GunItem;
 import unfassbarer.testmod.item.custom.ModArmorItem;
-
-import java.util.Collections;
 
 public class TestModItems {
     public static final Item Ardenim = registerItem("ardenim",
@@ -122,10 +118,10 @@ public class TestModItems {
             new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(Testmod.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, new Identifier(TestmodInitializer.MOD_ID, name), item);
     }
 
     public static void registerModItems() {
-        Testmod.LOGGER.info("Registering Mod Items for " + Testmod.MOD_ID);
+        TestmodInitializer.LOGGER.info("Registering Mod Items for " + TestmodInitializer.MOD_ID);
     }
 }

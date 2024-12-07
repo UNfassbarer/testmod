@@ -11,7 +11,7 @@ import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.Testmod;
+import unfassbarer.testmod.TestmodInitializer;
 import unfassbarer.testmod.block.TestModBlocks;
 
 import java.util.LinkedList;
@@ -19,9 +19,9 @@ import java.util.List;
 
 public class PatternProviderCategory implements DisplayCategory<BasicDisplay> {
     public static final Identifier TEXTURE =
-            new Identifier(Testmod.MOD_ID, "textures/gui/pattern_provider_gui.png");
+            new Identifier(TestmodInitializer.MOD_ID, "textures/gui/pattern_provider_gui.png");
     public static final CategoryIdentifier<PatternProviderDisplay> PATTERN_PROVIDING =
-            CategoryIdentifier.of(Testmod.MOD_ID, "pattern_providing");
+            CategoryIdentifier.of(TestmodInitializer.MOD_ID, "pattern_providing");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

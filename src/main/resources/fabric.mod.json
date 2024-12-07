@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "unfassbarer.testmod.Testmod"
+      "unfassbarer.testmod.TestmodInitializer"
     ],
     "client": [
       "unfassbarer.testmod.testModClient"

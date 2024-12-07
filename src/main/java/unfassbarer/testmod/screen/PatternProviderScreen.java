@@ -7,10 +7,10 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.Testmod;
+import unfassbarer.testmod.TestmodInitializer;
 
 public class PatternProviderScreen extends HandledScreen<PatternProviderScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(Testmod.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
+    private static final Identifier TEXTURE = new Identifier(TestmodInitializer.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
 
     public PatternProviderScreen(PatternProviderScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

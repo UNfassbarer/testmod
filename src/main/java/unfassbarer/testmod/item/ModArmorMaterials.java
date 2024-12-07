@@ -5,7 +5,7 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import unfassbarer.testmod.Testmod;
+import unfassbarer.testmod.TestmodInitializer;
 
 import java.util.function.Supplier;
 
@@ -62,7 +62,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return Testmod.MOD_ID + ":" + this.name;
+        return TestmodInitializer.MOD_ID + ":" + this.name;
     }
 
     @Override

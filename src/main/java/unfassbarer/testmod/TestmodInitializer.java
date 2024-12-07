@@ -3,7 +3,6 @@ package unfassbarer.testmod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
@@ -13,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,14 +30,14 @@ import unfassbarer.testmod.sounds.Sounds;
 import unfassbarer.testmod.util.ModLootTableModifiers;
 import unfassbarer.testmod.world.gen.ModWorldGeneration;
 
-public class Testmod implements ModInitializer {
+public class TestmodInitializer implements ModInitializer {
     public static final String MOD_ID = "testmod";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static FlowableFluid Still_Ardenim;
     public static FlowableFluid Flowing_Ardenim;
     public static Item Ardenim_Bucket;
     public static Block Ardenim_Fluid_Block;
-
+    private static boolean initialized;
     @Override
     public void onInitialize() {
         ItemGroup.registerItemGroups();
@@ -54,6 +52,13 @@ public class Testmod implements ModInitializer {
         Sounds.registerSounds();
         ModWorldGeneration.generateModWorldGen();
         ModEnchantments.registerEnchantments();
+
+        if (initialized) {
+            throw new RuntimeException("WiZoomInitializer.onInitialize() ran twice!");
+        }
+        testmod.INSTANCE.initialize();
+        initialized = true;
+
         Still_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "still_ardenim"), new ArdenimFluid.Still());
         Flowing_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_ardenim"), new ArdenimFluid.Flowing());
         Ardenim_Bucket = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "ardenim_bucket"), new BucketItem(Still_Ardenim, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));

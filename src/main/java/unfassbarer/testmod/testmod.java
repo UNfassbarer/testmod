@@ -1,0 +1,103 @@
+package unfassbarer.testmod;
+
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
+import net.fabricmc.loader.api.Version;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.option.SimpleOption;
+import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.math.MathHelper;
+import org.lwjgl.glfw.GLFW;
+
+public enum testmod
+{
+INSTANCE;
+
+public static final MinecraftClient MC = MinecraftClient.getInstance();
+
+private KeyBinding zoomKey;
+private final double defaultLevel = 3;
+private Double currentLevel;
+private Double defaultMouseSensitivity;
+
+    public void initialize()
+    {
+        FabricLoader fabricLoader = FabricLoader.getInstance();
+        // Safely attempt to get the mod container
+        var modContainerOptional = fabricLoader.getModContainer("testmod");
+
+        // Check if the mod container is present and if not, log an error or handle it
+        if (modContainerOptional.isPresent()) {
+            ModContainer modContainer = modContainerOptional.get();
+            Version version = modContainer.getMetadata().getVersion();
+            System.out.println("Starting WI Zoom v" + version.getFriendlyString());
+        } else {
+            System.err.println("Mod container for 'testmod' not found. Is the mod loaded correctly?");
+        }
+
+        zoomKey = new KeyBinding("key.testmod.zoom", InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_V, "WI Zoom");
+        KeyBindingHelper.registerKeyBinding(zoomKey);
+    }
+
+
+    public double changeFovBasedOnZoom(double fov)
+    {
+        if (zoomKey == null) {
+            System.out.println("zoomKey is null, initializing...");
+            initialize();  // Initialize zoomKey, if it is null (should only happen once)
+        }
+
+        SimpleOption<Double> mouseSensitivitySetting =
+                MC.options.getMouseSensitivity();
+
+        if (currentLevel == null)
+            currentLevel = defaultLevel;
+
+        if (!zoomKey.isPressed()) {
+            currentLevel = defaultLevel;
+
+            if (defaultMouseSensitivity != null) {
+                mouseSensitivitySetting.setValue(defaultMouseSensitivity);
+                defaultMouseSensitivity = null;
+            }
+
+            return fov;
+        }
+
+        if (defaultMouseSensitivity == null)
+            defaultMouseSensitivity = mouseSensitivitySetting.getValue();
+
+        // Adjust mouse sensitivity in relation to zoom level.
+        // 1.0 / currentLevel is a value between 0.02 (50x zoom)
+        // and 1 (no zoom).
+        mouseSensitivitySetting.setValue(defaultMouseSensitivity * (1.0 / currentLevel));
+
+        return fov / currentLevel;
+    }
+
+
+
+public void onMouseScroll(double amount)
+{
+    if(!zoomKey.isPressed())
+        return;
+
+    if(currentLevel == null)
+        currentLevel = defaultLevel;
+
+    if(amount > 0)
+        currentLevel *= 1.1;
+    else if(amount < 0)
+        currentLevel *= 0.9;
+
+    currentLevel = MathHelper.clamp(currentLevel, 1, 50);
+}
+
+public KeyBinding getZoomKey()
+{
+    return zoomKey;
+}
+}
