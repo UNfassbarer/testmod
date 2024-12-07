@@ -1,4 +1,4 @@
-// 1.20.4	2024-11-22T17:27:12.5466911	testmod/Recipes
+// 1.20.4	2024-12-07T12:01:56.0751081	testmod/Recipes
 64f771e36e5ef6dbb2f795bfa76d1c3a7977105d data\testmod\advancements\recipes\misc\ardenim_leggings.json
 af7dcf2f06e33586cea54335a0cf9b1dbf8d362b data\testmod\recipes\ardenim_block.json
 f6931f81e9f1dafc863d2f9d2a1f2d1e05813a97 data\testmod\recipes\ardenim_nugget_from_blasting_ardenim_helmet.json
@@ -57,7 +57,7 @@ e77dfdd3224ab820d9311bb29992d67bd69f7528 data\testmod\recipes\smooth_ardenim_blo
 73b8157fe998a626a1f79485e57b10f4e34ffe33 data\testmod\recipes\ardenim_hoe.json
 e91e13015a48bebf45d64e43aadf414d8939ba0e data\testmod\advancements\recipes\misc\ardenim_trapdoor.json
 fde7dd5b5b6ce2e4ba7263e1c8be960232bed12f data\testmod\recipes\ardenim_trapdoor.json
-cca1796fb58b3d87e33736ae06d3cf117ddce584 data\testmod\recipes\ardenimium_bullet.json
+787d7043e1f292214bacc5c74d6a6f04a54317f1 data\testmod\recipes\ardenimium_bullet.json
 8e8efce470041dd52f354b9f413368f0218cfd0b data\testmod\advancements\recipes\misc\ardenim_nugget_from_blasting_ardenim_pickaxe.json
 4f889708748e2421952b58b2d444ca011f7bdb24 data\testmod\recipes\ardenim_fence_gate.json
 8b3591f7b52419deed60a42098b5d48aa17983d0 data\testmod\advancements\recipes\building_blocks\ardenim_brick_slab_from_ardenim_block_stonecutting.json

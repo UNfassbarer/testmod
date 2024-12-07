@@ -421,7 +421,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(TestModItems.Ardenim), conditionsFromItem(TestModItems.Ardenim))
                 .offerTo(exporter, new Identifier(getRecipeName(TestModBlocks.Ardenim_Trapdoor)));
         //Ardenimium Bullet
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModItems.Ardenimium_Bullet, 4)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModItems.Ardenimium_Bullet, 8)
                 .pattern("IAI")
                 .pattern("III")
                 .input('A', TestModItems.Ardenimium_Nugget)

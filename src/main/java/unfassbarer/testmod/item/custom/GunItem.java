@@ -1,5 +1,7 @@
 package unfassbarer.testmod.item.custom;
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,6 +25,29 @@ public class GunItem extends Item {
         super(settings.maxDamage(MAX_DAMAGE));
     }
 
+    private void scheduleRecoilReset(ClientPlayerEntity player, float recoil, float shake, int duration) {
+        // Neue Thread-Logik für Rückkehr
+        new Thread(() -> {
+            try {
+                float stepPitch = recoil / duration; // Pro-Tick-Wert für Pitch
+                float stepYaw = shake / duration;   // Pro-Tick-Wert für Yaw
+
+                for (int i = 0; i < duration; i++) {
+                    Thread.sleep(50); // Wartezeit zwischen den Änderungen (50ms = 1 Tick)
+                    float newPitch = player.getPitch() - stepPitch;
+                    float newYaw = player.getYaw() - stepYaw;
+
+                    MinecraftClient.getInstance().execute(() -> {
+                        player.setPitch(newPitch);
+                        player.setYaw(newYaw);
+                    });
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
@@ -32,6 +57,22 @@ public class GunItem extends Item {
             user.sendMessage(Text.literal("No Bullets left!"), true);
             return TypedActionResult.fail(itemStack);
         }
+        if (world.isClient()) {
+            MinecraftClient client = MinecraftClient.getInstance();
+            if (client.player != null) {
+                // Rückstoß initialisieren
+                float recoil = -1.5F; // Vertikaler Rückstoß
+                float shake = (world.random.nextFloat() - 0.5F) * 1.5F; // Seitliche Schwankung
+
+                // Rückstoß anwenden
+                client.player.setPitch(client.player.getPitch() + recoil);
+                client.player.setYaw(client.player.getYaw() + shake);
+
+                // Rückkehr zur Ausgangsposition starten
+                scheduleRecoilReset(client.player, recoil, shake, 5); // Dauer: 5 Ticks
+            }
+        }
+
 
         // Überprüfen, ob das Enchantment "Infinity" vorhanden ist (optional)
         boolean hasINFINITY = EnchantmentHelper.getLevel(Enchantments.INFINITY, itemStack) > 0;
