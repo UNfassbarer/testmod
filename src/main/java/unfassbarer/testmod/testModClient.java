@@ -2,7 +2,6 @@ package unfassbarer.testmod;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -23,6 +22,7 @@ import unfassbarer.testmod.screen.PatternProviderScreen;
 import unfassbarer.testmod.tooltip.ModTooltipManager;
 
 public class testModClient implements ClientModInitializer {
+    private static boolean initialized;
     @Override
     public void onInitializeClient() {
         ModTooltipManager.registerTooltips();

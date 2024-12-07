@@ -37,7 +37,6 @@ public class TestmodInitializer implements ModInitializer {
     public static FlowableFluid Flowing_Ardenim;
     public static Item Ardenim_Bucket;
     public static Block Ardenim_Fluid_Block;
-    private static boolean initialized;
     @Override
     public void onInitialize() {
         ItemGroup.registerItemGroups();
@@ -52,13 +51,6 @@ public class TestmodInitializer implements ModInitializer {
         Sounds.registerSounds();
         ModWorldGeneration.generateModWorldGen();
         ModEnchantments.registerEnchantments();
-
-        if (initialized) {
-            throw new RuntimeException("WiZoomInitializer.onInitialize() ran twice!");
-        }
-        testmod.INSTANCE.initialize();
-        initialized = true;
-
         Still_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "still_ardenim"), new ArdenimFluid.Still());
         Flowing_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_ardenim"), new ArdenimFluid.Flowing());
         Ardenim_Bucket = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "ardenim_bucket"), new BucketItem(Still_Ardenim, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
