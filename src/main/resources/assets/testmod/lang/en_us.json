@@ -66,5 +66,9 @@
   "item.testmod.boots_pattern": "Boots Pattern",
   "block.testmod.ardenimium_egg": "Ardenimium Egg",
   "block.testmod.ardenimium_lamp": "Ardenimium Lamp",
-  "block.testmod.ardenim_neon_block": "Ardenim Neon Block"
+  "block.testmod.ardenim_neon_block": "Ardenim Neon Block",
+
+
+  "key.logical_zoom.zoom": "Toggle Zoom",
+  "category.logical_zoom.zoom": "Logical Zoom"
 }

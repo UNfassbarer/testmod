@@ -5,6 +5,7 @@
   "mixins": [
   ],
   "client": [
+    "LogicalZoomMixin"
   ],
   "injectors": {
     "defaultRequire": 1
