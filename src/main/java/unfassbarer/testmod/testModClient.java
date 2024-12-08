@@ -1,5 +1,6 @@
 package unfassbarer.testmod;
 
+import dev.architectury.platform.Mod;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -10,6 +11,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 import unfassbarer.testmod.block.TestModBlocks;
@@ -94,7 +96,6 @@ public class testModClient implements ClientModInitializer {
             disableSmoothCamera();
         }
         ModTooltipManager.registerTooltips();
-        EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY, ArdenimBulletRenderer::new);
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Door, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Trapdoor, RenderLayer.getCutout());
 
@@ -113,9 +114,11 @@ public class testModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
-
         EntityRendererRegistry.register(ModEntities.ARDENIMIUM_DRAGON, ArdenimiumDragonRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ARDENIMIUM_DRAGON, ArdenimiumDragonModel::getTexturedModelData);
+
         BlockRenderLayerMap.INSTANCE.putBlock(ArdenimNeonBlock.Ardenim_Neon_Block, RenderLayer.getCutout());
+
+        EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY, FlyingItemEntityRenderer::new);
     }
 }

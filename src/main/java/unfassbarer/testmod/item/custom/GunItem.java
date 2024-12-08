@@ -11,108 +11,100 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import unfassbarer.testmod.enchants.FasterReload;
-import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.custom.ArdenimBulletEntity;
 import unfassbarer.testmod.item.TestModItems;
 import unfassbarer.testmod.sounds.Sounds;
 
 public class GunItem extends Item {
     private static final int MAX_DAMAGE = 250;
-
     public GunItem(Settings settings) {
         super(settings.maxDamage(MAX_DAMAGE));
     }
-
+    private void applyRecoil(ClientPlayerEntity player, float recoil, float shake) {
+        player.setPitch(player.getPitch() + recoil);
+        player.setYaw(player.getYaw() + shake);
+    }
     private void scheduleRecoilReset(ClientPlayerEntity player, float recoil, float shake, int duration) {
-        // Neue Thread-Logik für Rückkehr
-        new Thread(() -> {
+        MinecraftClient client = MinecraftClient.getInstance();
+        for (int i = 0; i < duration; i++) {
+            client.execute(() -> {
+                float stepPitch = recoil / duration;
+                float stepYaw = shake / duration;
+                player.setPitch(player.getPitch() - stepPitch);
+                player.setYaw(player.getYaw() - stepYaw);
+            });
             try {
-                float stepPitch = recoil / duration; // Pro-Tick-Wert für Pitch
-                float stepYaw = shake / duration;   // Pro-Tick-Wert für Yaw
-
-                for (int i = 0; i < duration; i++) {
-                    Thread.sleep(50); // Wartezeit zwischen den Änderungen (50ms = 1 Tick)
-                    float newPitch = player.getPitch() - stepPitch;
-                    float newYaw = player.getYaw() - stepYaw;
-
-                    MinecraftClient.getInstance().execute(() -> {
-                        player.setPitch(newPitch);
-                        player.setYaw(newYaw);
-                    });
-                }
+                Thread.sleep(50); // Simuliert einen Tick (20 Ticks pro Sekunde)
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }).start();
+        }
     }
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemstack = user.getStackInHand(hand);
+        world.playSound(null, user.getX(), user.getY(), user.getZ(), Sounds.GUN_SHOOT, SoundCategory.NEUTRAL,1.5F, 1F);
+        user.getItemCooldownManager().set(this, 40);
+
         ItemStack itemStack = user.getStackInHand(hand);
-        // Überprüfen, ob noch Munition (Ardenimium Bullet) vorhanden ist
-        if (!user.getInventory().contains(new ItemStack(TestModItems.Ardenimium_Bullet))) {
-            user.sendMessage(Text.literal("No Bullets left!"), true);
+
+        // Überprüfen, ob Munition vorhanden ist
+        ItemStack ammoStack = new ItemStack(TestModItems.Ardenimium_Bullet);
+        if (!user.getInventory().contains(ammoStack)) {
+            if (!world.isClient()) {
+                user.sendMessage(Text.literal("No Bullets left!"), true);
+            }
             return TypedActionResult.fail(itemStack);
         }
+
         if (world.isClient()) {
             MinecraftClient client = MinecraftClient.getInstance();
             if (client.player != null) {
-                // Rückstoß initialisieren
-                float recoil = -1.5F; // Vertikaler Rückstoß
-                float shake = (world.random.nextFloat() - 0.5F) * 1.5F; // Seitliche Schwankung
+                // Rückstoß
+                float recoil = -1.5F;
+                float shake = (world.random.nextFloat() - 0.5F) * 1.5F;
 
-                // Rückstoß anwenden
-                client.player.setPitch(client.player.getPitch() + recoil);
-                client.player.setYaw(client.player.getYaw() + shake);
-
-                // Rückkehr zur Ausgangsposition starten
-                scheduleRecoilReset(client.player, recoil, shake, 5); // Dauer: 5 Ticks
+                applyRecoil(client.player, recoil, shake);
+                scheduleRecoilReset(client.player, recoil, shake, 5);
             }
         }
 
+        boolean hasInfinity = EnchantmentHelper.getLevel(Enchantments.INFINITY, itemStack) > 0;
 
-        // Überprüfen, ob das Enchantment "Infinity" vorhanden ist (optional)
-        boolean hasINFINITY = EnchantmentHelper.getLevel(Enchantments.INFINITY, itemStack) > 0;
+        // Munition verbrauchen
+        if (!hasInfinity) {
+            int slot = user.getInventory().getSlotWithStack(ammoStack);
+            if (slot >= 0) {
+                user.getInventory().removeStack(slot, 1);
+            }
+        }
 
-        // Überprüfen, ob das Enchantment "Unbreaking" vorhanden ist
+        // Schaden basierend auf Unbreaking berechnen
         int unbreakingLevel = EnchantmentHelper.getLevel(Enchantments.UNBREAKING, itemStack);
-        boolean hasUnbreaking = unbreakingLevel > 0;
-
-        // Wenn Infinity nicht vorhanden ist, entferne eine Kugel aus dem Inventar
-        if (!hasINFINITY) {
-            user.getInventory().removeStack(user.getInventory().getSlotWithStack(new ItemStack(TestModItems.Ardenimium_Bullet)), 1);
+        if (unbreakingLevel == 0 || world.random.nextInt(unbreakingLevel + 1) == 0) {
+            itemStack.damage(1, user, entity -> entity.sendToolBreakStatus(hand));
         }
 
-        // Berechne die Schadenshöhe basierend auf Unbreaking
-        int damageAmount = 1;
-        if (hasUnbreaking && world.random.nextInt(unbreakingLevel + 1) > 0) {
-            damageAmount = 0;
-        }
-        itemStack.damage(damageAmount, user, entity -> entity.sendToolBreakStatus(hand));
+        // Bullet-Geschwindigkeit berechnen
+        int reloadLevel = EnchantmentHelper.getLevel(FasterReload.INSTANCE, itemStack);
+        double speedModifier = FasterReload.INSTANCE.getBulletSpeedModifier(reloadLevel);
+        double bulletSpeed = 4.0f * speedModifier;
 
-        // Berechne die Bullet-Geschwindigkeit basierend auf dem Enchantment-Level von FasterReload
-        int reloadLevel = EnchantmentHelper.getLevel(FasterReload.INSTANCE, itemStack); // Verwende FasterReload.INSTANCE anstelle von Class
-        double speedModifier = FasterReload.INSTANCE.getBulletSpeedModifier(reloadLevel);  // Nutze die Methode der Instanz
-        double bulletSpeed = 4.0f * speedModifier;  // Basisgeschwindigkeit (4.0f) multipliziert mit dem Modifier
-
-        // Erstelle die Bullet-Entity und setze die Geschwindigkeit
-        ArdenimBulletEntity bulletEntity = new ArdenimBulletEntity(ModEntities.ARDENIM_BULLET_ENTITY, user, world);
+        // Bullet erstellen und abschießen
+        ArdenimBulletEntity bulletEntity = new ArdenimBulletEntity(user, world);
         bulletEntity.setOwner(user);
         bulletEntity.refreshPositionAndAngles(user.getX(), user.getEyeY() - 0.1, user.getZ(), user.getYaw(), user.getPitch());
-        bulletEntity.setBulletVelocity(user, user.getPitch(), user.getYaw(), bulletSpeed);  // Setze die Geschwindigkeit der Kugel
-
-        // Spawne die Bullet-Entity in der Welt
+        bulletEntity.setBulletVelocity(user, user.getPitch(), user.getYaw(), bulletSpeed);
         world.spawnEntity(bulletEntity);
 
-        // Spiele den Schuss-Sound ab
+        // Schusssound
         world.playSound(null, user.getX(), user.getY(), user.getZ(), Sounds.GUN_SHOOT, SoundCategory.PLAYERS, 0.25F, 1.0F);
 
-       // return TypedActionResult.success(itemStack);
-        return TypedActionResult.pass(itemStack);
+        return TypedActionResult.success(itemStack);
     }
-
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return ingredient.getItem() == TestModItems.Ardenimium_Gun;
@@ -125,7 +117,6 @@ public class GunItem extends Item {
 
     @Override
     public boolean isEnchantable(ItemStack stack) {
-        // Erlaube, das "FasterReload"-Enchantment auf diesem Item zu verzaubern
         return true;
     }
 }

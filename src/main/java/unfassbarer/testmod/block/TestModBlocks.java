@@ -12,7 +12,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import unfassbarer.testmod.TestmodInitializer;
+import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.custom.*;
 
 public class TestModBlocks {
@@ -78,11 +78,11 @@ public class TestModBlocks {
 
     private static void registerBlock(String name, Block block) {
         registerBlockItem(name, block);
-        Registry.register(Registries.BLOCK, new Identifier(TestmodInitializer.MOD_ID, name), block);
+        Registry.register(Registries.BLOCK, new Identifier(Testmod.MOD_ID, name), block);
     }
 
     public static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(TestmodInitializer.MOD_ID, name),
+        return Registry.register(Registries.ITEM, new Identifier(Testmod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
     }
 
@@ -115,6 +115,6 @@ public class TestModBlocks {
         registerBlock("ardenimium_egg", Ardenimium_Egg);
         registerBlock("ardenimium_lamp", Ardenimium_Lamp);
         registerBlock("ardenim_neon_block", ArdenimNeonBlock.Ardenim_Neon_Block);
-        TestmodInitializer.LOGGER.info("Registering Mod Blocks for " + TestmodInitializer.MOD_ID);
+        Testmod.LOGGER.info("Registering Mod Blocks for " + Testmod.MOD_ID);
     }
 }

@@ -5,11 +5,11 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.TestmodInitializer;
+import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.entity.custom.ArdenimiumDragonEntity;
 
 public class ArdenimiumDragonRenderer extends MobEntityRenderer<ArdenimiumDragonEntity, ArdenimiumDragonModel<ArdenimiumDragonEntity>> {
-    private static final Identifier TEXTURE = new Identifier(TestmodInitializer.MOD_ID, "textures/entity/ardenimium_dragon.png");
+    private static final Identifier TEXTURE = new Identifier(Testmod.MOD_ID, "textures/entity/ardenimium_dragon.png");
 
     public ArdenimiumDragonRenderer(EntityRendererFactory.Context context) {
         super(context, new ArdenimiumDragonModel<>(context.getPart(ModModelLayers.ARDENIMIUM_DRAGON)), 0.6f);

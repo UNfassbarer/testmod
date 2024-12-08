@@ -7,10 +7,10 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.TestmodInitializer;
+import unfassbarer.testmod.Testmod;
 
 public class ArdenimiumCrafterScreen extends HandledScreen<ArdenimiumCrafterScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(TestmodInitializer.MOD_ID, "textures/gui/ardenimium_crafter_gui.png");
+    private static final Identifier TEXTURE = new Identifier(Testmod.MOD_ID, "textures/gui/ardenimium_crafter_gui.png");
 
     public ArdenimiumCrafterScreen(ArdenimiumCrafterScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

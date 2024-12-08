@@ -6,14 +6,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.TestmodInitializer;
+import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 
 public class ItemGroup {
     public static final net.minecraft.item.ItemGroup ARDENIM_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(TestmodInitializer.MOD_ID, "ardenim"),
-            FabricItemGroup.builder().displayName(Text.translatable("TestmodInitializer"))
+            new Identifier(Testmod.MOD_ID, "ardenim"),
+            FabricItemGroup.builder().displayName(Text.translatable("Testmod"))
                     .icon(() -> new ItemStack(TestModItems.Ardenim)).entries((displayContext, entries) -> {
 
                         entries.add(TestModItems.Ardenim);
@@ -80,13 +80,13 @@ public class ItemGroup {
                         entries.add(TestModItems.Leggings_Pattern);
                         entries.add(TestModItems.Boots_Pattern);
                         entries.add(TestModBlocks.Ardenimium_Egg);
-                        entries.add(TestmodInitializer.Ardenim_Bucket);
+                        entries.add(Testmod.Ardenim_Bucket);
                         entries.add(TestModBlocks.PatternProvider);
                         entries.add(TestModBlocks.Ardenimium_Lamp);
                         entries.add(ArdenimNeonBlock.Ardenim_Neon_Block);
                     }).build());
 
     public static void registerItemGroups() {
-        TestmodInitializer.LOGGER.info("Registering Item Group for " + TestmodInitializer.MOD_ID);
+        Testmod.LOGGER.info("Registering Item Group for " + Testmod.MOD_ID);
     }
 }

@@ -7,7 +7,7 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.TestmodInitializer;
+import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.item.custom.GunItem;
 import unfassbarer.testmod.item.custom.ModArmorItem;
 
@@ -118,10 +118,10 @@ public class TestModItems {
             new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(TestmodInitializer.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, new Identifier(Testmod.MOD_ID, name), item);
     }
 
     public static void registerModItems() {
-        TestmodInitializer.LOGGER.info("Registering Mod Items for " + TestmodInitializer.MOD_ID);
+        Testmod.LOGGER.info("Registering Mod Items for " + Testmod.MOD_ID);
     }
 }

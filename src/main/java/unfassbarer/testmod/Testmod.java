@@ -30,7 +30,7 @@ import unfassbarer.testmod.sounds.Sounds;
 import unfassbarer.testmod.util.ModLootTableModifiers;
 import unfassbarer.testmod.world.gen.ModWorldGeneration;
 
-public class TestmodInitializer implements ModInitializer {
+public class Testmod implements ModInitializer {
     public static final String MOD_ID = "testmod";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static FlowableFluid Still_Ardenim;

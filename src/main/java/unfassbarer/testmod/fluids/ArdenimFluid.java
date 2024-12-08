@@ -7,27 +7,27 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
-import unfassbarer.testmod.TestmodInitializer;
+import unfassbarer.testmod.Testmod;
 
 public abstract class ArdenimFluid extends TestModFluid {
     @Override
     public Fluid getStill() {
-        return TestmodInitializer.Still_Ardenim;
+        return Testmod.Still_Ardenim;
     }
 
     @Override
     public Fluid getFlowing() {
-        return TestmodInitializer.Flowing_Ardenim;
+        return Testmod.Flowing_Ardenim;
     }
 
     @Override
     public Item getBucketItem() {
-        return TestmodInitializer.Ardenim_Bucket;
+        return Testmod.Ardenim_Bucket;
     }
 
     @Override
     protected BlockState toBlockState(FluidState fluidState) {
-        return TestmodInitializer.Ardenim_Fluid_Block.getDefaultState().with(Properties.LEVEL_15, FlowableFluid.getBlockStateLevel(fluidState));
+        return Testmod.Ardenim_Fluid_Block.getDefaultState().with(Properties.LEVEL_15, FlowableFluid.getBlockStateLevel(fluidState));
     }
 
     public static class Flowing extends ArdenimFluid {

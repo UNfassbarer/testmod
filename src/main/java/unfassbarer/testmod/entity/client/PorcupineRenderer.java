@@ -5,11 +5,11 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import unfassbarer.testmod.TestmodInitializer;
+import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.entity.custom.PorcupineEntity;
 
 public class PorcupineRenderer extends MobEntityRenderer<PorcupineEntity, PorcupineModel<PorcupineEntity>> {
-    private static final Identifier TEXTURE = new Identifier(TestmodInitializer.MOD_ID, "textures/entity/porcupine.png");
+    private static final Identifier TEXTURE = new Identifier(Testmod.MOD_ID, "textures/entity/porcupine.png");
 
     public PorcupineRenderer(EntityRendererFactory.Context context) {
         super(context, new PorcupineModel<>(context.getPart(ModModelLayers.PORCUPINE)), 0.6f);
