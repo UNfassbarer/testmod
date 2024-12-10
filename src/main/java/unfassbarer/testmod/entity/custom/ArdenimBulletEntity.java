@@ -18,7 +18,6 @@ import unfassbarer.testmod.item.TestModItems;
 
 public class ArdenimBulletEntity extends ThrownItemEntity {
     private static final float BULLET_DAMAGE = 15.0f;
-
     public ArdenimBulletEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -34,8 +33,19 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
 
     @Override
     protected Item getDefaultItem() {
-        return TestModItems.Ardenimium_Bullet;
+        return TestModItems.Ardenimium_Gun;
     }
+
+    @Override
+    protected void onBlockHit(BlockHitResult blockHitResult) {
+        if(!this.getWorld().isClient()) {
+            this.getWorld().sendEntityStatus(this, (byte)3);
+        }
+
+        this.discard();
+        super.onBlockHit(blockHitResult);
+    }
+
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
@@ -62,10 +72,10 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
         }
     }
 
-    public void setBulletVelocity(LivingEntity shooter, float pitch, float yaw, double bulletSpeed) {
+    public void setBulletVelocity(float pitch, float yaw, double speed) {
         double velocityX = -Math.sin(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch));
         double velocityY = -Math.sin(Math.toRadians(pitch));
         double velocityZ = Math.cos(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch));
-        this.setVelocity(velocityX, velocityY, velocityZ, (float) bulletSpeed, 0.0F); // Keine Streuung (divergence = 0.0F)
+        this.setVelocity(velocityX, velocityY, velocityZ, (float) speed, 0.0F); // Keine Streuung
     }
 }

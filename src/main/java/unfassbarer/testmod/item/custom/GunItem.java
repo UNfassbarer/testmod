@@ -2,6 +2,7 @@ package unfassbarer.testmod.item.custom;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,7 +13,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import unfassbarer.testmod.enchants.FasterReload;
 import unfassbarer.testmod.entity.custom.ArdenimBulletEntity;
 import unfassbarer.testmod.item.TestModItems;
 import unfassbarer.testmod.sounds.Sounds;
@@ -27,27 +27,33 @@ public class GunItem extends Item {
         player.setYaw(player.getYaw() + shake);
     }
     private void scheduleRecoilReset(ClientPlayerEntity player, float recoil, float shake, int duration) {
-        MinecraftClient client = MinecraftClient.getInstance();
-        for (int i = 0; i < duration; i++) {
-            client.execute(() -> {
-                float stepPitch = recoil / duration;
-                float stepYaw = shake / duration;
-                player.setPitch(player.getPitch() - stepPitch);
-                player.setYaw(player.getYaw() - stepYaw);
-            });
+        // Neue Thread-Logik für Rückkehr
+        new Thread(() -> {
             try {
-                Thread.sleep(50); // Simuliert einen Tick (20 Ticks pro Sekunde)
+                float stepPitch = recoil / duration; // Pro-Tick-Wert für Pitch
+                float stepYaw = shake / duration;   // Pro-Tick-Wert für Yaw
+
+                for (int i = 0; i < duration; i++) {
+                    Thread.sleep(50); // Wartezeit zwischen den Änderungen (50ms = 1 Tick)
+                    float newPitch = player.getPitch() - stepPitch;
+                    float newYaw = player.getYaw() - stepYaw;
+
+                    MinecraftClient.getInstance().execute(() -> {
+                        player.setPitch(newPitch);
+                        player.setYaw(newYaw);
+                    });
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
+        }).start();
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemstack = user.getStackInHand(hand);
         world.playSound(null, user.getX(), user.getY(), user.getZ(), Sounds.GUN_SHOOT, SoundCategory.NEUTRAL,1.5F, 1F);
-        user.getItemCooldownManager().set(this, 40);
+        user.getItemCooldownManager().set(this, 15);
 
         ItemStack itemStack = user.getStackInHand(hand);
 
@@ -88,23 +94,30 @@ public class GunItem extends Item {
             itemStack.damage(1, user, entity -> entity.sendToolBreakStatus(hand));
         }
 
-        // Bullet-Geschwindigkeit berechnen
-        int reloadLevel = EnchantmentHelper.getLevel(FasterReload.INSTANCE, itemStack);
-        double speedModifier = FasterReload.INSTANCE.getBulletSpeedModifier(reloadLevel);
-        double bulletSpeed = 4.0f * speedModifier;
-
-        // Bullet erstellen und abschießen
+        double bulletSpeed = 4.0f ;
         ArdenimBulletEntity bulletEntity = new ArdenimBulletEntity(user, world);
         bulletEntity.setOwner(user);
         bulletEntity.refreshPositionAndAngles(user.getX(), user.getEyeY() - 0.1, user.getZ(), user.getYaw(), user.getPitch());
-        bulletEntity.setBulletVelocity(user, user.getPitch(), user.getYaw(), bulletSpeed);
+        bulletEntity.setBulletVelocity(user.getPitch(), user.getYaw(), bulletSpeed); // Geschwindigkeit setzen
         world.spawnEntity(bulletEntity);
-
-        // Schusssound
         world.playSound(null, user.getX(), user.getY(), user.getZ(), Sounds.GUN_SHOOT, SoundCategory.PLAYERS, 0.25F, 1.0F);
 
         return TypedActionResult.success(itemStack);
     }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        // Erlaubt Verzauberbarkeit über die Verzauberungstabelle
+        return true;
+    }
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return enchantment == Enchantments.MENDING
+                || enchantment == Enchantments.UNBREAKING
+                || enchantment == Enchantments.INFINITY;
+    }
+
+
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return ingredient.getItem() == TestModItems.Ardenimium_Gun;
@@ -112,11 +125,6 @@ public class GunItem extends Item {
 
     @Override
     public boolean isDamageable() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
         return true;
     }
 }

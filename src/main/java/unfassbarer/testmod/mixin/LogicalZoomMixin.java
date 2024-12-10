@@ -14,7 +14,7 @@ import unfassbarer.testmod.testModClient;
 @Environment(EnvType.CLIENT)
 @Mixin(GameRenderer.class)
 public class LogicalZoomMixin {
-
+/*
     @Inject(method = "getFov(Lnet/minecraft/client/render/Camera;FZ)D", at = @At("RETURN"), cancellable = true)
     public void getZoomLevel(CallbackInfoReturnable<Double> callbackInfo) {
         if(testModClient.isZooming()) {
@@ -23,5 +23,5 @@ public class LogicalZoomMixin {
         }
 
         testModClient.manageSmoothCamera();
-    }
+    } */
 }

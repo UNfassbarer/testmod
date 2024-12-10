@@ -36,7 +36,7 @@ public class testModClient implements ClientModInitializer {
     public static final double zoomLevel = 0.23;
     @Override
     public void onInitializeClient() {
-        keyBinding = new KeyBinding("key.logical_zoom.zoom", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, "category.logical_zoom.zoom");
+     /*   keyBinding = new KeyBinding("key.logical_zoom.zoom", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, "category.logical_zoom.zoom");
 
         currentlyZoomed = false;
         originalSmoothCameraEnabled = false;
@@ -94,7 +94,7 @@ public class testModClient implements ClientModInitializer {
             enableSmoothCamera();
         } else {
             disableSmoothCamera();
-        }
+        } */
         ModTooltipManager.registerTooltips();
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Door, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TestModBlocks.Ardenim_Trapdoor, RenderLayer.getCutout());
@@ -119,6 +119,6 @@ public class testModClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ArdenimNeonBlock.Ardenim_Neon_Block, RenderLayer.getCutout());
 
-        EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY, FlyingItemEntityRenderer::new);
+       EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY, FlyingItemEntityRenderer::new);
     }
 }
