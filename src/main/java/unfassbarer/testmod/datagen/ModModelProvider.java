@@ -74,7 +74,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) TestModItems.Ardenimium_Leggings));
         itemModelGenerator.registerArmor(((ArmorItem) TestModItems.Ardenimium_Boots));
 
-        itemModelGenerator.register(TestModItems.Ardenimium_Gun, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Ardenimium_Bullet, Models.GENERATED);
 
         itemModelGenerator.register(TestModItems.Blank_Pattern, Models.GENERATED);

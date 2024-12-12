@@ -68,6 +68,8 @@
   "block.testmod.ardenimium_lamp": "Ardenimium Lamp",
   "block.testmod.ardenim_neon_block": "Ardenim Neon Block",
 
+  "enchantment.testmod.faster_reload": "Faster Reload",
+  "enchantment.testmod.immeasurableness": "Immeasurableness",
 
   "key.logical_zoom.zoom": "Toggle Zoom",
   "category.logical_zoom.zoom": "Logical Zoom"

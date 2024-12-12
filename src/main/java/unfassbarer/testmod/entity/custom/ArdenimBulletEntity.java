@@ -3,6 +3,7 @@ package unfassbarer.testmod.entity.custom;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.listener.ClientPlayPacketListener;
@@ -25,7 +26,6 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
     public ArdenimBulletEntity(LivingEntity livingEntity, World world) {
         super(ModEntities.ARDENIM_BULLET_ENTITY, livingEntity, world);
     }
-
     @Override
     public Packet<ClientPlayPacketListener> createSpawnPacket() {
         return new EntitySpawnS2CPacket(this);
@@ -33,7 +33,7 @@ public class ArdenimBulletEntity extends ThrownItemEntity {
 
     @Override
     protected Item getDefaultItem() {
-        return TestModItems.Ardenimium_Gun;
+        return TestModItems.Ardenimium_Bullet;
     }
 
     @Override

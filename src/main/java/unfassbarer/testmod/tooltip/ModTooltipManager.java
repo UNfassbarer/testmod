@@ -2,11 +2,14 @@ package unfassbarer.testmod.tooltip;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.enchantment.EnchantmentHelper;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
+import unfassbarer.testmod.enchants.ModEnchantments;
 import unfassbarer.testmod.item.TestModItems;
 
 import java.util.HashMap;
@@ -19,9 +22,9 @@ public class ModTooltipManager implements ClientModInitializer {
     private static final Map<Item, String> ITEM_TOOLTIP = new HashMap<>();
 
     static {
-        ITEM_TOOLTIP.put(TestModItems.Ardenimium_Gun, "seems that here is some ammo required ... ");
-        ITEM_TOOLTIP.put(TestModItems.Ardenim_apple, "Another apple ?");
-        ITEM_TOOLTIP.put(TestModItems.Ardenimium_apple, "Wow, better than the Enchanted Golden Apple ?");
+        ITEM_TOOLTIP.put(TestModItems.Ardenimium_Gun, "Seems that here is some ammo required ... ");
+        ITEM_TOOLTIP.put(TestModItems.Ardenim_apple, "Another apple?");
+        ITEM_TOOLTIP.put(TestModItems.Ardenimium_apple, "Wow, better than the Enchanted Golden Apple?");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.Ardenimium_Egg), "It likes it warm and cuddly");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.Nether_Star_Core), "Needs to be placed 2 blocks above the Solar Stabilizer");
         ITEM_TOOLTIP.put(fromBlock(TestModBlocks.Ardenim_Ore), "Found only in the End!");
@@ -35,7 +38,12 @@ public class ModTooltipManager implements ClientModInitializer {
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             addCustomTooltip(stack.getItem(), lines);
             if (stack.getItem() == fromBlock(ArdenimNeonBlock.Ardenim_Neon_Block)) {
-                addEffectTooltip(lines);
+                neon_block_tooltip(lines);
+            }
+            if (stack.getItem() instanceof EnchantedBookItem) {
+                if (EnchantmentHelper.get(stack).containsKey(ModEnchantments.IMMEASURABLENESS)) {
+                    lines.add(Text.literal("Gives an incomprehensible ability with immeasurable value.").formatted(Formatting.DARK_PURPLE));
+                }
             }
         });
     }
@@ -47,14 +55,9 @@ public class ModTooltipManager implements ClientModInitializer {
         }
     }
 
-    private static void addEffectTooltip(List<Text> tooltip) {
-        // tooltip.add(Text.empty());
+    private static void neon_block_tooltip(List<Text> tooltip) {
         tooltip.add(Text.translatable("effect.minecraft.speed")
                 .formatted(Formatting.BLUE).append(" IV - 00:05"));
-        // tooltip.add(Text.translatable("effect.minecraft.absorption")
-        //        .formatted(Formatting.BLUE).append(" IV - 00:45"));
-        // tooltip.add(Text.translatable("effect.minecraft.strength")
-        //       .formatted(Formatting.BLUE).append(" III - 00:04"));
     }
 
     @Override
