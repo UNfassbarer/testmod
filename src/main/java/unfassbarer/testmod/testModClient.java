@@ -4,6 +4,8 @@ import dev.architectury.platform.Mod;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.MinecraftClient;
@@ -23,6 +25,7 @@ import unfassbarer.testmod.block.entity.renderer.NetherStarCoreEntityRenderer;
 import unfassbarer.testmod.block.entity.renderer.PatternProviderEntityRenderer;
 import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.client.*;
+import unfassbarer.testmod.fluids.ModFluids;
 import unfassbarer.testmod.item.TestModItems;
 import unfassbarer.testmod.screen.ArdenimiumCrafterScreen;
 import unfassbarer.testmod.screen.ModScreenHandlers;
@@ -75,6 +78,10 @@ public class testModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ArdenimNeonBlock.Ardenim_Neon_Block,RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.ARDENIM_BULLET_ENTITY,FlyingItemEntityRenderer::new);
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_ARDENIM_WATER, ModFluids.FLOWING_ARDENIM_WATER,
+                SimpleFluidRenderHandler.coloredWater(0xD0A038));
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(),
+                ModFluids.STILL_ARDENIM_WATER, ModFluids.FLOWING_ARDENIM_WATER);
     }
 
     public static boolean isZooming() {

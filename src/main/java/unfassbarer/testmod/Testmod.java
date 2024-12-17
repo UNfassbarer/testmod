@@ -21,7 +21,7 @@ import unfassbarer.testmod.enchants.ModEnchantments;
 import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.custom.ArdenimiumDragonEntity;
 import unfassbarer.testmod.entity.custom.PorcupineEntity;
-import unfassbarer.testmod.fluids.ArdenimFluid;
+import unfassbarer.testmod.fluids.ModFluids;
 import unfassbarer.testmod.item.ItemGroup;
 import unfassbarer.testmod.item.TestModItems;
 import unfassbarer.testmod.recipe.ModRecipes;
@@ -33,10 +33,6 @@ import unfassbarer.testmod.world.gen.ModWorldGeneration;
 public class Testmod implements ModInitializer {
     public static final String MOD_ID = "testmod";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    public static FlowableFluid Still_Ardenim;
-    public static FlowableFluid Flowing_Ardenim;
-    public static Item Ardenim_Bucket;
-    public static Block Ardenim_Fluid_Block;
     @Override
     public void onInitialize() {
         ItemGroup.registerItemGroups();
@@ -51,11 +47,7 @@ public class Testmod implements ModInitializer {
         Sounds.registerSounds();
         ModWorldGeneration.generateModWorldGen();
         ModEnchantments.registerEnchantments();
-        Still_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "still_ardenim"), new ArdenimFluid.Still());
-        Flowing_Ardenim = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_ardenim"), new ArdenimFluid.Flowing());
-        Ardenim_Bucket = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "ardenim_bucket"), new BucketItem(Still_Ardenim, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
-        Ardenim_Fluid_Block = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "ardenim_fluid_block"), new FluidBlock(Still_Ardenim, FabricBlockSettings.copy(Blocks.WATER)) {
-        });
+        ModFluids.registerFluids();
         FabricDefaultAttributeRegistry.register(unfassbarer.testmod.entity.ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
         FabricDefaultAttributeRegistry.register(unfassbarer.testmod.entity.ModEntities.ARDENIMIUM_DRAGON, ArdenimiumDragonEntity.createArdenimiumDragonAttributes());
     }

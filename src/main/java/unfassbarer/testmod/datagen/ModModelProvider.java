@@ -9,6 +9,7 @@ import net.minecraft.item.ArmorItem;
 import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
+import unfassbarer.testmod.fluids.ModFluids;
 import unfassbarer.testmod.item.TestModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -87,6 +88,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(TestModItems.Leggings_Pattern, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Boots_Pattern, Models.GENERATED);
 
-        itemModelGenerator.register(Testmod.Ardenim_Bucket, Models.GENERATED);
+        itemModelGenerator.register(ModFluids.ARDENIM_WATER_BUCKET, Models.GENERATED);
     }
 }

@@ -19,6 +19,7 @@ public class TestmodDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModRecipeProvider::new);
         pack.addProvider(ModWorldGenerator::new);
         pack.addProvider(AdvancementDataProvider::new);
+        pack.addProvider(ModFluidTagProvider::new);
     }
 
     @Override
