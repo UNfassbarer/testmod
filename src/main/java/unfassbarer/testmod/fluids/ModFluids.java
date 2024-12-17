@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
 
 public class ModFluids {
-    public static final FlowableFluid STILL_ARDENIM_WATER = Registry.register(Registries.FLUID,
+     public static final FlowableFluid STILL_ARDENIM_WATER = Registry.register(Registries.FLUID,
             new Identifier(Testmod.MOD_ID, "ardenim_water"), new ArdenimWaterFluid.Still());
     public static final FlowableFluid FLOWING_ARDENIM_WATER = Registry.register(Registries.FLUID,
             new Identifier(Testmod.MOD_ID, "ardenim_soap_water"), new ArdenimWaterFluid.Flowing());

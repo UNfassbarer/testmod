@@ -14,6 +14,6 @@ public class ModEnchantments {
     public static void registerEnchantments() {
     Registry.register(Registries.ENCHANTMENT, new Identifier(Testmod.MOD_ID, "faster_reload"), FASTER_RELOAD);
     Registry.register(Registries.ENCHANTMENT, new Identifier(Testmod.MOD_ID, "immeasurableness"), IMMEASURABLENESS);
-        Registry.register(Registries.ENCHANTMENT, new Identifier(Testmod.MOD_ID, "devastation"), DEVANSTATION);
+    Registry.register(Registries.ENCHANTMENT, new Identifier(Testmod.MOD_ID, "devastation"), DEVANSTATION);
     }
 }

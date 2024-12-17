@@ -1,4 +1,4 @@
-// 1.20.4	2024-12-17T17:31:02.9708125	testmod/Model Definitions
+// 1.20.4	2024-12-17T19:40:14.1793819	testmod/Model Definitions
 b92640c4c12dfe23e0df4139c6a5aa7685cd7287 assets\testmod\models\item\ardenim_boots_quartz_trim.json
 66d958fa3eabe2762224e8c124d98826ac462f6d assets\testmod\blockstates\ardenim_pillar_block.json
 5f42d096980cc2e99f73fea79e681af9f5212708 assets\testmod\models\block\ardenim_brick_wall_post.json
@@ -172,8 +172,8 @@ a991b52b827fbb68ff2cd9743ec0c3c41e334e8c assets\testmod\models\item\ardenim_helm
 629904b44f9b00f3d02f45e4109019b24c2ae267 assets\testmod\models\block\ardenim_door_bottom_left.json
 f3f434a4ac62450dbce8614c1cd369ad01d71dab assets\testmod\models\item\ardenimium_nugget.json
 71e0cc38f5fc11829a138e9843a59cf189e8a6a9 assets\testmod\models\block\ardenim_ore.json
-9843d237787e0c323928704e56c4a9c6e16b4e00 assets\testmod\models\item\ardenimium_boots_iron_trim.json
 90f7ea042eddeb4f4d1796f8542dc93812a02eaf assets\testmod\models\item\ardenimium_crafter.json
+9843d237787e0c323928704e56c4a9c6e16b4e00 assets\testmod\models\item\ardenimium_boots_iron_trim.json
 832c96eeaab1bbf35210a9cc0a577fea7f400e31 assets\testmod\models\item\ardenim_helmet_lapis_trim.json
 4fbd883b2e6294516dc9a77a9bd51d721ffbbd8c assets\testmod\models\item\shovel_pattern.json
 4d1ab8900c19ecf2587bb951876b7cb1d564729a assets\testmod\models\item\ardenim_button.json
