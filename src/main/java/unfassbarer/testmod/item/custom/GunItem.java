@@ -21,22 +21,24 @@ import unfassbarer.testmod.sounds.Sounds;
 
 public class GunItem extends Item {
     private static final int MAX_DAMAGE = 250;
+
     public GunItem(Settings settings) {
         super(settings.maxDamage(MAX_DAMAGE));
     }
+
     private void applyRecoil(ClientPlayerEntity player, float recoil, float shake) {
         player.setPitch(player.getPitch() + recoil);
         player.setYaw(player.getYaw() + shake);
     }
+
     private void scheduleRecoilReset(ClientPlayerEntity player, float recoil, float shake, int duration) {
-        // Neue Thread-Logik für Rückkehr
         new Thread(() -> {
             try {
-                float stepPitch = recoil / duration; // Pro-Tick-Wert für Pitch
-                float stepYaw = shake / duration;   // Pro-Tick-Wert für Yaw
+                float stepPitch = recoil / duration;
+                float stepYaw = shake / duration;
 
                 for (int i = 0; i < duration; i++) {
-                    Thread.sleep(50); // Wartezeit zwischen den Änderungen (50ms = 1 Tick)
+                    Thread.sleep(50);
                     float newPitch = player.getPitch() - stepPitch;
                     float newYaw = player.getYaw() - stepYaw;
 
@@ -55,17 +57,15 @@ public class GunItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
 
-        // Basis-Cooldown von 15
         int baseCooldown = 15;
 
         // Überprüfen, ob das Item die FasterReload-Verzauberung hat und die Stufe abfragen
         int reloadLevel = EnchantmentHelper.getLevel(FasterReload.INSTANCE, itemStack);
         if (reloadLevel > 0) {
-            // Je nach Stufe der Verzauberung den Cooldown verringern
-            baseCooldown = (int)(baseCooldown * (1 - 0.33f * reloadLevel)); // 10% schnellere Ladezeit pro Level
+            baseCooldown = (int)(baseCooldown * (1 - 0.33f * reloadLevel));
         }
 
-        // Setze den Cooldown für das Item
+        // Setze den Cooldown
         user.getItemCooldownManager().set(this, baseCooldown);
 
         // Munition prüfen
@@ -106,16 +106,20 @@ public class GunItem extends Item {
         double y = user.getY() + user.getEyeHeight(EntityPose.STANDING) - 0.5;
         double z = user.getZ();
 
-
-        // Berechne die Richtung der Waffe (basierend auf der Blickrichtung des Spielers)
+        // Berechne die Richtung der Waffe
         float pitch = user.getPitch();
         float yaw = user.getYaw();
 
-        // Erstelle die Bullet-Entity an der Position der Waffe
+        // Erstelle die Bullet-Entity
         ArdenimBulletEntity bulletEntity = new ArdenimBulletEntity(user, world);
         bulletEntity.setOwner(user);
         bulletEntity.refreshPositionAndAngles(x, y, z, yaw, pitch);
-        bulletEntity.setBulletVelocity(pitch, yaw, 4.0f);  // Geschwindigkeit setzen
+        bulletEntity.setBulletVelocity(pitch, yaw, 4.0f);
+
+        int devanstationLevel = EnchantmentHelper.getLevel(ModEnchantments.DEVANSTATION, itemStack);
+        float bulletDamage = 15.0f + devanstationLevel * 2.0f;
+        bulletEntity.setBulletDamage(bulletDamage);
+
         world.spawnEntity(bulletEntity);
 
         world.playSound(null, user.getX(), user.getY(), user.getZ(), Sounds.GUN_SHOOT, SoundCategory.PLAYERS, 0.25F, 1.0F);
@@ -123,14 +127,11 @@ public class GunItem extends Item {
         return TypedActionResult.pass(itemStack);
     }
 
-
-
-
     @Override
     public boolean isEnchantable(ItemStack stack) {
-        // Erlaubt Verzauberbarkeit über die Verzauberungstabelle
         return true;
     }
+
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return ingredient.getItem() == TestModItems.Ardenimium_Gun;

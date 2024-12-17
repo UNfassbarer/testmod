@@ -42,7 +42,11 @@ public class ModTooltipManager implements ClientModInitializer {
             }
             if (stack.getItem() instanceof EnchantedBookItem) {
                 if (EnchantmentHelper.get(stack).containsKey(ModEnchantments.IMMEASURABLENESS)) {
-                    lines.add(Text.literal("Gives an incomprehensible ability with immeasurable value.").formatted(Formatting.DARK_PURPLE));
+                        lines.add(Text.literal("Gives an incomprehensible ability with immeasurable value.").formatted(Formatting.DARK_PURPLE));
+                } else if (EnchantmentHelper.get(stack).containsKey(ModEnchantments.DEVANSTATION)) {
+                    lines.add(Text.literal("Increases the damage amount of every shot.").formatted(Formatting.DARK_PURPLE));
+                } else if (EnchantmentHelper.get(stack).containsKey(ModEnchantments.FASTER_RELOAD)) {
+                    lines.add(Text.literal("Lower fire delay for a gun").formatted(Formatting.DARK_PURPLE));
                 }
             }
         });
