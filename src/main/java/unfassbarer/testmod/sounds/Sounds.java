@@ -7,15 +7,13 @@ import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
 
 public class Sounds {
-    public static SoundEvent GUN_SHOOT = create("gun_shoot");
-    public static SoundEvent NETHER_STAR_CORE_1 = create("nether_star_core_1");
-    public static SoundEvent NETHER_STAR_CORE_2 = create("nether_star_core_2");
+    public static final SoundEvent GUN_SHOOT = registerSoundEvent("gun_shoot");
+    public static final SoundEvent NETHER_STAR_CORE_1 = registerSoundEvent("nether_star_core_1");
+    public static final SoundEvent NETHER_STAR_CORE_2 = registerSoundEvent("nether_star_core_2");
 
-    private static SoundEvent create(String name) {
-        Identifier id = new Identifier(Testmod.MOD_ID, name);
-        SoundEvent sound = SoundEvent.of(id);
-        Registry.register(Registries.SOUND_EVENT, id, sound);
-        return sound;
+    private static SoundEvent registerSoundEvent(String name) {
+        Identifier identifier = new Identifier(Testmod.MOD_ID, name);
+        return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
     }
 
     public static void registerSounds() {
