@@ -16,14 +16,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Mine a Egg from an rare ore..."
     },
-    "frame": "goal",
     "icon": {
       "item": "testmod:ardenimium_egg"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "An other egg?"
     }
   },
   "requirements": [

@@ -16,14 +16,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Craft the new apple"
     },
-    "frame": "goal",
     "icon": {
       "item": "testmod:ardenim_apple"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "A new apple?"
     }
   },
   "requirements": [

@@ -28,14 +28,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Use solar stabilizer and netehr star core in combination"
     },
-    "frame": "goal",
     "icon": {
       "item": "testmod:solar_stabilizer"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "Is it day ?"
     }
   },
   "requirements": [

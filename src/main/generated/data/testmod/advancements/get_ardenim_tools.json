@@ -64,15 +64,14 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Craft every ardenim tool"
     },
-    "frame": "goal",
     "icon": {
       "item": "testmod:ardenim_sword",
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "Its like gold..."
     }
   },
   "requirements": [

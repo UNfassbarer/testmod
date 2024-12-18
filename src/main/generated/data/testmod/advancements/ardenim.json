@@ -16,14 +16,13 @@
   "display": {
     "background": "testmod:textures/block/smooth_ardenim_block.png",
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Get your first ardenim Ingot"
     },
-    "frame": "goal",
     "icon": {
       "item": "testmod:ardenim"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "testmod"
     }
   },
   "requirements": [

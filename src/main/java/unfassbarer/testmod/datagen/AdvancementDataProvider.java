@@ -26,10 +26,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
         AdvancementEntry ardenim = Advancement.Builder.create()
                 .display(
                         TestModItems.Ardenim,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable(Testmod.MOD_ID),
+                        Text.translatable("Get your first ardenim Ingot"),
                         new Identifier(Testmod.MOD_ID, "textures/block/smooth_ardenim_block.png"),
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -42,10 +42,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenim)
                 .display(
                         TestModItems.Ardenim_apple,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("A new apple?"),
+                        Text.translatable("Craft the new apple"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -58,10 +58,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenim)
                 .display(
                         TestModBlocks.Ardenimium_Egg,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("An other egg?"),
+                        Text.translatable("Mine a Egg from an rare ore..."),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -74,10 +74,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenim)
                 .display(
                         TestModItems.Ardenim_Sword,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("Its like gold..."),
+                        Text.translatable("Craft every ardenim tool"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -94,10 +94,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenim)
                 .display(
                         TestModItems.Ardenim_Chestplate,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("Shiny but not heavy"),
+                        Text.translatable("Equip every ardenim armor part"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -113,10 +113,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenim)
                 .display(
                         TestModItems.Ardenimium,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("Better than netherite!"),
+                        Text.translatable("Get your first ardenimium Ingot"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -129,10 +129,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenim_apple)
                 .display(
                         TestModItems.Ardenimium_apple,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("Compareable to the OP apple!"),
+                        Text.translatable("Find the Ardenimium Apple!"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.CHALLENGE,
                         true,
                         true,
                         false
@@ -145,10 +145,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenimium)
                 .display(
                         TestModBlocks.PatternProvider,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("Pattern pattern pattern..."),
+                        Text.translatable("Craft a pattern provider"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -161,10 +161,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(pattern_provider)
                 .display(
                         TestModBlocks.ArdenimiumCrafter,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("New Crafting"),
+                        Text.translatable("Craft a ardenimium crafter"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -177,10 +177,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenimium)
                 .display(
                         TestModBlocks.Solar_Strabilizer,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("Is it day ?"),
+                        Text.translatable("Use solar stabilizer and netehr star core in combination"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -194,10 +194,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenimium_crafter)
                 .display(
                         TestModItems.Ardenimium_Chestplate,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("No netherite anymore!"),
+                        Text.translatable("Equip every ardenimium armor part"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.CHALLENGE,
                         true,
                         true,
                         false
@@ -213,10 +213,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenimium_crafter)
                 .display(
                         TestModItems.Ardenimium_Gun,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("Fire!!!"),
+                        Text.translatable("Craft the ardenimium gun"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.CHALLENGE,
                         true,
                         true,
                         false
@@ -230,10 +230,10 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .parent(ardenimium_crafter)
                 .display(
                         TestModItems.Ardenimium_Sword,
-                        Text.translatable("advancement.testmod.next.title"),
-                        Text.translatable("advancement.testmod.next.description"),
+                        Text.translatable("The new netherite!"),
+                        Text.translatable("Get every ardenimium tool"),
                         null,
-                        AdvancementFrame.GOAL,
+                        AdvancementFrame.CHALLENGE,
                         true,
                         true,
                         false

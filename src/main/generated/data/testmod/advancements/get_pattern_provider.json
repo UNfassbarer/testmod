@@ -16,14 +16,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Craft a pattern provider"
     },
-    "frame": "goal",
     "icon": {
       "item": "testmod:pattern_provider"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "Pattern pattern pattern..."
     }
   },
   "requirements": [

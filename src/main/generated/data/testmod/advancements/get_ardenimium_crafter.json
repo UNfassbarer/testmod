@@ -16,14 +16,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Craft a ardenimium crafter"
     },
-    "frame": "goal",
     "icon": {
       "item": "testmod:ardenimium_crafter"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "New Crafting"
     }
   },
   "requirements": [

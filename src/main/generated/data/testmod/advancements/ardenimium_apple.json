@@ -16,14 +16,14 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Find the Ardenimium Apple!"
     },
-    "frame": "goal",
+    "frame": "challenge",
     "icon": {
       "item": "testmod:ardenimium_apple"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "Compareable to the OP apple!"
     }
   },
   "requirements": [

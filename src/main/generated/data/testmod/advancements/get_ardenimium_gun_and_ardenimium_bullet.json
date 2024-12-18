@@ -28,15 +28,15 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Craft the ardenimium gun"
     },
-    "frame": "goal",
+    "frame": "challenge",
     "icon": {
       "item": "testmod:ardenimium_gun",
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "Fire!!!"
     }
   },
   "requirements": [

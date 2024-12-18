@@ -32,23 +32,25 @@ public class GunItem extends Item {
     }
 
     private void scheduleRecoilReset(ClientPlayerEntity player, float recoil, float shake, int duration) {
-        MinecraftClient.getInstance().execute(() -> {
-            float stepPitch = recoil / duration;
-            float stepYaw = shake / duration;
+        new Thread(() -> {
+            try {
+                float stepPitch = recoil / duration;
+                float stepYaw = shake / duration;
 
-            for (int i = 0; i < duration; i++) {
-                try {
+                for (int i = 0; i < duration; i++) {
                     Thread.sleep(50);
                     float newPitch = player.getPitch() - stepPitch;
                     float newYaw = player.getYaw() - stepYaw;
 
-                    player.setPitch(newPitch);
-                    player.setYaw(newYaw);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    MinecraftClient.getInstance().execute(() -> {
+                        player.setPitch(newPitch);
+                        player.setYaw(newYaw);
+                    });
                 }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        });
+        }).start();
     }
 
     @Override
@@ -67,8 +69,8 @@ public class GunItem extends Item {
         user.getItemCooldownManager().set(this, baseCooldown);
 
         // Munition prüfen
-        boolean hasAmmo = user.getInventory().contains(new ItemStack(TestModItems.Ardenimium_Bullet));
-        if (!hasAmmo) {
+        ItemStack ammoStack = new ItemStack(TestModItems.Ardenimium_Bullet);
+        if (!user.getInventory().contains(ammoStack)) {
             if (!world.isClient()) {
                 user.sendMessage(Text.literal("No Bullets left!"), true);
             }
@@ -89,11 +91,9 @@ public class GunItem extends Item {
         boolean hasImmeasurableness = EnchantmentHelper.getLevel(ModEnchantments.IMMEASURABLENESS, itemStack) > 0;
 
         if (!hasImmeasurableness) {
-            // Munitionsentfernung
-            int ammoCount = user.getInventory().count(TestModItems.Ardenimium_Bullet);
-            if (ammoCount > 0) {
-                // Entferne eine Munition
-                user.getInventory().removeStack(user.getInventory().getSlotWithStack(new ItemStack(TestModItems.Ardenimium_Bullet)), 1);
+            int slot = user.getInventory().getSlotWithStack(ammoStack);
+            if (slot >= 0) {
+                user.getInventory().removeStack(slot, 1);
             }
         }
 

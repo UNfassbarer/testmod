@@ -52,15 +52,15 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.testmod.next.description"
+      "translate": "Equip every ardenimium armor part"
     },
-    "frame": "goal",
+    "frame": "challenge",
     "icon": {
       "item": "testmod:ardenimium_chestplate",
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancement.testmod.next.title"
+      "translate": "No netherite anymore!"
     }
   },
   "requirements": [
