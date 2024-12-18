@@ -26,7 +26,7 @@ dependencies {
 
 	// Fabric API
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+
 	// REI API for Fabric
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:14.0.687"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:14.0.687"
