@@ -6,7 +6,6 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
-import unfassbarer.testmod.Testmod;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 import unfassbarer.testmod.fluids.ModFluids;
@@ -55,7 +54,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(TestModItems.Ardenim_apple, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Ardenimium_apple, Models.GENERATED);
-        itemModelGenerator.register(TestModItems.raw_Ardenim, Models.GENERATED);
+        itemModelGenerator.register(TestModItems.Raw_Ardenim, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Ardenim_Nugget, Models.GENERATED);
         itemModelGenerator.register(TestModItems.Ardenimium_Nugget, Models.GENERATED);
 

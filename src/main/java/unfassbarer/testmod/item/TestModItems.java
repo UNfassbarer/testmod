@@ -20,7 +20,7 @@ public class TestModItems {
             new Item(new FabricItemSettings()));
     public static final Item Ardenimium_Nugget = registerItem("ardenimium_nugget",
             new Item(new FabricItemSettings()));
-    public static final Item raw_Ardenim = registerItem("raw_ardenim",
+    public static final Item Raw_Ardenim = registerItem("raw_ardenim",
             new Item(new FabricItemSettings()));
     public static final Item Ardenim_apple = registerItem("ardenim_apple",
             new Item(new FabricItemSettings()

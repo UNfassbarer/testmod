@@ -20,7 +20,7 @@ import java.util.List;
 public class ModRecipeProvider extends FabricRecipeProvider {
     private static final List<ItemConvertible> ARDENIM_SMELTABLES = List.of(
             TestModBlocks.Ardenim_Ore,
-            TestModItems.raw_Ardenim);
+            TestModItems.Raw_Ardenim);
     private static final List<ItemConvertible> ARDENIM_NUGGET_SMELTABLES = List.of(
             TestModItems.Ardenim_Axe,
             TestModItems.Ardenim_Pickaxe,
@@ -217,8 +217,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModBlocks.Raw_Ardenim_Block, 1)
                 .pattern("AA")
                 .pattern("AA")
-                .input('A', TestModItems.raw_Ardenim)
-                .criterion(hasItem(TestModItems.raw_Ardenim), conditionsFromItem(TestModItems.raw_Ardenim))
+                .input('A', TestModItems.Raw_Ardenim)
+                .criterion(hasItem(TestModItems.Raw_Ardenim), conditionsFromItem(TestModItems.Raw_Ardenim))
                 .offerTo(exporter, new Identifier(getRecipeName(TestModBlocks.Raw_Ardenim_Block)));
         //ardenim Brick Block
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModBlocks.Ardenim_Brick_Block, 4)

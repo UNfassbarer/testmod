@@ -27,7 +27,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(TestModBlocks.Ardenim_Pillar_Block);
         addDrop(TestModBlocks.Ardenim_Brick_Block);
         addDrop(TestModBlocks.Raw_Ardenim_Block);
-        addDrop(TestModBlocks.Ardenim_Ore, ArdenimOre(TestModBlocks.Ardenim_Ore, TestModItems.raw_Ardenim));
+        addDrop(TestModBlocks.Ardenim_Ore, ArdenimOre(TestModBlocks.Ardenim_Ore, TestModItems.Raw_Ardenim));
         addDrop(TestModBlocks.Ardenim_Egg_Ore, ArdenimEggOre(TestModBlocks.Ardenim_Egg_Ore, Item.fromBlock(TestModBlocks.Ardenimium_Egg)));
 
         addDrop(TestModBlocks.Ardenim_Stairs);

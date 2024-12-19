@@ -60,7 +60,7 @@ public class ModLootTableModifiers {
         //               LootPool.Builder poolBuilder = LootPool.builder()
         //                        .rolls(ConstantLootNumberProvider.create(1))
         //                       .conditionally(RandomChanceLootCondition.builder(0.75f)) // 75% chance to drop
-        //                       .with(ItemEntry.builder(TestModItems.raw_Ardenim))
+        //                       .with(ItemEntry.builder(TestModItems.Raw_Ardenim))
         //                      .with(ItemEntry.builder(TestModBlocks.Raw_Ardenim_Block))
         //                       .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
 
