@@ -20,8 +20,7 @@ public class ArdenimNeonBlock extends Block {
                     .luminance((state) -> 15)
                     .strength(0.5f, 0.5f)
                     .emissiveLighting((state, world, pos) -> true)
-                    .nonOpaque()
-                    .slipperiness(0.9f));
+                    .nonOpaque());
 
     public ArdenimNeonBlock(Settings settings) {
         super(settings);

@@ -28,10 +28,10 @@ public class TestModItems {
                             .Builder()
                             .hunger(3)
                             .saturationModifier(6).alwaysEdible().meat()
-                            .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 160), 1)
-                            .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 160, 2), 1)
-                            .statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 160), 1)
-                            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 160, 1), 0.3f)
+                            .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 240), 0.75f)
+                            .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 240, 1), 0.75f)
+                            .statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 240), 0.75f)
+                            .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 240, 1), 0.3f)
                             .build())));
     public static final Item Ardenimium_apple = registerItem("ardenimium_apple",
             new EnchantedGoldenAppleItem(new FabricItemSettings()
@@ -41,11 +41,11 @@ public class TestModItems {
                             .saturationModifier(8)
                             .alwaysEdible()
                             .meat()
-                            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 320, 2), 1)
+                            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 520, 2), 1)
                             .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 320), 1)
-                            .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 320, 3), 1)
-                            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 320, 3), 1)
-                            .statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 320), 1)
+                            .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 520, 3), 1)
+                            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 520, 3), 1)
+                            .statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 520), 1)
                             .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 320, 2), 1)
                             .build())));
     public static final Item Ardenim_Pickaxe = registerItem("ardenim_pickaxe",

@@ -67,8 +67,8 @@ public class NetherStarCoreEntity extends BlockEntity implements Inventory {
             }
 
             if (playSound) {
-                serverWorld.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, Sounds.NETHER_STAR_CORE_1, SoundCategory.BLOCKS, 0.3f, 1f);
-                serverWorld.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, Sounds.NETHER_STAR_CORE_2, SoundCategory.BLOCKS, 0.3f, 1f);
+                serverWorld.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, Sounds.NETHER_STAR_CORE_1, SoundCategory.BLOCKS, 0.1f, 1f);
+                serverWorld.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, Sounds.NETHER_STAR_CORE_2, SoundCategory.BLOCKS, 0.1f, 1f);
             }
         }
     }

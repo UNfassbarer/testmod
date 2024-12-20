@@ -9,7 +9,7 @@ public enum ModToolMaterial implements ToolMaterial {
     ARDENIM(3, 900, 2, 1.5f, 15,
             () -> Ingredient.ofItems(TestModItems.Ardenim)),
 
-    ARDENIMIUM(5, 2500, 20f, 5, 30,
+    ARDENIMIUM(5, 2500, 35f, 5, 30,
             () -> Ingredient.ofItems(TestModItems.Ardenimium));
     private final int miningLevel;
     private final int itemDurability;

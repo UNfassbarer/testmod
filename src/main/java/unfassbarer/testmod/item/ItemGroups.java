@@ -20,6 +20,7 @@ public class ItemGroups {
                         entries.add(TestModItems.Ardenim);
                         entries.add(TestModItems.Ardenim_Nugget);
                         entries.add(TestModItems.Ardenimium);
+                        entries.add(TestModItems.Ardenimium_Nugget);
                         entries.add(TestModItems.Raw_Ardenim);
                         entries.add(TestModItems.Ardenim_apple);
                         entries.add(TestModItems.Ardenimium_apple);

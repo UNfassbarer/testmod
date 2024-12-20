@@ -77,7 +77,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 // Custom shapeless recipes
         addShapelessRecipes(exporter);
         //Nether Star Core
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModBlocks.Nether_Star_Core, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModBlocks.Nether_Star_Core, 2)
                 .pattern("GDG")
                 .pattern("DND")
                 .pattern("GDG")

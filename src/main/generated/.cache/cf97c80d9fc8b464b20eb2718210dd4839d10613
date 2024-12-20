@@ -1,4 +1,4 @@
-// 1.20.4	2024-12-20T15:18:14.1357998	testmod/Recipes
+// 1.20.4	2024-12-20T20:04:00.7111142	testmod/Recipes
 64f771e36e5ef6dbb2f795bfa76d1c3a7977105d data\testmod\advancements\recipes\misc\ardenim_leggings.json
 af7dcf2f06e33586cea54335a0cf9b1dbf8d362b data\testmod\recipes\ardenim_block.json
 f6931f81e9f1dafc863d2f9d2a1f2d1e05813a97 data\testmod\recipes\ardenim_nugget_from_blasting_ardenim_helmet.json
@@ -42,7 +42,7 @@ b331678fd373a7b4be6f2f4f45c66dac7b56f19a data\testmod\advancements\recipes\misc\
 dfa37b540b0eee3f5e91e89d7d683855a65940e4 data\testmod\recipes\ardenim_nugget_from_ardenim.json
 46bf4c138e23a8fd867f4a840d741e776c8b2f6a data\testmod\advancements\recipes\misc\ardenim_chestplate.json
 313cd548edc9c5a7b57a6971746ffa5f3a104c2e data\testmod\recipes\ardenim_wall_from_ardenim_block_stonecutting.json
-945fd0d166c6227cf77d86d0b3ddbd7f4949a3ec data\testmod\recipes\nether_star_core.json
+d65f956efcf7f6dc2072ec31ccaeae211537aa67 data\testmod\recipes\nether_star_core.json
 258cb0b09efa66b2172e3129f32c629aab96e148 data\testmod\recipes\ardenim_nugget_from_smelting_ardenim_helmet.json
 e370c9117a6e0b037bd05226b9022f6e5dd1a254 data\testmod\recipes\ardenim_pillar_block_from_blasting_ardenim_block.json
 3b1a778377d7e2933bbed8ba74c2ff9538ba064c data\testmod\advancements\recipes\building_blocks\ardenim_brick_wall_from_ardenim_block_stonecutting.json

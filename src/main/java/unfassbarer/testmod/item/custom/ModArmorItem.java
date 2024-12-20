@@ -23,7 +23,7 @@ public class ModArmorItem extends ArmorItem {
                     .put(ModArmorMaterials.ARDENIMIUM, new StatusEffectInstance[]{
                             new StatusEffectInstance(StatusEffects.STRENGTH, 200, 2, false, false, true),
                             new StatusEffectInstance(StatusEffects.SPEED, 200, 2, false, false, true),
-                            new StatusEffectInstance(StatusEffects.RESISTANCE, 200, 2, false, false, true)}).build();
+                            new StatusEffectInstance(StatusEffects.RESISTANCE, 200, 1, false, false, true)}).build();
 
     public ModArmorItem(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
