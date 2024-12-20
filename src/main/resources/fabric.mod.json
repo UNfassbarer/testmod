@@ -28,6 +28,9 @@
       {
         "value": "unfassbarer.testmod.compat.rei.TestmodREIClientPlugin"
       }
+    ],
+    "terrablender": [
+      "unfassbarer.testmod.world.biome.ModTerraBlenderAPI"
     ]
   },
   "mixins": [

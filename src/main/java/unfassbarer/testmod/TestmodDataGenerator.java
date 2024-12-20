@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import unfassbarer.testmod.datagen.*;
 import unfassbarer.testmod.world.ModConfiguredFeatures;
 import unfassbarer.testmod.world.ModPlacedFeatures;
+import unfassbarer.testmod.world.biome.ModBiomes;
 
 public class TestmodDataGenerator implements DataGeneratorEntrypoint {
     @Override
@@ -26,5 +27,6 @@ public class TestmodDataGenerator implements DataGeneratorEntrypoint {
     public void buildRegistry(RegistryBuilder registryBuilder) {
         registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::boostrap);
         registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::boostrap);
+        registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
     }
 }

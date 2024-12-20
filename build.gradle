@@ -13,6 +13,11 @@ base {
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	maven { url "https://maven.shedaniel.me" }
+	maven {
+		name = 'TerraformersMC'
+		url = 'https://maven.terraformersmc.com/'
+	}
+	maven { url = 'https://maven.minecraftforge.net/' }
 }
 
 fabricApi {
@@ -34,6 +39,8 @@ dependencies {
 	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:14.0.687"
 
 	modApi "dev.architectury:architectury-fabric:11.0.8"
+
+	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.20.4-3.3.0.12'
 
 	modApi("me.shedaniel.cloth:cloth-config-fabric:13.0.114") {
 		exclude(group: "net.fabricmc.fabric-api")

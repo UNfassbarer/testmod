@@ -8,7 +8,7 @@ public class FasterReload extends Enchantment {
     public static final FasterReload INSTANCE = new FasterReload();
 
     private FasterReload() {
-        super(Rarity.UNCOMMON, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override

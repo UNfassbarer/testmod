@@ -8,7 +8,7 @@ public class Immeasurableness extends Enchantment {
     public static final Immeasurableness INSTANCE = new Immeasurableness();
 
     private Immeasurableness() {
-        super(Rarity.UNCOMMON, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
