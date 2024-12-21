@@ -15,7 +15,7 @@ public class ModFluidTagProvider extends FabricTagProvider.FluidTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        this.getOrCreateTagBuilder(FluidTags.LAVA)
+        this.getOrCreateTagBuilder(FluidTags.WATER)
                 .add(ModFluids.FLOWING_ARDENIM_WATER)
                 .add(ModFluids.STILL_ARDENIM_WATER);
     }

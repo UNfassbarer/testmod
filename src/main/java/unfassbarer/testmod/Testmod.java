@@ -10,6 +10,7 @@ import unfassbarer.testmod.enchants.ModEnchantments;
 import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.custom.ArdenimiumDragonEntity;
 import unfassbarer.testmod.entity.custom.PorcupineEntity;
+import unfassbarer.testmod.event.NetherStarTerraformer;
 import unfassbarer.testmod.fluids.ModFluids;
 import unfassbarer.testmod.item.ItemGroups;
 import unfassbarer.testmod.item.TestModItems;
@@ -37,6 +38,7 @@ public class Testmod implements ModInitializer {
         ModWorldGeneration.generateModWorldGen();
         ModEnchantments.registerEnchantments();
         ModFluids.registerFluids();
+        NetherStarTerraformer.register();
         FabricDefaultAttributeRegistry.register(unfassbarer.testmod.entity.ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
         FabricDefaultAttributeRegistry.register(unfassbarer.testmod.entity.ModEntities.ARDENIMIUM_DRAGON, ArdenimiumDragonEntity.createArdenimiumDragonAttributes());
     }
