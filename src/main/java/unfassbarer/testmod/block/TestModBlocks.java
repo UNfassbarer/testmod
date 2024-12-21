@@ -71,6 +71,8 @@ public class TestModBlocks {
             new ArdenimiumEgg(FabricBlockSettings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.BONE));
     public static final Block Ardenimium_Lamp =
             new ArdenimiumLamp(FabricBlockSettings.copy(Blocks.GLASS));
+    public static final Block Moon_Altar =
+            new MoonAltar(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
 
     public static boolean never(BlockState blockState, net.minecraft.world.BlockView blockView, BlockPos blockPos, EntityType<?> entityType) {
         return false;
@@ -114,6 +116,7 @@ public class TestModBlocks {
         registerBlock("solar_stabilizer", Solar_Strabilizer);
         registerBlock("ardenimium_egg", Ardenimium_Egg);
         registerBlock("ardenimium_lamp", Ardenimium_Lamp);
+        registerBlock("moon_altar", Moon_Altar);
         registerBlock("ardenim_neon_block", ArdenimNeonBlock.Ardenim_Neon_Block);
         Testmod.LOGGER.info("Registering Mod Blocks for " + Testmod.MOD_ID);
     }

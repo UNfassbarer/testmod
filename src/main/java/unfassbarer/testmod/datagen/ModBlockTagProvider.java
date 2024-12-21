@@ -48,7 +48,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(TestModBlocks.PatternProvider)
                 .add(TestModBlocks.Ardenimium_Egg)
                 .add(TestModBlocks.Ardenimium_Lamp)
-                .add(ArdenimNeonBlock.Ardenim_Neon_Block);
+                .add(ArdenimNeonBlock.Ardenim_Neon_Block)
+                .add(TestModBlocks.Moon_Altar);
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_4")))
                 .add(TestModBlocks.Ardenim_Block)
@@ -79,7 +80,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(TestModBlocks.Ardenimium_Egg)
                 .add(TestModBlocks.PatternProvider)
                 .add(TestModBlocks.Ardenimium_Lamp)
-                .add(ArdenimNeonBlock.Ardenim_Neon_Block);
+                .add(ArdenimNeonBlock.Ardenim_Neon_Block)
+                .add(TestModBlocks.Moon_Altar);
 
         getOrCreateTagBuilder(BlockTags.FENCES)
                 .add(TestModBlocks.Ardenim_Fence);

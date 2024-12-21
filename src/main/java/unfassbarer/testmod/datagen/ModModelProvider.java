@@ -35,6 +35,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Ardenimium_Egg);
         blockStateModelGenerator.registerSimpleState(TestModBlocks.Ardenimium_Lamp);
         blockStateModelGenerator.registerSimpleCubeAll(ArdenimNeonBlock.Ardenim_Neon_Block);
+        blockStateModelGenerator.registerSimpleState(TestModBlocks.Moon_Altar);
         Ardenim.stairs(TestModBlocks.Ardenim_Stairs);
         Ardenim.slab(TestModBlocks.Ardenim_Slab);
         Ardenim.button(TestModBlocks.Ardenim_Button);

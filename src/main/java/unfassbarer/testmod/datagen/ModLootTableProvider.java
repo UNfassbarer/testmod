@@ -54,6 +54,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(TestModBlocks.PatternProvider);
         addDrop(TestModBlocks.Ardenimium_Lamp);
         addDrop(ArdenimNeonBlock.Ardenim_Neon_Block);
+        addDrop(TestModBlocks.Moon_Altar);
     }
 
     public LootTable.Builder ArdenimOre(Block drop, Item item) {

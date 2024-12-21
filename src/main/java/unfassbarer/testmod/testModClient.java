@@ -19,16 +19,15 @@ import org.lwjgl.glfw.GLFW;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
-import unfassbarer.testmod.block.entity.renderer.ArdenimiumCrafterEntityRenderer;
-import unfassbarer.testmod.block.entity.renderer.ArdenimiumLampEntityRenderer;
-import unfassbarer.testmod.block.entity.renderer.NetherStarCoreEntityRenderer;
-import unfassbarer.testmod.block.entity.renderer.PatternProviderEntityRenderer;
+import unfassbarer.testmod.block.entity.MoonAltarEntity;
+import unfassbarer.testmod.block.entity.renderer.*;
 import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.client.*;
 import unfassbarer.testmod.fluids.ModFluids;
 import unfassbarer.testmod.item.TestModItems;
 import unfassbarer.testmod.screen.ArdenimiumCrafterScreen;
 import unfassbarer.testmod.screen.ModScreenHandlers;
+import unfassbarer.testmod.screen.MoonAltarScreen;
 import unfassbarer.testmod.screen.PatternProviderScreen;
 import unfassbarer.testmod.tooltip.ModTooltipManager;
 
@@ -69,6 +68,9 @@ public class testModClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ModBlockEntities.NETHER_STAR_CORE_ENTITY,NetherStarCoreEntityRenderer::new);
 
         BlockEntityRendererFactories.register(ModBlockEntities.ARDENIMIUM_LAMP_ENTITY,ArdenimiumLampEntityRenderer::new);
+
+        HandledScreens.register(ModScreenHandlers.MOON_ALTAR_SCREEN_HANDLER, MoonAltarScreen::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.MOON_ALTAR_ENTITY,MoonAltarEntityRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.PORCUPINE,PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE,PorcupineModel::getTexturedModelData);

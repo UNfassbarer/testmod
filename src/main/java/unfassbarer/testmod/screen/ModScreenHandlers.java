@@ -18,5 +18,9 @@ public class ModScreenHandlers {
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(Testmod.MOD_ID, "gem_polishing"),
                     new ExtendedScreenHandlerType<>(PatternProviderScreenHandler::new));
 
+    public static final ScreenHandlerType<MoonAltarScreenHandler> MOON_ALTAR_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Testmod.MOD_ID, "moon_showing"),
+                    new ExtendedScreenHandlerType<>(MoonAltarScreenHandler::new));
+
 
 }
