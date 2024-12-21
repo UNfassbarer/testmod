@@ -86,6 +86,8 @@ public class ItemGroups {
                         entries.add(TestModItems.Ardenimium_Gun);
                         entries.add(TestModItems.Ardenimium_Bullet);
                         entries.add(TestModBlocks.Solar_Strabilizer);
+                        entries.add(TestModItems.Modified_Nether_Star);
+                        entries.add(TestModItems.Modified_Nether_Star_Fragment);
                         entries.add(TestModBlocks.Nether_Star_Core);
                         entries.add(TestModBlocks.Ardenimium_Lamp);
                         entries.add(TestModBlocks.Ardenimium_Egg);

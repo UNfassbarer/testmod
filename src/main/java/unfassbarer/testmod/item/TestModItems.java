@@ -116,6 +116,10 @@ public class TestModItems {
             new Item(new Item.Settings()));
     public static final Item Boots_Pattern = registerItem("boots_pattern",
             new Item(new Item.Settings()));
+    public static final Item Modified_Nether_Star = registerItem("modified_nether_star",
+            new NetherStarItem(new Item.Settings()));
+    public static final Item Modified_Nether_Star_Fragment = registerItem("modified_nether_star_fragment",
+            new NetherStarItem(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Testmod.MOD_ID, name), item);

@@ -88,5 +88,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(TestModItems.Boots_Pattern, Models.GENERATED);
 
         itemModelGenerator.register(ModFluids.ARDENIM_WATER_BUCKET, Models.GENERATED);
+        itemModelGenerator.register(TestModItems.Modified_Nether_Star_Fragment, Models.GENERATED);
+        itemModelGenerator.register(TestModItems.Modified_Nether_Star, Models.GENERATED);
     }
 }

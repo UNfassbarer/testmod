@@ -73,5 +73,7 @@
   "enchantment.testmod.devanstation": "Devanstation",
 
   "key.logical_zoom.zoom": "Toggle Zoom",
-  "category.logical_zoom.zoom": "Logical Zoom"
+  "category.logical_zoom.zoom": "Logical Zoom",
+  "item.testmod.modified_nether_star": "Modified Nether Star",
+  "item.testmod.modified_nether_star_fragment": "Modified Nether Star Fragment"
 }
