@@ -13,28 +13,31 @@ import net.minecraft.screen.slot.Slot;
 import unfassbarer.testmod.block.entity.MoonAltarEntity;
 
 public class MoonAltarScreenHandler extends ScreenHandler {
-    public final MoonAltarEntity blockEntity;
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
+    public final MoonAltarEntity blockEntity;
 
     public MoonAltarScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(3));
+                new ArrayPropertyDelegate(2));
     }
 
     public MoonAltarScreenHandler(int syncId, PlayerInventory playerInventory,
-                                  BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
+                                     BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
         super(ModScreenHandlers.MOON_ALTAR_SCREEN_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity), 3);
+        checkSize(((Inventory) blockEntity), 2);
         this.inventory = ((Inventory) blockEntity);
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = arrayPropertyDelegate;
         this.blockEntity = ((MoonAltarEntity) blockEntity);
-        this.addSlot(new Slot(inventory, 2, 8, 8));
-        this.addSlot(new Slot(inventory, 0, 80, 8));
+
+        this.addSlot(new Slot(inventory, 0, 80, 11));
         this.addSlot(new Slot(inventory, 1, 80, 59));
+
+
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+
         addProperties(arrayPropertyDelegate);
     }
 
@@ -44,8 +47,9 @@ public class MoonAltarScreenHandler extends ScreenHandler {
 
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);
-        int progressArrowSize = 26;
+        int maxProgress = this.propertyDelegate.get(1);  // Max Progress
+        int progressArrowSize = 26; // This is the width in pixels of your arrow
+
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
@@ -63,12 +67,14 @@ public class MoonAltarScreenHandler extends ScreenHandler {
             } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
                 return ItemStack.EMPTY;
             }
+
             if (originalStack.isEmpty()) {
                 slot.setStack(ItemStack.EMPTY);
             } else {
                 slot.markDirty();
             }
         }
+
         return newStack;
     }
 

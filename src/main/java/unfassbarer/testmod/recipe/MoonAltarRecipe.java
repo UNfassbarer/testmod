@@ -28,12 +28,11 @@ public class MoonAltarRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-        if (world.isClient()) {
+        if(world.isClient()) {
             return false;
         }
-        return recipeItems.size() > 1 &&
-                recipeItems.get(0).test(inventory.getStack(0)) &&
-                recipeItems.get(1).test(inventory.getStack(2));  // Changed index from 2 to 1
+
+        return recipeItems.get(0).test(inventory.getStack(0));
     }
 
     @Override
@@ -76,6 +75,7 @@ public class MoonAltarRecipe implements Recipe<SimpleInventory> {
     public static class Serializer implements RecipeSerializer<MoonAltarRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "mooning";
+
         public static final Codec<MoonAltarRecipe> CODEC = RecordCodecBuilder.create(in -> in.group(
                 validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, 9).fieldOf("ingredients").forGetter(MoonAltarRecipe::getIngredients),
                 ItemStack.RECIPE_RESULT_CODEC.fieldOf("output").forGetter(r -> r.output)
@@ -95,9 +95,11 @@ public class MoonAltarRecipe implements Recipe<SimpleInventory> {
         @Override
         public MoonAltarRecipe read(PacketByteBuf buf) {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
-            for (int i = 0; i < inputs.size(); i++) {
+
+            for(int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromPacket(buf));
             }
+
             ItemStack output = buf.readItemStack();
             return new MoonAltarRecipe(inputs, output);
         }
@@ -105,9 +107,11 @@ public class MoonAltarRecipe implements Recipe<SimpleInventory> {
         @Override
         public void write(PacketByteBuf buf, MoonAltarRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
+
             for (Ingredient ingredient : recipe.getIngredients()) {
                 ingredient.write(buf);
             }
+
             buf.writeItemStack(recipe.getResult(null));
         }
     }

@@ -29,11 +29,12 @@ import unfassbarer.testmod.screen.MoonAltarScreenHandler;
 import java.util.Optional;
 
 public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
+
     private static final int INPUT_SLOT = 0;
     private static final int OUTPUT_SLOT = 1;
-    private static final int PATTERN_SLOT = 2;
+
     protected final PropertyDelegate propertyDelegate;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     private int progress = 0;
     private int maxProgress = 72;
 
@@ -65,7 +66,11 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
     }
 
     public ItemStack getRenderStack() {
-        return this.getStack(OUTPUT_SLOT).isEmpty() ? ItemStack.EMPTY : this.getStack(OUTPUT_SLOT);
+        if(this.getStack(OUTPUT_SLOT).isEmpty()) {
+            return this.getStack(INPUT_SLOT);
+        } else {
+            return this.getStack(OUTPUT_SLOT);
+        }
     }
 
     @Override
@@ -81,7 +86,7 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
 
     @Override
     public Text getDisplayName() {
-        return Text.literal("Gem Polishing Station");
+        return Text.literal("Moon Altar");
     }
 
     @Override
@@ -93,14 +98,14 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inventory);
-        nbt.putInt("moon_altar.progress", progress);
+        nbt.putInt("gem_polishing_station.progress", progress);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         Inventories.readNbt(nbt, inventory);
-        progress = nbt.getInt("moon_altar.progress");
+        progress = nbt.getInt("gem_polishing_station.progress");
     }
 
     @Nullable
@@ -110,14 +115,16 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if (world.isClient()) {
+        if(world.isClient()) {
             return;
         }
-        if (isOutputSlotEmptyOrReceivable()) {
-            if (this.hasRecipe()) {
+
+        if(isOutputSlotEmptyOrReceivable()) {
+            if(this.hasRecipe()) {
                 this.increaseCraftProgress();
                 markDirty(world, pos, state);
-                if (hasCraftingFinished()) {
+
+                if(hasCraftingFinished()) {
                     this.craftItem();
                     this.resetProgress();
                 }
@@ -136,8 +143,9 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
 
     private void craftItem() {
         Optional<RecipeEntry<MoonAltarRecipe>> recipe = getCurrentRecipe();
+
         this.removeStack(INPUT_SLOT, 1);
-        this.removeStack(PATTERN_SLOT, 1);
+
         this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().getResult(null).getItem(),
                 getStack(OUTPUT_SLOT).getCount() + recipe.get().value().getResult(null).getCount()));
     }
@@ -152,15 +160,17 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
 
     private boolean hasRecipe() {
         Optional<RecipeEntry<MoonAltarRecipe>> recipe = getCurrentRecipe();
+
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(recipe.get().value().getResult(null))
                 && canInsertItemIntoOutputSlot(recipe.get().value().getResult(null).getItem());
     }
 
     private Optional<RecipeEntry<MoonAltarRecipe>> getCurrentRecipe() {
         SimpleInventory inv = new SimpleInventory(this.size());
-        for (int i = 0; i < this.size(); i++) {
+        for(int i = 0; i < this.size(); i++) {
             inv.setStack(i, this.getStack(i));
         }
+
         return getWorld().getRecipeManager().getFirstMatch(MoonAltarRecipe.Type.INSTANCE, inv, getWorld());
     }
 
