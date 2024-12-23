@@ -20,6 +20,7 @@ import unfassbarer.testmod.block.entity.MoonAltarEntity;
 public class MoonAltarEntityRenderer implements BlockEntityRenderer<MoonAltarEntity> {
     public MoonAltarEntityRenderer(BlockEntityRendererFactory.Context context) {
     }
+
     @Override
     public void render(MoonAltarEntity entity, float tickDelta, MatrixStack matrices,
                        VertexConsumerProvider vertexConsumers, int light, int overlay) {

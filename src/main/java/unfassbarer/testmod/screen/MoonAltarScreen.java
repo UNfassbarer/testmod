@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import unfassbarer.testmod.Testmod;
 
 public class MoonAltarScreen extends HandledScreen<MoonAltarScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(Testmod.MOD_ID,"textures/gui/gem_polishing_station_gui.png");
+    private static final Identifier TEXTURE = new Identifier(Testmod.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
 
     public MoonAltarScreen(MoonAltarScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -28,12 +28,18 @@ public class MoonAltarScreen extends HandledScreen<MoonAltarScreenHandler> {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         RenderSystem.setShaderTexture(0, TEXTURE);
-
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
+        renderProgressArrow(context, x, y);
+    }
+
+    private void renderProgressArrow(DrawContext context, int x, int y) {
+        if (handler.isCrafting()) {
+            context.drawTexture(TEXTURE, x + 85, y + 30, 176, 0, 8, handler.getScaledProgress());
+        }
     }
 
     @Override

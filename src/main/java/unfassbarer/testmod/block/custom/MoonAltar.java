@@ -1,11 +1,11 @@
 package unfassbarer.testmod.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.Block;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,31 +15,16 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
 import unfassbarer.testmod.block.entity.MoonAltarEntity;
-import unfassbarer.testmod.block.entity.PatternProviderEntity;
+public class MoonAltar extends BlockWithEntity implements BlockEntityProvider {
 
-public class MoonAltar extends BlockWithEntity {
-
-    public static final VoxelShape SHAPE = Block.createCuboidShape(5, 0, 5, 11, 14, 11);
-    public static final MapCodec<MoonAltar> CODEC = createCodec(MoonAltar::new);
+    public static final MapCodec<MoonAltar> CODEC = MoonAltar.createCodec(MoonAltar::new);
 
     public MoonAltar(Settings settings) {
         super(settings);
-    }
-
-    @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new MoonAltarEntity(pos, state);
-    }
-
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
     }
 
     @Override
@@ -47,12 +32,24 @@ public class MoonAltar extends BlockWithEntity {
         return CODEC;
     }
 
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new MoonAltarEntity(pos, state);
+    }
+
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof PatternProviderEntity) {
-                ItemScatterer.spawn(world, pos, (PatternProviderEntity) blockEntity);
+            if (blockEntity instanceof MoonAltarEntity) {
+                ItemScatterer.spawn(world, pos, (MoonAltarEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -62,7 +59,7 @@ public class MoonAltar extends BlockWithEntity {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = ((PatternProviderEntity) world.getBlockEntity(pos));
+            NamedScreenHandlerFactory screenHandlerFactory = ((MoonAltarEntity) world.getBlockEntity(pos));
 
             if (screenHandlerFactory != null) {
                 player.openHandledScreen(screenHandlerFactory);

@@ -1,6 +1,5 @@
 package unfassbarer.testmod;
 
-import dev.architectury.platform.Mod;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -19,7 +18,6 @@ import org.lwjgl.glfw.GLFW;
 import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.block.custom.ArdenimNeonBlock;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
-import unfassbarer.testmod.block.entity.MoonAltarEntity;
 import unfassbarer.testmod.block.entity.renderer.*;
 import unfassbarer.testmod.entity.ModEntities;
 import unfassbarer.testmod.entity.client.*;
@@ -69,7 +67,7 @@ public class testModClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.ARDENIMIUM_LAMP_ENTITY,ArdenimiumLampEntityRenderer::new);
 
-        HandledScreens.register(ModScreenHandlers.MOON_ALTAR_SCREEN_HANDLER, MoonAltarScreen::new);
+        HandledScreens.register(ModScreenHandlers.MOON_ALTAR_SCREEN_HANDLER,MoonAltarScreen::new);
         BlockEntityRendererFactories.register(ModBlockEntities.MOON_ALTAR_ENTITY,MoonAltarEntityRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.PORCUPINE,PorcupineRenderer::new);

@@ -22,7 +22,7 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(ArdenimiumEggEntity::new, TestModBlocks.Ardenimium_Egg).build());
 
     public static final BlockEntityType<PatternProviderEntity> PATTERN_PROVIDER_ENTITY =
-            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Testmod.MOD_ID, "pattern_providing"),
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Testmod.MOD_ID, "pattern_provider_entity"),
                     FabricBlockEntityTypeBuilder.create(PatternProviderEntity::new,
                             TestModBlocks.PatternProvider).build());
 
@@ -34,7 +34,6 @@ public class ModBlockEntities {
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Testmod.MOD_ID, "moon_altar_entity"),
                     FabricBlockEntityTypeBuilder.create(MoonAltarEntity::new,
                             TestModBlocks.Moon_Altar).build());
-
 
     public static void registerBlockEntities() {
         Testmod.LOGGER.info("Registering Block Entities for " + Testmod.MOD_ID);

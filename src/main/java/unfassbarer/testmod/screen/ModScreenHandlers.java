@@ -15,12 +15,11 @@ public class ModScreenHandlers {
                     new ExtendedScreenHandlerType<>(ArdenimiumCrafterScreenHandler::new));
 
     public static final ScreenHandlerType<PatternProviderScreenHandler> PATTERN_PROVIDER_SCREEN_HANDLER =
-            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Testmod.MOD_ID, "gem_polishing"),
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Testmod.MOD_ID, "pattern_providing"),
                     new ExtendedScreenHandlerType<>(PatternProviderScreenHandler::new));
 
     public static final ScreenHandlerType<MoonAltarScreenHandler> MOON_ALTAR_SCREEN_HANDLER =
-            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Testmod.MOD_ID, "moon_showing"),
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Testmod.MOD_ID, "mooning"),
                     new ExtendedScreenHandlerType<>(MoonAltarScreenHandler::new));
-
 
 }

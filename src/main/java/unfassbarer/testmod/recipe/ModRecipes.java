@@ -11,9 +11,15 @@ public class ModRecipes {
                 ArdenimiumCrafterRecipe.Serializer.INSTANCE);
         Registry.register(Registries.RECIPE_TYPE, new Identifier(Testmod.MOD_ID, ArdenimiumCrafterRecipe.Type.ID),
                 ArdenimiumCrafterRecipe.Type.INSTANCE);
+
         Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(Testmod.MOD_ID, PatternProviderRecipe.Serializer.ID),
                 PatternProviderRecipe.Serializer.INSTANCE);
         Registry.register(Registries.RECIPE_TYPE, new Identifier(Testmod.MOD_ID, PatternProviderRecipe.Type.ID),
                 PatternProviderRecipe.Type.INSTANCE);
+
+        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(Testmod.MOD_ID, MoonAltarRecipe.Serializer.ID),
+                MoonAltarRecipe.Serializer.INSTANCE);
+        Registry.register(Registries.RECIPE_TYPE, new Identifier(Testmod.MOD_ID, MoonAltarRecipe.Type.ID),
+                MoonAltarRecipe.Type.INSTANCE);
     }
 }

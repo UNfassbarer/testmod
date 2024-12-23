@@ -1,6 +1,6 @@
-// 1.20.4	2024-12-21T22:59:47.4755312	testmod/Tags for minecraft:block
+// 1.20.4	2024-12-23T21:08:12.9886083	testmod/Tags for minecraft:block
 87127df3162b402b7cc1c81d55c928dfad29923c data\minecraft\tags\blocks\walls.json
 305069d5888682de8b1c1f602fb8b157c14f9fc2 data\minecraft\tags\blocks\fence_gates.json
-fd4b2731ac108b5a06deec6b7661c21a66a37f11 data\fabric\tags\blocks\needs_tool_level_4.json
-6a58869451e19f50282995c6d356646b0d5d6551 data\minecraft\tags\blocks\mineable\pickaxe.json
+407305625f61129f704d13f2bb5129909e274581 data\fabric\tags\blocks\needs_tool_level_4.json
+73939608276ae638784be95d2da05e439b135c2b data\minecraft\tags\blocks\mineable\pickaxe.json
 cb97ce1d76615253f04e1b52f1f261ea57329990 data\minecraft\tags\blocks\fences.json
