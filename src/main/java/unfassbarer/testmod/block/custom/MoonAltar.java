@@ -1,10 +1,7 @@
 package unfassbarer.testmod.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -15,12 +12,14 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import unfassbarer.testmod.block.entity.ModBlockEntities;
 import unfassbarer.testmod.block.entity.MoonAltarEntity;
 public class MoonAltar extends BlockWithEntity implements BlockEntityProvider {
-
+    public static final VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 16, 14);
     public static final MapCodec<MoonAltar> CODEC = MoonAltar.createCodec(MoonAltar::new);
 
     public MoonAltar(Settings settings) {
@@ -32,6 +31,10 @@ public class MoonAltar extends BlockWithEntity implements BlockEntityProvider {
         return CODEC;
     }
 
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
+    }
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {

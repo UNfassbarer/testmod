@@ -23,6 +23,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import unfassbarer.testmod.block.TestModBlocks;
 import unfassbarer.testmod.recipe.MoonAltarRecipe;
 import unfassbarer.testmod.screen.MoonAltarScreenHandler;
 
@@ -115,26 +116,78 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if(world.isClient()) {
+        if (world.isClient()) {
+            // Partikel nur bei gültiger Struktur und nachts
+            long timeOfDay = world.getTimeOfDay() % 24000;
+            if (timeOfDay >= 13000 && timeOfDay <= 23000 && isValidStructure(world, pos)) {
+                spawnNightParticles(world, pos);
+            }
             return;
         }
 
-        if(isOutputSlotEmptyOrReceivable()) {
-            if(this.hasRecipe()) {
-                this.increaseCraftProgress();
-                markDirty(world, pos, state);
+        long timeOfDay = world.getTimeOfDay() % 24000;
 
-                if(hasCraftingFinished()) {
-                    this.craftItem();
-                    this.resetProgress();
-                }
-            } else {
-                this.resetProgress();
-            }
-        } else {
+        // Nachtzeit prüfen: von 13000 bis 23000
+        if (timeOfDay < 13000 || timeOfDay > 23000 || !isValidStructure(world, pos)) {
             this.resetProgress();
             markDirty(world, pos, state);
+            return; // Vorgang wird nur nachts und bei gültiger Struktur ausgeführt
         }
+
+        // Gesamtdauer der Nacht
+        long nightStart = 13000;
+        long nightEnd = 23000;
+        long nightDuration = nightEnd - nightStart;
+
+        // Fortschritt basierend auf der Nachtzeit
+        long elapsedNightTicks = timeOfDay - nightStart;
+        double progressFactor = (double) elapsedNightTicks / nightDuration;
+
+        if (this.hasRecipe()) {
+            // Berechne den Fortschritt basierend auf der verbleibenden Nachtzeit
+            this.progress = (int) (progressFactor * maxProgress);
+
+            if (hasCraftingFinished()) {
+                this.craftItem();
+                this.resetProgress();
+            }
+            markDirty(world, pos, state);
+        } else {
+            this.resetProgress();
+        }
+    }
+
+
+    private void spawnNightParticles(World world, BlockPos pos) {
+        if (!world.isClient() || !isValidStructure(world, pos)) {
+            return; // Keine Partikel ohne gültige Struktur
+        }
+
+        for (int i = 0; i < 5; i++) { // Anzahl der Partikel pro Tick
+            double offsetX = (world.random.nextDouble() - 0.5) * 2.0; // Bereich um den Altar (-1 bis 1)
+            double offsetY = world.random.nextDouble() * 0.5 + 0.5;   // Über dem Altar (0.5 bis 1.0)
+            double offsetZ = (world.random.nextDouble() - 0.5) * 2.0;
+
+            world.addParticle(
+                    net.minecraft.particle.ParticleTypes.ENCHANT, // Partikeltyp
+                    pos.getX() + 0.5 + offsetX,                  // Partikelposition X
+                    pos.getY() + offsetY,                       // Partikelposition Y
+                    pos.getZ() + 0.5 + offsetZ,                 // Partikelposition Z
+                    0, 0, 0                                     // Keine zusätzliche Bewegung
+            );
+        }
+    }
+
+    private boolean isValidStructure(World world, BlockPos pos) {
+        for (int x = -1; x <= 1; x++) {
+            for (int z = -1; z <= 1; z++) {
+                BlockPos checkPos = pos.add(x, -1, z); // 1 Block unterhalb des Altars
+                if (!world.getBlockState(checkPos).isOf(TestModBlocks.Ardenim_Block)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private void resetProgress() {
@@ -159,11 +212,16 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
     }
 
     private boolean hasRecipe() {
+        if (!isValidStructure(this.world, this.pos)) {
+            return false; // Strukturprüfung fehlgeschlagen
+        }
+
         Optional<RecipeEntry<MoonAltarRecipe>> recipe = getCurrentRecipe();
 
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(recipe.get().value().getResult(null))
                 && canInsertItemIntoOutputSlot(recipe.get().value().getResult(null).getItem());
     }
+
 
     private Optional<RecipeEntry<MoonAltarRecipe>> getCurrentRecipe() {
         SimpleInventory inv = new SimpleInventory(this.size());
