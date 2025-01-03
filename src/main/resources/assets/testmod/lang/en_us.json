@@ -76,5 +76,6 @@
   "category.logical_zoom.zoom": "Logical Zoom",
   "item.testmod.modified_nether_star": "Modified Nether Star",
   "item.testmod.modified_nether_star_fragment": "Modified Nether Star Fragment",
-  "block.testmod.moon_altar": "Moon Altar"
+  "block.testmod.moon_altar": "Moon Altar",
+  "block.testmod.cutter": "Cutter"
 }

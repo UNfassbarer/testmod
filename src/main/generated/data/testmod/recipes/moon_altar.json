@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "testmod:ardenim_slab"
+    },
+    "R": {
+      "item": "testmod:ardenimium"
+    }
+  },
+  "pattern": [
+    "A A",
+    " R ",
+    "AAA"
+  ],
+  "result": {
+    "item": "testmod:ardenimium_lamp"
+  }
+}

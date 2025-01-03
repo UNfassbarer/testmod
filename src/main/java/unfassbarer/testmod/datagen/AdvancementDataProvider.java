@@ -190,6 +190,22 @@ public class AdvancementDataProvider extends FabricAdvancementProvider {
                 .rewards(AdvancementRewards.Builder.experience(500))
                 .build(consumer, new Identifier(Testmod.MOD_ID, "get_solar_stabilizer_and_nether_star_core").toString());
 
+        AdvancementEntry moon_altar = Advancement.Builder.create()
+                .parent(ardenimium)
+                .display(
+                        TestModBlocks.Moon_Altar,
+                        Text.translatable("Manipulation during the night"),
+                        Text.translatable("Use the Moon Altar´s power to manipulate a Nether Star"),
+                        null,
+                        AdvancementFrame.TASK,
+                        true,
+                        true,
+                        false
+                )
+                .criterion("get_moon_altar", InventoryChangedCriterion.Conditions.items(TestModBlocks.Moon_Altar))
+                .rewards(AdvancementRewards.Builder.experience(500))
+                .build(consumer, new Identifier(Testmod.MOD_ID, "get_moon_altar").toString());
+
         AdvancementEntry ardenimium_armor = Advancement.Builder.create()
                 .parent(ardenimium_crafter)
                 .display(

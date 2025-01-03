@@ -1,0 +1,37 @@
+{
+  "parent": "testmod:get_ardenimium",
+  "criteria": {
+    "get_moon_altar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "testmod:moon_altar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "Use the Moon Altar´s power to manipulate a Nether Star"
+    },
+    "icon": {
+      "item": "testmod:moon_altar"
+    },
+    "title": {
+      "translate": "Manipulation during the night"
+    }
+  },
+  "requirements": [
+    [
+      "get_moon_altar"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

@@ -74,9 +74,8 @@ public class TestModBlocks {
     public static final Block Moon_Altar =
             new MoonAltar(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
 
-    public static boolean never(BlockState blockState, net.minecraft.world.BlockView blockView, BlockPos blockPos, EntityType<?> entityType) {
-        return false;
-    }
+    public static final Block Cutter =
+            new Cutter(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
 
     private static void registerBlock(String name, Block block) {
         registerBlockItem(name, block);
@@ -118,6 +117,7 @@ public class TestModBlocks {
         registerBlock("ardenimium_lamp", Ardenimium_Lamp);
         registerBlock("moon_altar", Moon_Altar);
         registerBlock("ardenim_neon_block", ArdenimNeonBlock.Ardenim_Neon_Block);
+        registerBlock("cutter", Cutter);
         Testmod.LOGGER.info("Registering Mod Blocks for " + Testmod.MOD_ID);
     }
 }

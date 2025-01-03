@@ -1,5 +1,6 @@
-// 1.20.4	2024-12-23T21:08:12.9896118	testmod/Advancements
+// 1.20.4	2025-01-03T13:30:42.7014701	testmod/Advancements
 1ce8ff3cc3c4a645efd97362fc8b84053764cd88 data\testmod\advancements\get_ardenim_armor.json
+128c770d268d5565050de4021c4b83187df298f9 data\testmod\advancements\get_moon_altar.json
 d8fa5bddfb12a410d3b7e6eede68dbbeb08e7147 data\testmod\advancements\get_ardenimium_crafter.json
 43ed11050cf70bb7ea4e95c5ea51480815ff8f90 data\testmod\advancements\get_pattern_provider.json
 8c3f4b4a31f7d5724e6143d882d5b39d35f0a757 data\testmod\advancements\ardenimium_apple.json

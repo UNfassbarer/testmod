@@ -106,6 +106,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(TestModBlocks.Ardenim_Glass), conditionsFromItem(TestModBlocks.Ardenim_Glass))
                 .criterion(hasItem(TestModItems.Ardenimium), conditionsFromItem(TestModItems.Ardenimium))
                 .offerTo(exporter, new Identifier(getRecipeName(TestModBlocks.Ardenimium_Lamp)));
+        //Moon Altar
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModBlocks.Ardenimium_Lamp, 1)
+                .pattern("A A")
+                .pattern(" R ")
+                .pattern("AAA")
+                .input('A', TestModBlocks.Ardenim_Slab)
+                .input('R', TestModItems.Ardenimium)
+                .criterion(hasItem(TestModBlocks.Ardenim_Slab), conditionsFromItem(TestModBlocks.Ardenim_Slab))
+                .criterion(hasItem(TestModItems.Ardenimium), conditionsFromItem(TestModItems.Ardenimium))
+                .offerTo(exporter, new Identifier(getRecipeName(TestModBlocks.Moon_Altar)));
         //Blank Pattern
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, TestModItems.Blank_Pattern, 1)
                 .pattern("RGR")

@@ -37,7 +37,7 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 72;
+    private int maxProgress = 8000;
 
     public MoonAltarEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MOON_ALTAR_ENTITY, pos, state);
@@ -117,50 +117,45 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
 
     public void tick(World world, BlockPos pos, BlockState state) {
         if (world.isClient()) {
-            // Partikel nur bei gültiger Struktur und nachts
-            long timeOfDay = world.getTimeOfDay() % 24000;
-            if (timeOfDay >= 13000 && timeOfDay <= 23000 && isValidStructure(world, pos)) {
-                spawnNightParticles(world, pos);
-            }
+            spawnNightParticles(world, pos);
             return;
         }
 
         long timeOfDay = world.getTimeOfDay() % 24000;
 
-        // Nachtzeit prüfen: von 13000 bis 23000
-        if (timeOfDay < 13000 || timeOfDay > 23000 || !isValidStructure(world, pos)) {
-            this.resetProgress();
+        // Bedingungen prüfen
+        boolean isNight = timeOfDay >= 13000 && timeOfDay <= 23000;
+        boolean validStructure = isValidStructure(world, pos);
+        boolean hasInputItem = !this.getStack(INPUT_SLOT).isEmpty();
+
+        // Fortschritt zurücksetzen, wenn Bedingungen nicht erfüllt sind
+        if (!isNight || !validStructure || !hasInputItem) {
+            resetProgress();
             markDirty(world, pos, state);
-            return; // Vorgang wird nur nachts und bei gültiger Struktur ausgeführt
+            return;
         }
 
-        // Gesamtdauer der Nacht
-        long nightStart = 13000;
-        long nightEnd = 23000;
-        long nightDuration = nightEnd - nightStart;
-
-        // Fortschritt basierend auf der Nachtzeit
-        long elapsedNightTicks = timeOfDay - nightStart;
-        double progressFactor = (double) elapsedNightTicks / nightDuration;
-
+        // Fortschritt nur nachts und bei gültigen Bedingungen
         if (this.hasRecipe()) {
-            // Berechne den Fortschritt basierend auf der verbleibenden Nachtzeit
-            this.progress = (int) (progressFactor * maxProgress);
+            progress++;
 
             if (hasCraftingFinished()) {
-                this.craftItem();
-                this.resetProgress();
+                craftItem();
+                resetProgress(); // Fortschritt zurücksetzen, wenn Crafting abgeschlossen
             }
             markDirty(world, pos, state);
         } else {
-            this.resetProgress();
+            resetProgress();
         }
     }
 
-
     private void spawnNightParticles(World world, BlockPos pos) {
-        if (!world.isClient() || !isValidStructure(world, pos)) {
-            return; // Keine Partikel ohne gültige Struktur
+        // Bedingungen: Welt ist Client-seitig, es ist Nacht, und Struktur ist gültig
+        long timeOfDay = world.getTimeOfDay() % 24000; // Aktuelle Zeit im Tageszyklus
+        boolean isNight = timeOfDay >= 13000 && timeOfDay <= 23000; // Nachtprüfung
+
+        if (!world.isClient() || !isNight || !isValidStructure(world, pos)) {
+            return; // Keine Partikel ohne gültige Bedingungen
         }
 
         for (int i = 0; i < 5; i++) { // Anzahl der Partikel pro Tick
@@ -169,15 +164,14 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
             double offsetZ = (world.random.nextDouble() - 0.5) * 2.0;
 
             world.addParticle(
-                    net.minecraft.particle.ParticleTypes.ENCHANT, // Partikeltyp
-                    pos.getX() + 0.5 + offsetX,                  // Partikelposition X
-                    pos.getY() + offsetY,                       // Partikelposition Y
-                    pos.getZ() + 0.5 + offsetZ,                 // Partikelposition Z
-                    0, 0, 0                                     // Keine zusätzliche Bewegung
+                    net.minecraft.particle.ParticleTypes.ENCHANT,
+                    pos.getX() + 0.5 + offsetX,
+                    pos.getY() + offsetY,
+                    pos.getZ() + 0.5 + offsetZ,
+                    0,0,0
             );
         }
     }
-
     private boolean isValidStructure(World world, BlockPos pos) {
         for (int x = -1; x <= 1; x++) {
             for (int z = -1; z <= 1; z++) {
@@ -205,10 +199,6 @@ public class MoonAltarEntity extends BlockEntity implements ExtendedScreenHandle
 
     private boolean hasCraftingFinished() {
         return progress >= maxProgress;
-    }
-
-    private void increaseCraftProgress() {
-        progress++;
     }
 
     private boolean hasRecipe() {
